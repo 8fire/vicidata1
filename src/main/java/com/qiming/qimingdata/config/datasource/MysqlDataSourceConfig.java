@@ -52,7 +52,7 @@ public class MysqlDataSourceConfig {
     public MapperScannerConfigurer mysqlScannerConfigurer(){
         MapperScannerConfigurer configur = new MapperScannerConfigurer();
         configur.setSqlSessionFactoryBeanName("mysqlSqlSessionFactory");
-        configur.setBasePackage("com.vici.vicidata.dao");
+        configur.setBasePackage("com.qiming.qimingdata.dao");
         return configur;
     }
 }
