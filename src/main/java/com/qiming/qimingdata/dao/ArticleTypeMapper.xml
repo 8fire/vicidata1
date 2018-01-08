@@ -17,6 +17,11 @@
     from articletype
     where id = #{id,jdbcType=VARCHAR}
   </select>
+  <select id="selectArticleTypeList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from articletype
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from articletype
     where id = #{id,jdbcType=VARCHAR}
