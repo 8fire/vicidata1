@@ -1,11 +1,10 @@
-package com.vici.vicidata.controller;
+package com.qiming.qimingdata.controller;
 
-import com.vici.vicidata.model.UserModel;
-import com.vici.vicidata.service.UserService;
+import com.qiming.qimingdata.model.UserModel;
+import com.qiming.qimingdata.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -56,5 +55,14 @@ public class UserController {
     @RequestMapping(value = "/tologin",method = RequestMethod.GET)
     public ModelAndView toLogin(){
         return new ModelAndView("login");
+    }
+
+    /**
+     * 后台登录
+     * @return
+     */
+    @RequestMapping(value = "/backlogin",method = RequestMethod.POST)
+    public ModelAndView backLogin(){
+        return new ModelAndView("");
     }
 }

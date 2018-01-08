@@ -1,6 +1,6 @@
-package com.vici.vicidata.dao;
+package com.qiming.qimingdata.dao;
 
-import com.vici.vicidata.model.UserModel;
+import com.qiming.qimingdata.model.UserModel;
 
 import java.util.List;
 

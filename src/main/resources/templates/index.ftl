@@ -486,6 +486,53 @@
 							</ul>
 						</li>
 
+
+
+
+
+                        <li>
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-edit"></i>
+                                <span class="menu-text"> 文章管理 </span>
+
+                                <b class="arrow icon-angle-down"></b>
+                            </a>
+
+                            <ul class="submenu">
+                                <li>
+                                    <a href="../article/toarticle">
+                                        <i class="icon-double-angle-right"></i>
+                                        文章类型管理
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="form-wizard.html">
+                                        <i class="icon-double-angle-right"></i>
+                                        向导提示 &amp; 验证
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="wysiwyg.html">
+                                        <i class="icon-double-angle-right"></i>
+                                        编辑器
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="dropzone.html">
+                                        <i class="icon-double-angle-right"></i>
+                                        文件上传
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+
+
 						<li>
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-edit"></i>

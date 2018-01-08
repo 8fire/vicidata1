@@ -2,9 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>��¼ҳ�� - Bootstrap��̨����ϵͳģ��Ace����</title>
-		<meta name="keywords" content="Bootstrapģ��,Bootstrapģ������,Bootstrap�̳�,Bootstrap����" />
-		<meta name="description" content="վ���ز��ṩBootstrapģ��,Bootstrap�̳�,Bootstrap���ķ�������Bootstrap�������" />
+		<title>登录界面</title>
+		<meta name="keywords" content="登录界面" />
+		<meta name="description" content="登录界面" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<!-- basic styles -->
@@ -41,7 +41,7 @@
         <![endif]-->
 	</head>
 
-	<body class="login-layout">
+	<body class="login-layout" style="background-color: #8ab4de">
 		<div class="main-container">
 			<div class="main-content">
 				<div class="row">
@@ -50,10 +50,13 @@
 							<div class="center">
 								<h1>
 									<i class="icon-leaf green"></i>
-									<span class="red">Ace</span>
+
+
+
+									<span class="red">微社区</span>
 									<span class="white">Application</span>
 								</h1>
-								<h4 class="blue">&copy; Company Name</h4>
+								<h4 class="blue">&copy;中原工学院 </h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -64,7 +67,7 @@
 										<div class="widget-main">
 											<h4 class="header blue lighter bigger">
 												<i class="icon-coffee green"></i>
-												Please Enter Your Information
+												请输入你的信息
 											</h4>
 
 											<div class="space-6"></div>
@@ -90,12 +93,12 @@
 													<div class="clearfix">
 														<label class="inline">
 															<input type="checkbox" class="ace" />
-															<span class="lbl"> Remember Me</span>
+															<span class="lbl"> 记住我</span>
 														</label>
 
 														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="icon-key"></i>
-															Login
+															登录
 														</button>
 													</div>
 
@@ -126,13 +129,13 @@
 											<div>
 												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
 													<i class="icon-arrow-left"></i>
-													I forgot my password
+													忘记密码
 												</a>
 											</div>
 
 											<div>
 												<a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
-													I want to register
+													注册
 													<i class="icon-arrow-right"></i>
 												</a>
 											</div>
@@ -147,6 +150,7 @@
 												<i class="icon-key"></i>
 												Retrieve Password
 											</h4>
+
 
 											<div class="space-6"></div>
 											<p>
@@ -186,7 +190,7 @@
 										<div class="widget-main">
 											<h4 class="header green lighter bigger">
 												<i class="icon-group blue"></i>
-												New User Registration
+												新用户注册
 											</h4>
 
 											<div class="space-6"></div>
@@ -225,8 +229,8 @@
 													<label class="block">
 														<input type="checkbox" class="ace" />
 														<span class="lbl">
-															I accept the
-															<a href="#">User Agreement</a>
+															我接受
+															<a href="#">用户条款</a>
 														</span>
 													</label>
 
@@ -235,11 +239,11 @@
 													<div class="clearfix">
 														<button type="reset" class="width-30 pull-left btn btn-sm">
 															<i class="icon-refresh"></i>
-															Reset
+															重输
 														</button>
 
 														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															Register
+															注册
 															<i class="icon-arrow-right icon-on-right"></i>
 														</button>
 													</div>
@@ -250,7 +254,7 @@
 										<div class="toolbar center">
 											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
 												<i class="icon-arrow-left"></i>
-												Back to login
+												返回登录11
 											</a>
 										</div>
 									</div><!-- /widget-body -->

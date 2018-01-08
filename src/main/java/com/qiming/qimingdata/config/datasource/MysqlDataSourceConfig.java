@@ -1,4 +1,4 @@
-package com.vici.vicidata.config.datasource;
+package com.qiming.qimingdata.config.datasource;
 
 
 import lombok.extern.slf4j.Slf4j;

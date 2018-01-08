@@ -1,4 +1,4 @@
-package com.vici.vicidata;
+package com.qiming.qimingdata;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.vici.vicidata.config.interceptor;
+package com.qiming.qimingdata.config.interceptor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

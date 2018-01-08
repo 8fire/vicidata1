@@ -1,4 +1,4 @@
-package com.vici.vicidata;
+package com.qiming.qimingdata;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

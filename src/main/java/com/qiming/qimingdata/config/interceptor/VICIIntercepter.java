@@ -1,4 +1,4 @@
-package com.vici.vicidata.config.interceptor;
+package com.qiming.qimingdata.config.interceptor;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;

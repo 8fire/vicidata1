@@ -1,8 +1,8 @@
-package com.vici.vicidata.service.impl;
+package com.qiming.qimingdata.service.impl;
 
-import com.vici.vicidata.dao.UserMapper;
-import com.vici.vicidata.model.UserModel;
-import com.vici.vicidata.service.UserService;
+import com.qiming.qimingdata.dao.UserMapper;
+import com.qiming.qimingdata.model.UserModel;
+import com.qiming.qimingdata.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

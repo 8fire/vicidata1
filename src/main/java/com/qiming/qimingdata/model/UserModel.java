@@ -1,4 +1,4 @@
-package com.vici.vicidata.model;
+package com.qiming.qimingdata.model;
 
 import lombok.Data;
 
