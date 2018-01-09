@@ -735,11 +735,12 @@
 
             <div class="page-content">
                 <div class="page-header">
+
                     <h1>
-                        Tables
+                        文章管理
                         <small>
                             <i class="icon-double-angle-right"></i>
-                            Static &amp; Dynamic Tables
+                            文章类型管理
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -751,7 +752,7 @@
                             <div class="col-xs-12">
                                 <h3 class="header smaller lighter blue">文章类型列表</h3>
                                 <div class="table-header">
-                                    Results for "Latest Registered Domains"
+                                    @微社区2018
                                 </div>
 
                                 <div class="table-responsive">
@@ -773,8 +774,8 @@
                                         </thead>
 
                                         <tbody>
-                                        <p>${articleTypesList}</p>
-                                        <#if articleTypesList?exists>
+
+                                        <#if articleTypesList??>
                                             <#list articleTypesList as p>
                                             <tr>
                                                 <td class="center">
@@ -784,8 +785,8 @@
                                                     </label>
                                                 </td>
                                                 <td>${p.typename}</td>
-                                                <td>${p.gmtCreate}</td>
-                                                <td>${p.gmt_modified}</td>
+                                                <td>${p.gmtCreate?datetime}</td>
+                                                <td><#if p.gmt_modified??>${p.gmt_modified?datetime}</#if> </td>
                                                 <td></td>
 
 
@@ -820,7 +821,8 @@
                                                                 </li>
 
                                                                 <li>
-                                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                    <a href="#modal-table"  role="button"  data-toggle="modal" class="tooltip-success" data-rel="tooltip" title="Edit">
+
 																				<span class="green">
 																					<i class="icon-edit bigger-120"></i>
 																				</span>
@@ -846,7 +848,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        <!--模态框-->
                         <div id="modal-table" class="modal fade" tabindex="-1">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -855,7 +857,7 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                                 <span class="white">&times;</span>
                                             </button>
-                                            Results for "Latest Registered Domains
+                                            详细数据
                                         </div>
                                     </div>
 
