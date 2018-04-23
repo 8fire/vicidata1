@@ -1,6 +1,7 @@
 package com.qiming.qimingdata.dao;
 
 import com.qiming.qimingdata.model.ArticleType;
+import com.qiming.qimingdata.model.ArticleTypeQuery;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ public interface ArticleTypeMapper {
     int insertSelective(ArticleType record);
 
     ArticleType selectByPrimaryKey(String id);
-    List<ArticleType> selectArticleTypeList();
+    List<ArticleType> selectArticleTypeList(ArticleTypeQuery articleTypeQuery);
+    Integer selectArticleTypeListCount(ArticleTypeQuery articleTypeQuery);
 
     int updateByPrimaryKeySelective(ArticleType record);
 

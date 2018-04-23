@@ -9,7 +9,20 @@
     <result column="isdelete" jdbcType="INTEGER" property="isdelete" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, typename, gmt_create, gmt_modified, isdelete
+    a.id, a.typename, a.gmt_create, a.gmt_modified, a.isdelete
+  </sql>
+  <sql id="Base_limit_query">
+      limit #{pageindex}, #{pagesize}
+  </sql>
+  <sql id="Query_ArticleType_Where">
+    <where>
+      <if test="id !=null">
+        and a.id=#{id,jdbcType=VARCHAR}
+      </if>
+      <if test="typename !=null">
+        and a.typename=#{typename,jdbcType=VARCHAR}
+      </if>
+    </where>
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -17,11 +30,19 @@
     from articletype
     where id = #{id,jdbcType=VARCHAR}
   </select>
-  <select id="selectArticleTypeList" resultMap="BaseResultMap">
+  <select id="selectArticleTypeList" resultMap="BaseResultMap" parameterType="com.qiming.qimingdata.model.ArticleTypeQuery">
     select
     <include refid="Base_Column_List" />
-    from articletype
+    from articletype a
+    <include refid="Query_ArticleType_Where"/>
+    <include refid="Base_limit_query"/>
   </select>
+  <select id="selectArticleTypeListCount" resultType="java.lang.Integer" parameterType="com.qiming.qimingdata.model.ArticleTypeQuery">
+    SELECT COUNT(id) from articletype a
+    <include refid="Query_ArticleType_Where"/>
+    <include refid="Base_limit_query"/>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from articletype
     where id = #{id,jdbcType=VARCHAR}
