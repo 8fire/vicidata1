@@ -1,8 +1,10 @@
 package com.qiming.qimingdata.service;
 
 import com.qiming.qimingdata.model.ArticleType;
+import com.qiming.qimingdata.model.ArticleTypeQuery;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 文章服务接口
@@ -16,5 +18,5 @@ public interface ArticleService {
      *
      * @return Result<XxxxDO>
      */
-     List<ArticleType> listArticleType();
+     Map<String,Object> listArticleType(ArticleTypeQuery articleTypeQuery);
 }

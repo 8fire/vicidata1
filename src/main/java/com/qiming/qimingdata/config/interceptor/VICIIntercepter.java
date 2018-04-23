@@ -1,7 +1,6 @@
 package com.qiming.qimingdata.config.interceptor;
 
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
+
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 

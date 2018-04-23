@@ -1,9 +1,10 @@
-package com.qiming.qimingdata.model;
+package com.qiming.oracledata.model;
 
 import lombok.Data;
 
 @Data
 public class UserModel {
     private int id;
-    private String email;
+    private String name;
+
 }
