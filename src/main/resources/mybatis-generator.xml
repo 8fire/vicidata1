@@ -10,50 +10,54 @@
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
         <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/qiming_test" userId="root" password="root">
-        </jdbcConnection>
+      <!--  <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/qiming_test"
+        userId="root"
+        password="root">
+        </jdbcConnection>-->
 
-        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
                         connectionURL="jdbc:oracle:thin:@192.168.2.222:1521:orcl"
                         userId="csjbss_test"
                         password="test123456">
-        </jdbcConnection>-->
+        </jdbcConnection>
 
-        <javaTypeResolver>
+       <!-- <javaTypeResolver>
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
-        <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.qiming.qimingdata.model" targetProject="src/main/java">
+        &lt;!&ndash;生成Model类存放位置&ndash;&gt;
+        <javaModelGenerator targetPackage="com.csjscm.mysqldatamodel" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="com.qiming.qimingdata.dao" targetProject="src/main/java">
+        &lt;!&ndash;生成映射文件存放位置&ndash;&gt;
+        <sqlMapGenerator targetPackage="com.csjscm.mysqldatadao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.qiming.qimingdata.dao" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.csjscm.mysqldatadao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
-      <!--  <javaModelGenerator targetPackage="com.qiming.oracledata.model" targetProject="src/main/java">
+        </javaClientGenerator>-->
+      <javaModelGenerator targetPackage="com.csjscm.oracledata.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.qiming.oracledata.dao" targetProject="src/main/java">
+        <sqlMapGenerator targetPackage="com.csjscm.oracledata.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.qiming.oracledata.dao" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.csjscm.oracledata.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
-        <table tableName="uf_bidrefundlogs" domainObjectName="BidRefundLogs" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>-->
-        <!--生成Dao类存放位置-->
-        <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
+        <table tableName="UF_ENTERPRICE_INFO" domainObjectName="EnterpriceInfo" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+       <!-- 生成Dao类存放位置
+         客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
                 type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
-                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
-        -->
+                type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口-->
 
         <!--生成对应表及类名-->
-        <table tableName="member_user" domainObjectName="MemberUser" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true"></table>
+        <!--生成对应表及类名-->
+        <!--<table tableName="uf_custominfor" domainObjectName="ufCustominfor "></table>-->
+
     </context>
 </generatorConfiguration>

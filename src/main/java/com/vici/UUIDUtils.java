@@ -5,7 +5,7 @@ import java.util.UUID;
 /**
  * UUID
  *
- * @author qiming
+ * @author csjscm
  * create 2018-03-27 上午 11:24
  **/
 public class UUIDUtils {

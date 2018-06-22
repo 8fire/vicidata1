@@ -182,12 +182,12 @@ function removeIframeAll(){
 	w		弹出层宽度（缺省调默认值）
 	h		弹出层高度（缺省调默认值）
 */
-function layer_show(title,url,w,h){
+function layer_show(title,url,id,w,h){
 	if (title == null || title == '') {
 		title=false;
 	};
 	if (url == null || url == '') {
-		url="404.html";
+		url="404.ftl";
 	};
 	if (w == null || w == '') {
 		w=800;
@@ -195,6 +195,9 @@ function layer_show(title,url,w,h){
 	if (h == null || h == '') {
 		h=($(window).height() - 50);
 	};
+    if (id == null || id== '') {
+        h=($(window).height() - 50);
+    };
 	layer.open({
 		type: 2,
 		area: [w+'px', h +'px'],

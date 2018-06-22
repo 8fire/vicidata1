@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.SchelduleJobMapper">
+
+    <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.ScheduleJob">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="jobname" jdbcType="VARCHAR" property="jobName" />
+        <result column="jobgroup" jdbcType="VARCHAR" property="jobGroup" />
+        <result column="jobstatus" jdbcType="INTEGER" property="jobStatus" />
+        <result column="auditstatus" jdbcType="INTEGER" property="auditStatus" />
+        <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmt_modified" />
+        <result column="quartzclass" jdbcType="VARCHAR" property="quartzClass" />
+        <result column="cronexpression" jdbcType="VARCHAR" property="cronExpression" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    </resultMap>
+    <sql id="Base_Column_List" >
+        id,jobname,jobgroup,jobstatus,auditstatus,quartzclass,cronexpression,description,gmt_modified,gmt_create
+    </sql>
+    <sql id="Query_ScheduleJob_Where">
+        <where>
+            <if test="id !=null">
+                and id=#{id,jdbcType=INTEGER}
+            </if>
+            <if test="jobStatus !=null">
+                and jobstatus=#{jobStatus,jdbcType=INTEGER}
+            </if>
+            <if test="auditStatus !=null">
+                and auditstatus=#{auditStatus,jdbcType=INTEGER}
+            </if>
+            <if test="jobName !=null">
+                and jobname=#{jobName,jdbcType=VARCHAR}
+            </if>
+            <if test="jobGroup !=null">
+                and jobgroup=#{jobGroup,jdbcType=VARCHAR}
+            </if>
+            <if test="description !=null">
+                and description=#{description,jdbcType=VARCHAR}
+            </if>
+            <if test="cronExpression !=null">
+                and cronexpression=#{cronExpression,jdbcType=VARCHAR}
+            </if>
+            <if test="quartzClass !=null">
+                and jobgroup=#{quartzClass,jdbcType=VARCHAR}
+            </if>
+            <if test="dateMin !=null">
+                 and gmt_create<![CDATA[ >= ]]> #{dateMin}
+            </if>
+            <if test="dateMax !=null">
+                and gmt_create<![CDATA[ <= ]]> #{dateMax}
+            </if>
+        </where>
+    </sql>
+    <select id="queryForDetail" resultType="com.csjscm.mysqldata.model.ScheduleJob">
+        SELECT
+       <include refid="Base_Column_List"/>
+        FROM
+        schedule_job
+    </select>
+
+    <select id="queryForScheduleJobByWhere" resultMap="BaseResultMap" parameterType="com.csjscm.mysqldata.model.ScheduleJob">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        schedule_job
+        <include refid="Query_ScheduleJob_Where"/>
+    </select>
+
+    <update id="updateForScheduleJobById"  parameterType="java.util.Map">
+        UPDATE schedule_job
+        <set>
+            <if test="id !=null">
+               id=#{id,jdbcType=INTEGER}
+            </if>
+            <if test="jobstatus !=null">
+                , jobstatus=#{jobstatus,jdbcType=INTEGER}
+            </if>
+            <if test="auditstatus !=null">
+               , auditstatus=#{auditstatus,jdbcType=INTEGER}
+            </if>
+            <if test="jobname !=null">
+                , jobname=#{jobname,jdbcType=VARCHAR}
+            </if>
+            <if test="jobgroup !=null">
+                , jobgroup=#{jobgroup,jdbcType=VARCHAR}
+            </if>
+            <if test="description !=null">
+                , description=#{description,jdbcType=VARCHAR}
+            </if>
+            <if test="cronexpression !=null">
+                , cronExpression=#{cronexpression,jdbcType=VARCHAR}
+            </if>
+            <if test="quartzclass !=null">
+                , quartzclass=#{quartzclass,jdbcType=VARCHAR}
+            </if>
+            <if test="gmt_modified !=null">
+                , gmt_modified=#{gmt_modified,jdbcType=TIMESTAMP}
+            </if>
+            <if test="gmt_create !=null">
+                , gmt_create=#{gmt_create,jdbcType=TIMESTAMP}
+            </if>
+        </set>
+        where id=#{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from schedule_job
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.csjscm.mysqldata.model.ScheduleJob">
+        insert into schedule_job ( id,jobname,jobgroup,jobstatus,auditstatus,quartzclass,cronexpression,description,gmt_modified,gmt_create)
+        values (#{id,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR}, #{jobGroup,jdbcType=VARCHAR},
+        #{jobStatus,jdbcType=INTEGER}, #{auditStatus,jdbcType=INTEGER}, #{gmt_modified,jdbcType=TIMESTAMP},
+        #{quartzClass,jdbcType=VARCHAR}, #{cronExpression,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR},${gmt_create,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.ScheduleJob">
+        insert into schedule_job
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="jobName != null">
+                jobName,
+            </if>
+            <if test="jobStatus != null">
+                jobStatus,
+            </if>
+            <if test="auditStatus != null">
+                auditStatus,
+            </if>
+            <if test="gmt_create != null">
+                gmt_create,
+            </if>
+            <if test="gmt_modified != null">
+                gmt_modified,
+            </if>
+            <if test="quartzClass != null">
+                quartzClass,
+            </if>
+            <if test="cronExpression != null">
+                cronExpression,
+            </if>
+            <if test="jobGroup != null">
+                jobGroup,
+            </if>
+            <if test="description != null">
+                description,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="jobName != null">
+                #{jobName,jdbcType=VARCHAR},
+            </if>
+            <if test="jobStatus != null">
+                #{jobStatus,jdbcType=INTEGER},
+            </if>
+            <if test="auditStatus != null">
+                #{auditStatus,jdbcType=INTEGER},
+            </if>
+            <if test="gmt_create != null">
+                #{gmt_create,jdbcType=TIMESTAMP},
+            </if>
+            <if test="gmt_modified != null">
+                #{gmt_modified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="quartzClass != null">
+                #{quartzClass,jdbcType=VARCHAR},
+            </if>
+            <if test="cronExpression != null">
+                #{cronExpression,jdbcType=VARCHAR},
+            </if>
+            <if test="jobGroup != null">
+                #{jobGroup,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>

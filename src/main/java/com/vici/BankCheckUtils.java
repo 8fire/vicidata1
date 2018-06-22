@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 银行卡效验类
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 1:25
  **/
 /**当你输入信用卡号码的时候，有没有担心输错了而造成损失呢？其实可以不必这么担心，

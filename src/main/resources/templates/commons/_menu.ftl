@@ -1,22 +1,23 @@
 <aside class="Hui-aside">
-	<div class="menu_dropdown bk_2">
-    <#--<#if menuList?exists>
+	<div class="menu_dropdown bk_2" >
+   <#if menuList?exists>
 	   <#list menuList as p>
            <dl id="menu-pay">
-               <dt><i class="Hui-iconfont">${p.syImage}</i> ${p.syMenuName}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+               <dt><i class="Hui-iconfont">${p.syImage}</i> ${p.menuName}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
                <dd>
                    <ul>
-					   <#if smMenuList?exists>
-					      <#list smMenuList as m>
-                              <li><a data-href="<#if m.smUrl?? >${p.syUrl}</#if>" data-title="${m.syMenuName}" href="javascript:void(0)">${m.syMenuName}</a></li>
+					   <#if p.sysMenuList?exists>
+					      <#list p.sysMenuList as m>
+                              <li><a data-href="<#if m.url1?? >${m.url1}</#if>" data-title="${m.menuName1}" href="javascript:void(0)">${m.menuName1}</a></li>
 					      </#list>
 					   </#if>
                    </ul>
                </dd>
            </dl>
 	   </#list>
-	</#if>-->
-        <dl id="menu-pay">
+	</#if>
+
+       <#-- <dl id="menu-pay">
             <dt><i class="Hui-iconfont">&#xe616;</i> 支付管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
@@ -80,6 +81,7 @@
 					<li><a data-href="../user/admin-role.html" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
 					<li><a data-href="../user/admin-permission.html" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
 					<li><a data-href="../user/admin-list.html" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
+                    <li><a data-href="../user/showAuthorization.html" data-title="权限列表" href="javascript:void(0)">权限列表</a></li>
 				</ul>
 			</dd>
 		</dl>
@@ -101,6 +103,7 @@
 			<dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
+                    <li><a data-href="../job/queryjob.html" data-title="定时任务管理" href="javascript:void(0)">定时任务管理</a></li>
 					<li><a data-href="system-base.html" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
 					<li><a data-href="system-category.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
 					<li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
@@ -108,7 +111,39 @@
 					<li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
 				</ul>
 			</dd>
-		</dl>
+		</dl>-->
 	</div>
+    <div class="menu_dropdown bk_2" style="display:none">
+        <dl id="menu-aaaaa">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 二级导航1<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="menu_dropdown bk_2" style="display:none">
+        <dl id="menu-bbbbb">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 二级导航2<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+
+    <div class="menu_dropdown bk_2" style="display:none">
+        <dl id="menu-ccccc">
+            <dt><i class="Hui-iconfont">&#xe616;</i> 二级导航3<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

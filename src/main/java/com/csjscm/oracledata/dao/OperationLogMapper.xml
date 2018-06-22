@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.OperationLogMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.OperationLog">
+    <id column="ID" property="id" />
+    <result column="OPERATIONUSER"  property="operationuser" />
+    <result column="OPERATIONDATE"  property="operationdate" />
+    <result column="OPERATIONTYPE"  property="operationtype" />
+    <result column="TICKETNO" property="ticketno" />
+    <result column="ORDERTYPE"  property="ordertype" />
+    <result column="ENTERPRISE" property="enterprise" />
+    <result column="ENTERPRISENAME" property="enterprisename" />
+    <result column="FLAG" property="flag" />
+    <result column="REQUESTMESG" property="requestmesg" />
+    <result column="RESPONSEMESG" jdbcType="VARCHAR" property="responsemesg" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, OPERATIONUSER, OPERATIONDATE, OPERATIONTYPE, TICKETNO, ORDERTYPE, ENTERPRISE, 
+    ENTERPRISENAME, FLAG, REQUESTMESG, RESPONSEMESG
+  </sql>
+
+  <sql id="PageSQLHead">
+    <if test="oracleStart!=null and oracleEnd!=null">
+      <![CDATA[select y.* from(select z.*,rownum as oracleStart from (]]>
+    </if>
+  </sql>
+  <sql id="PageSQLFoot">
+    <if test="oracleStart != null and oracleEnd != null">
+      <![CDATA[ ) z where rownum  <= #{oracleEnd}) y where y.oracleStart  > #{oracleStart}]]>
+    </if>
+  </sql>
+
+  <!--在排序时必须加一个唯一ID保证唯一性-->
+  <sql id="Base_Order">
+    <if test="sortBy != null and sortBy !=''">
+      ORDER BY #{sortBy}, id DESC
+    </if>
+  </sql>
+
+  <sql id="Query_OperationLog_Where">
+    <where>
+      <if test="id != null and id !=''">
+        and ID = #{id,jdbcType=OTHER}
+      </if>
+      <if test="operationuser != null and operationuser !=''">
+        and OPERATIONUSER = #{operationuser,jdbcType=OTHER}
+      </if>
+      <if test="operationdate != null and operationdate !=''">
+        and OPERATIONDATE = #{operationdate,jdbcType=OTHER}
+      </if>
+      <if test="operationtype != null and operationtype">
+        and OPERATIONTYPE = #{operationtype,jdbcType=DECIMAL}
+      </if>
+      <if test="ticketno != null and ticketno !=''">
+        and TICKETNO = #{ticketno,jdbcType=OTHER}
+      </if>
+      <if test="ordertype != null and ordertype !=''">
+        and ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprise != null and enterprise !=''">
+        and ENTERPRISE = #{enterprise,jdbcType=VARCHAR}
+      </if>
+      <if test="enterprisename != null and enterprisename !=''">
+        and ENTERPRISENAME = #{enterprisename,jdbcType=VARCHAR}
+      </if>
+      <if test="flag != null and flag !=''">
+        and FLAG = #{flag,jdbcType=DECIMAL}
+      </if>
+      <if test="responsemesg != null and responsemesg !=''">
+        and RESPONSEMESG = #{responsemesg,jdbcType=VARCHAR},
+      </if>
+      <if test="requestmesg != null and requestmesg !=''">
+        and REQUESTMESG = #{requestmesg,jdbcType=CLOB}
+      </if>
+    </where>
+  </sql>
+
+
+  <select id="selectOperationLogAll" resultMap="BaseResultMap" parameterType="com.csjscm.oracledata.model.OperationLogDTO">
+    <include refid="PageSQLHead"/>
+    select
+    <include refid="Base_Column_List"/>
+    from OPERATION_LOG
+    <include refid="Query_OperationLog_Where"/>
+    <include refid="PageSQLFoot"/>
+    <include refid="Base_Order"/>
+  </select>
+  <select id="selectOperationLogCount" resultType="java.lang.Integer" parameterType="com.csjscm.oracledata.model.OperationLogDTO">
+    select
+    count(*)
+    FROM OPERATION_LOG
+    <include refid="Query_OperationLog_Where"/>
+    <include refid="Base_Order"/>
+  </select>
+
+
+
+  <insert id="insertOperationLog" parameterType="com.csjscm.oracledata.model.OperationLog">
+    insert into OPERATION_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="operationuser != null">
+        OPERATIONUSER,
+      </if>
+      <if test="operationdate != null">
+        OPERATIONDATE,
+      </if>
+      <if test="operationtype != null">
+        OPERATIONTYPE,
+      </if>
+      <if test="ticketno != null">
+        TICKETNO,
+      </if>
+      <if test="ordertype != null">
+        ORDERTYPE,
+      </if>
+      <if test="enterprise != null">
+        ENTERPRISE,
+      </if>
+      <if test="enterprisename != null">
+        ENTERPRISENAME,
+      </if>
+      <if test="flag != null">
+        FLAG,
+      </if>
+      <if test="responsemesg != null">
+        RESPONSEMESG,
+      </if>
+      <if test="requestmesg != null">
+        REQUESTMESG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=OTHER},
+      </if>
+      <if test="operationuser != null">
+        #{operationuser,jdbcType=OTHER},
+      </if>
+      <if test="operationdate != null">
+        #{operationdate,jdbcType=OTHER},
+      </if>
+      <if test="operationtype != null">
+        #{operationtype,jdbcType=DECIMAL},
+      </if>
+      <if test="ticketno != null">
+        #{ticketno,jdbcType=OTHER},
+      </if>
+      <if test="ordertype != null">
+        #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprise != null">
+        #{enterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="responsemesg != null">
+        #{responsemesg,jdbcType=VARCHAR},
+      </if>
+      <if test="requestmesg != null">
+        #{requestmesg,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateOperationLog" parameterType="com.csjscm.oracledata.model.OperationLog">
+    update OPERATION_LOG
+    <set>
+      <if test="operationuser != null">
+        OPERATIONUSER = #{operationuser,jdbcType=OTHER},
+      </if>
+      <if test="operationdate != null">
+        OPERATIONDATE = #{operationdate,jdbcType=OTHER},
+      </if>
+      <if test="operationtype != null">
+        OPERATIONTYPE = #{operationtype,jdbcType=DECIMAL},
+      </if>
+      <if test="ticketno != null">
+        TICKETNO = #{ticketno,jdbcType=OTHER},
+      </if>
+      <if test="ordertype != null">
+        ORDERTYPE = #{ordertype,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprise != null">
+        ENTERPRISE = #{enterprise,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprisename != null">
+        ENTERPRISENAME = #{enterprisename,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        FLAG = #{flag,jdbcType=DECIMAL},
+      </if>
+      <if test="responsemesg != null">
+        RESPONSEMESG = #{responsemesg,jdbcType=VARCHAR},
+      </if>
+      <if test="requestmesg != null">
+        REQUESTMESG = #{requestmesg,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=OTHER}
+  </update>
+
+
+</mapper>

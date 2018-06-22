@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.EnterpriceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.EnterpriceInfo">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="REQUESTID" jdbcType="VARCHAR" property="requestid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="ROWINDEX" jdbcType="VARCHAR" property="rowindex" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="CORPORATION" jdbcType="VARCHAR" property="corporation" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="CREATEDATE" jdbcType="VARCHAR" property="createdate" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="TAXNO" jdbcType="VARCHAR" property="taxno" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="CHECKUSER" jdbcType="VARCHAR" property="checkuser" />
+    <result column="ACTIVATION" jdbcType="VARCHAR" property="activation" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="CHECKSTATUS" jdbcType="VARCHAR" property="checkstatus" />
+    <result column="OPENBANK" jdbcType="VARCHAR" property="openbank" />
+    <result column="BANKACCOUNT" jdbcType="VARCHAR" property="bankaccount" />
+    <result column="IDCARD" jdbcType="VARCHAR" property="idcard" />
+    <result column="OPENINGLICENSE" jdbcType="VARCHAR" property="openinglicense" />
+    <result column="BUSINESSLICENSE" jdbcType="VARCHAR" property="businesslicense" />
+    <result column="LINKUSER" jdbcType="VARCHAR" property="linkuser" />
+    <result column="LINKTEL" jdbcType="VARCHAR" property="linktel" />
+    <result column="LINKEMAIL" jdbcType="VARCHAR" property="linkemail" />
+    <result column="CASHPOOL" jdbcType="DECIMAL" property="cashpool" />
+    <result column="OCCUPIEDAMOUNT" jdbcType="DECIMAL" property="occupiedamount" />
+    <result column="RATE" jdbcType="DECIMAL" property="rate" />
+    <result column="LOCKPOOL" jdbcType="DECIMAL" property="lockpool" />
+    <result column="GXMARKET" jdbcType="VARCHAR" property="gxmarket" />
+    <result column="PURCHASE" jdbcType="DECIMAL" property="purchase" />
+    <result column="SALE" jdbcType="DECIMAL" property="sale" />
+    <result column="BIDDING" jdbcType="DECIMAL" property="bidding" />
+    <result column="VALIDITY" jdbcType="DECIMAL" property="validity" />
+    <result column="CAPITAL" jdbcType="VARCHAR" property="capital" />
+    <result column="ACRRATE" jdbcType="DECIMAL" property="acrrate" />
+    <result column="BIDBAILAMOUNT" jdbcType="DECIMAL" property="bidbailamount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, REQUESTID, NODEID, ROWINDEX, NAME, CORPORATION, CODE, CREATEDATE, REMARK, TAXNO, 
+    ADDRESS, CHECKUSER, ACTIVATION, STATUS, CHECKSTATUS, OPENBANK, BANKACCOUNT, IDCARD, 
+    OPENINGLICENSE, BUSINESSLICENSE, LINKUSER, LINKTEL, LINKEMAIL, CASHPOOL, OCCUPIEDAMOUNT, 
+    RATE, LOCKPOOL, GXMARKET, PURCHASE, SALE, BIDDING, VALIDITY, CAPITAL, ACRRATE, BIDBAILAMOUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.EnterpriceInfoExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from UF_ENTERPRICE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UF_ENTERPRICE_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from UF_ENTERPRICE_INFO
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.EnterpriceInfoExample">
+    delete from UF_ENTERPRICE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.EnterpriceInfo">
+    insert into UF_ENTERPRICE_INFO (ID, REQUESTID, NODEID, 
+      ROWINDEX, NAME, CORPORATION, 
+      CODE, CREATEDATE, REMARK, 
+      TAXNO, ADDRESS, CHECKUSER, 
+      ACTIVATION, STATUS, CHECKSTATUS, 
+      OPENBANK, BANKACCOUNT, IDCARD, 
+      OPENINGLICENSE, BUSINESSLICENSE, LINKUSER, 
+      LINKTEL, LINKEMAIL, CASHPOOL, 
+      OCCUPIEDAMOUNT, RATE, LOCKPOOL, 
+      GXMARKET, PURCHASE, SALE, 
+      BIDDING, VALIDITY, CAPITAL, 
+      ACRRATE, BIDBAILAMOUNT)
+    values (#{id,jdbcType=VARCHAR}, #{requestid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, 
+      #{rowindex,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{corporation,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{taxno,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{checkuser,jdbcType=VARCHAR}, 
+      #{activation,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{checkstatus,jdbcType=VARCHAR}, 
+      #{openbank,jdbcType=VARCHAR}, #{bankaccount,jdbcType=VARCHAR}, #{idcard,jdbcType=VARCHAR}, 
+      #{openinglicense,jdbcType=VARCHAR}, #{businesslicense,jdbcType=VARCHAR}, #{linkuser,jdbcType=VARCHAR}, 
+      #{linktel,jdbcType=VARCHAR}, #{linkemail,jdbcType=VARCHAR}, #{cashpool,jdbcType=DECIMAL}, 
+      #{occupiedamount,jdbcType=DECIMAL}, #{rate,jdbcType=DECIMAL}, #{lockpool,jdbcType=DECIMAL}, 
+      #{gxmarket,jdbcType=VARCHAR}, #{purchase,jdbcType=DECIMAL}, #{sale,jdbcType=DECIMAL}, 
+      #{bidding,jdbcType=DECIMAL}, #{validity,jdbcType=DECIMAL}, #{capital,jdbcType=VARCHAR}, 
+      #{acrrate,jdbcType=DECIMAL}, #{bidbailamount,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.EnterpriceInfo">
+    insert into UF_ENTERPRICE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="requestid != null">
+        REQUESTID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="rowindex != null">
+        ROWINDEX,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="corporation != null">
+        CORPORATION,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="taxno != null">
+        TAXNO,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER,
+      </if>
+      <if test="activation != null">
+        ACTIVATION,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="checkstatus != null">
+        CHECKSTATUS,
+      </if>
+      <if test="openbank != null">
+        OPENBANK,
+      </if>
+      <if test="bankaccount != null">
+        BANKACCOUNT,
+      </if>
+      <if test="idcard != null">
+        IDCARD,
+      </if>
+      <if test="openinglicense != null">
+        OPENINGLICENSE,
+      </if>
+      <if test="businesslicense != null">
+        BUSINESSLICENSE,
+      </if>
+      <if test="linkuser != null">
+        LINKUSER,
+      </if>
+      <if test="linktel != null">
+        LINKTEL,
+      </if>
+      <if test="linkemail != null">
+        LINKEMAIL,
+      </if>
+      <if test="cashpool != null">
+        CASHPOOL,
+      </if>
+      <if test="occupiedamount != null">
+        OCCUPIEDAMOUNT,
+      </if>
+      <if test="rate != null">
+        RATE,
+      </if>
+      <if test="lockpool != null">
+        LOCKPOOL,
+      </if>
+      <if test="gxmarket != null">
+        GXMARKET,
+      </if>
+      <if test="purchase != null">
+        PURCHASE,
+      </if>
+      <if test="sale != null">
+        SALE,
+      </if>
+      <if test="bidding != null">
+        BIDDING,
+      </if>
+      <if test="validity != null">
+        VALIDITY,
+      </if>
+      <if test="capital != null">
+        CAPITAL,
+      </if>
+      <if test="acrrate != null">
+        ACRRATE,
+      </if>
+      <if test="bidbailamount != null">
+        BIDBAILAMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="requestid != null">
+        #{requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rowindex != null">
+        #{rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="corporation != null">
+        #{corporation,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="taxno != null">
+        #{taxno,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="activation != null">
+        #{activation,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="checkstatus != null">
+        #{checkstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null">
+        #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankaccount != null">
+        #{bankaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="openinglicense != null">
+        #{openinglicense,jdbcType=VARCHAR},
+      </if>
+      <if test="businesslicense != null">
+        #{businesslicense,jdbcType=VARCHAR},
+      </if>
+      <if test="linkuser != null">
+        #{linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkemail != null">
+        #{linkemail,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpool != null">
+        #{cashpool,jdbcType=DECIMAL},
+      </if>
+      <if test="occupiedamount != null">
+        #{occupiedamount,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="lockpool != null">
+        #{lockpool,jdbcType=DECIMAL},
+      </if>
+      <if test="gxmarket != null">
+        #{gxmarket,jdbcType=VARCHAR},
+      </if>
+      <if test="purchase != null">
+        #{purchase,jdbcType=DECIMAL},
+      </if>
+      <if test="sale != null">
+        #{sale,jdbcType=DECIMAL},
+      </if>
+      <if test="bidding != null">
+        #{bidding,jdbcType=DECIMAL},
+      </if>
+      <if test="validity != null">
+        #{validity,jdbcType=DECIMAL},
+      </if>
+      <if test="capital != null">
+        #{capital,jdbcType=VARCHAR},
+      </if>
+      <if test="acrrate != null">
+        #{acrrate,jdbcType=DECIMAL},
+      </if>
+      <if test="bidbailamount != null">
+        #{bidbailamount,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.EnterpriceInfoExample" resultType="java.lang.Long">
+    select count(*) from UF_ENTERPRICE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update UF_ENTERPRICE_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestid != null">
+        REQUESTID = #{record.requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodeid != null">
+        NODEID = #{record.nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rowindex != null">
+        ROWINDEX = #{record.rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null">
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.corporation != null">
+        CORPORATION = #{record.corporation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.code != null">
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxno != null">
+        TAXNO = #{record.taxno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null">
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkuser != null">
+        CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.activation != null">
+        ACTIVATION = #{record.activation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkstatus != null">
+        CHECKSTATUS = #{record.checkstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openbank != null">
+        OPENBANK = #{record.openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankaccount != null">
+        BANKACCOUNT = #{record.bankaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idcard != null">
+        IDCARD = #{record.idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openinglicense != null">
+        OPENINGLICENSE = #{record.openinglicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.businesslicense != null">
+        BUSINESSLICENSE = #{record.businesslicense,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkuser != null">
+        LINKUSER = #{record.linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linktel != null">
+        LINKTEL = #{record.linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkemail != null">
+        LINKEMAIL = #{record.linkemail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cashpool != null">
+        CASHPOOL = #{record.cashpool,jdbcType=DECIMAL},
+      </if>
+      <if test="record.occupiedamount != null">
+        OCCUPIEDAMOUNT = #{record.occupiedamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rate != null">
+        RATE = #{record.rate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lockpool != null">
+        LOCKPOOL = #{record.lockpool,jdbcType=DECIMAL},
+      </if>
+      <if test="record.gxmarket != null">
+        GXMARKET = #{record.gxmarket,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchase != null">
+        PURCHASE = #{record.purchase,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sale != null">
+        SALE = #{record.sale,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bidding != null">
+        BIDDING = #{record.bidding,jdbcType=DECIMAL},
+      </if>
+      <if test="record.validity != null">
+        VALIDITY = #{record.validity,jdbcType=DECIMAL},
+      </if>
+      <if test="record.capital != null">
+        CAPITAL = #{record.capital,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acrrate != null">
+        ACRRATE = #{record.acrrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bidbailamount != null">
+        BIDBAILAMOUNT = #{record.bidbailamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update UF_ENTERPRICE_INFO
+    set ID = #{record.id,jdbcType=VARCHAR},
+      REQUESTID = #{record.requestid,jdbcType=VARCHAR},
+      NODEID = #{record.nodeid,jdbcType=VARCHAR},
+      ROWINDEX = #{record.rowindex,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      CORPORATION = #{record.corporation,jdbcType=VARCHAR},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      TAXNO = #{record.taxno,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      ACTIVATION = #{record.activation,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      CHECKSTATUS = #{record.checkstatus,jdbcType=VARCHAR},
+      OPENBANK = #{record.openbank,jdbcType=VARCHAR},
+      BANKACCOUNT = #{record.bankaccount,jdbcType=VARCHAR},
+      IDCARD = #{record.idcard,jdbcType=VARCHAR},
+      OPENINGLICENSE = #{record.openinglicense,jdbcType=VARCHAR},
+      BUSINESSLICENSE = #{record.businesslicense,jdbcType=VARCHAR},
+      LINKUSER = #{record.linkuser,jdbcType=VARCHAR},
+      LINKTEL = #{record.linktel,jdbcType=VARCHAR},
+      LINKEMAIL = #{record.linkemail,jdbcType=VARCHAR},
+      CASHPOOL = #{record.cashpool,jdbcType=DECIMAL},
+      OCCUPIEDAMOUNT = #{record.occupiedamount,jdbcType=DECIMAL},
+      RATE = #{record.rate,jdbcType=DECIMAL},
+      LOCKPOOL = #{record.lockpool,jdbcType=DECIMAL},
+      GXMARKET = #{record.gxmarket,jdbcType=VARCHAR},
+      PURCHASE = #{record.purchase,jdbcType=DECIMAL},
+      SALE = #{record.sale,jdbcType=DECIMAL},
+      BIDDING = #{record.bidding,jdbcType=DECIMAL},
+      VALIDITY = #{record.validity,jdbcType=DECIMAL},
+      CAPITAL = #{record.capital,jdbcType=VARCHAR},
+      ACRRATE = #{record.acrrate,jdbcType=DECIMAL},
+      BIDBAILAMOUNT = #{record.bidbailamount,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.EnterpriceInfo">
+    update UF_ENTERPRICE_INFO
+    <set>
+      <if test="requestid != null">
+        REQUESTID = #{requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rowindex != null">
+        ROWINDEX = #{rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="corporation != null">
+        CORPORATION = #{corporation,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="taxno != null">
+        TAXNO = #{taxno,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="activation != null">
+        ACTIVATION = #{activation,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="checkstatus != null">
+        CHECKSTATUS = #{checkstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="openbank != null">
+        OPENBANK = #{openbank,jdbcType=VARCHAR},
+      </if>
+      <if test="bankaccount != null">
+        BANKACCOUNT = #{bankaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        IDCARD = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="openinglicense != null">
+        OPENINGLICENSE = #{openinglicense,jdbcType=VARCHAR},
+      </if>
+      <if test="businesslicense != null">
+        BUSINESSLICENSE = #{businesslicense,jdbcType=VARCHAR},
+      </if>
+      <if test="linkuser != null">
+        LINKUSER = #{linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        LINKTEL = #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkemail != null">
+        LINKEMAIL = #{linkemail,jdbcType=VARCHAR},
+      </if>
+      <if test="cashpool != null">
+        CASHPOOL = #{cashpool,jdbcType=DECIMAL},
+      </if>
+      <if test="occupiedamount != null">
+        OCCUPIEDAMOUNT = #{occupiedamount,jdbcType=DECIMAL},
+      </if>
+      <if test="rate != null">
+        RATE = #{rate,jdbcType=DECIMAL},
+      </if>
+      <if test="lockpool != null">
+        LOCKPOOL = #{lockpool,jdbcType=DECIMAL},
+      </if>
+      <if test="gxmarket != null">
+        GXMARKET = #{gxmarket,jdbcType=VARCHAR},
+      </if>
+      <if test="purchase != null">
+        PURCHASE = #{purchase,jdbcType=DECIMAL},
+      </if>
+      <if test="sale != null">
+        SALE = #{sale,jdbcType=DECIMAL},
+      </if>
+      <if test="bidding != null">
+        BIDDING = #{bidding,jdbcType=DECIMAL},
+      </if>
+      <if test="validity != null">
+        VALIDITY = #{validity,jdbcType=DECIMAL},
+      </if>
+      <if test="capital != null">
+        CAPITAL = #{capital,jdbcType=VARCHAR},
+      </if>
+      <if test="acrrate != null">
+        ACRRATE = #{acrrate,jdbcType=DECIMAL},
+      </if>
+      <if test="bidbailamount != null">
+        BIDBAILAMOUNT = #{bidbailamount,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.EnterpriceInfo">
+    update UF_ENTERPRICE_INFO
+    set REQUESTID = #{requestid,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      ROWINDEX = #{rowindex,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      CORPORATION = #{corporation,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      TAXNO = #{taxno,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      ACTIVATION = #{activation,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CHECKSTATUS = #{checkstatus,jdbcType=VARCHAR},
+      OPENBANK = #{openbank,jdbcType=VARCHAR},
+      BANKACCOUNT = #{bankaccount,jdbcType=VARCHAR},
+      IDCARD = #{idcard,jdbcType=VARCHAR},
+      OPENINGLICENSE = #{openinglicense,jdbcType=VARCHAR},
+      BUSINESSLICENSE = #{businesslicense,jdbcType=VARCHAR},
+      LINKUSER = #{linkuser,jdbcType=VARCHAR},
+      LINKTEL = #{linktel,jdbcType=VARCHAR},
+      LINKEMAIL = #{linkemail,jdbcType=VARCHAR},
+      CASHPOOL = #{cashpool,jdbcType=DECIMAL},
+      OCCUPIEDAMOUNT = #{occupiedamount,jdbcType=DECIMAL},
+      RATE = #{rate,jdbcType=DECIMAL},
+      LOCKPOOL = #{lockpool,jdbcType=DECIMAL},
+      GXMARKET = #{gxmarket,jdbcType=VARCHAR},
+      PURCHASE = #{purchase,jdbcType=DECIMAL},
+      SALE = #{sale,jdbcType=DECIMAL},
+      BIDDING = #{bidding,jdbcType=DECIMAL},
+      VALIDITY = #{validity,jdbcType=DECIMAL},
+      CAPITAL = #{capital,jdbcType=VARCHAR},
+      ACRRATE = #{acrrate,jdbcType=DECIMAL},
+      BIDBAILAMOUNT = #{bidbailamount,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

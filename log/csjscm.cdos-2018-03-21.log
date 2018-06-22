@@ -1,0 +1,226 @@
+2018-03-21 18:25:00.655 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@50e3bc03: startup date [Wed Mar 21 18:25:00 GMT+08:00 2018]; root of context hierarchy
+2018-03-21 18:25:00.764 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-03-21 18:25:00.857 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-21 18:25:00.975 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3c824180] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:01.386 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-03-21 18:25:01.397 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@17ffc558: startup date [Wed Mar 21 18:25:01 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50e3bc03
+2018-03-21 18:25:02.414 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller.paycontroller, com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-03-21 18:25:02.535 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-03-21 18:25:02.612 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=d2d781e6-bc26-3706-901c-ab0abced74df
+2018-03-21 18:25:02.627 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-21 18:25:02.708 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$20683e83] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:02.738 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$3c824180] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:03.173 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-03-21 18:25:03.181 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-03-21 18:25:03.182 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-21 18:25:03.325 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-03-21 18:25:03.325 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1928 ms
+2018-03-21 18:25:03.412 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-21 18:25:03.416 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-21 18:25:04.032 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-03-21 18:25:04.033 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle1]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle1()
+2018-03-21 18:25:04.034 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/listtoarticle]}" onto public java.lang.String com.csjscm.mysqldata.controller.articlecontroller.ArticleController.listArticleType(com.csjscm.mysqldata.model.ArticleTypeQuery)
+2018-03-21 18:25:04.036 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.paycontroller.PingPayController.selectUser()
+2018-03-21 18:25:04.036 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.backLogin()
+2018-03-21 18:25:04.036 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/pay],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.pingPay()
+2018-03-21 18:25:04.037 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/picture-add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.pictureShow()
+2018-03-21 18:25:04.037 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/createsettleaccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.createsettleaccount()
+2018-03-21 18:25:04.037 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/createsettleaccount],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.createSettleAccount(com.csjscm.mysqldata.model.SettleAccount)
+2018-03-21 18:25:04.038 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-03-21 18:25:04.039 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-03-21 18:25:04.039 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/index],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-03-21 18:25:04.039 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/welcome],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.welcome()
+2018-03-21 18:25:04.040 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-03-21 18:25:04.041 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-03-21 18:25:04.045 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-03-21 18:25:04.046 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-03-21 18:25:04.046 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-03-21 18:25:04.048 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-21 18:25:04.048 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-21 18:25:04.146 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-21 18:25:04.215 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@17ffc558: startup date [Wed Mar 21 18:25:01 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50e3bc03
+2018-03-21 18:25:04.624 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-03-21 18:25:05.217 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-03-21 18:25:05.304 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-03-21 18:25:05.307 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-03-21 18:25:05.307 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-03-21 18:25:05.322 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-03-21 18:25:05.322 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-03-21 18:25:05.391 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-03-21 18:25:05.398 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-03-21 18:25:05.399 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-03-21 18:25:05.399 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-03-21 18:25:05.401 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-03-21 18:25:05.418 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-03-21 18:25:05.426 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=17ffc558,type=ConfigurationPropertiesRebinder]
+2018-03-21 18:25:05.601 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-03-21 18:25:05.601 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-03-21 18:25:05.620 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-03-21 18:25:05.641 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-03-21 18:25:05.669 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:05.676 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:05.679 [restartedMain] ERROR org.apache.coyote.http11.Http11NioProtocol 181- Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.csjscm.VicidataApplication.main(VicidataApplication.java:11)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2018-03-21 18:25:05.680 [restartedMain] ERROR org.apache.catalina.core.StandardService 181- Failed to start connector [Connector[HTTP/1.1-8080]]
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.csjscm.VicidataApplication.main(VicidataApplication.java:11)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 18 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at sun.nio.ch.Net.bind0(Native Method)
+	at sun.nio.ch.Net.bind(Net.java:433)
+	at sun.nio.ch.Net.bind(Net.java:425)
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223)
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 19 common frames omitted
+2018-03-21 18:25:05.686 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Pausing ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:05.687 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Stopping service [Tomcat]
+2018-03-21 18:25:05.701 [localhost-startStop-1] WARN  org.apache.catalina.loader.WebappClassLoaderBase 179- The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)
+ com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:43)
+2018-03-21 18:25:05.712 [restartedMain] INFO  org.apache.catalina.util.LifecycleBase 179- The stop() method was called on component [StandardServer[-1]] after stop() had already been called. The second call will be ignored.
+2018-03-21 18:25:05.713 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Stopping ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:05.713 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Destroying ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:05.716 [restartedMain] INFO  o.s.b.a.l.AutoConfigurationReportLoggingInitializer 101- 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-03-21 18:25:05.720 [restartedMain] ERROR o.s.b.diagnostics.LoggingFailureAnalysisReporter 42- 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2018-03-21 18:25:05.722 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 984- Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@17ffc558: startup date [Wed Mar 21 18:25:01 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@50e3bc03
+2018-03-21 18:25:05.723 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 358- Stopping beans in phase 2147483647
+2018-03-21 18:25:05.727 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 449- Unregistering JMX-exposed beans on shutdown
+2018-03-21 18:25:05.727 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 241- Unregistering JMX-exposed beans
+2018-03-21 18:25:18.173 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@73d2304f: startup date [Wed Mar 21 18:25:18 GMT+08:00 2018]; root of context hierarchy
+2018-03-21 18:25:18.251 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-03-21 18:25:18.350 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-21 18:25:18.378 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$69c75c81] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:18.772 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-03-21 18:25:18.783 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f46e75f: startup date [Wed Mar 21 18:25:18 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@73d2304f
+2018-03-21 18:25:20.318 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller.paycontroller, com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-03-21 18:25:20.419 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-03-21 18:25:20.494 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=d2d781e6-bc26-3706-901c-ab0abced74df
+2018-03-21 18:25:20.504 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-03-21 18:25:20.762 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4dad5984] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:20.833 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$69c75c81] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-03-21 18:25:21.502 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-03-21 18:25:21.509 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-03-21 18:25:21.512 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-03-21 18:25:21.664 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-03-21 18:25:21.664 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 2882 ms
+2018-03-21 18:25:21.756 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-03-21 18:25:21.761 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-03-21 18:25:22.451 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-03-21 18:25:22.452 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle1]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle1()
+2018-03-21 18:25:22.454 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/listtoarticle]}" onto public java.lang.String com.csjscm.mysqldata.controller.articlecontroller.ArticleController.listArticleType(com.csjscm.mysqldata.model.ArticleTypeQuery)
+2018-03-21 18:25:22.456 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.paycontroller.PingPayController.selectUser()
+2018-03-21 18:25:22.457 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.backLogin()
+2018-03-21 18:25:22.457 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/pay],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.pingPay()
+2018-03-21 18:25:22.467 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/picture-add],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.pictureShow()
+2018-03-21 18:25:22.467 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/createsettleaccount],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.createsettleaccount()
+2018-03-21 18:25:22.468 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/pay/createsettleaccount],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.paycontroller.PingPayController.createSettleAccount(com.csjscm.mysqldata.model.SettleAccount)
+2018-03-21 18:25:22.469 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-03-21 18:25:22.470 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-03-21 18:25:22.470 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/index],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-03-21 18:25:22.470 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/welcome],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.welcome()
+2018-03-21 18:25:22.471 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-03-21 18:25:22.471 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-03-21 18:25:22.475 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-03-21 18:25:22.476 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-03-21 18:25:22.477 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-03-21 18:25:22.479 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-03-21 18:25:22.479 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-03-21 18:25:22.621 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-03-21 18:25:22.795 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f46e75f: startup date [Wed Mar 21 18:25:18 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@73d2304f
+2018-03-21 18:25:23.548 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-03-21 18:25:23.770 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-03-21 18:25:23.866 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-03-21 18:25:23.869 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-03-21 18:25:23.869 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-03-21 18:25:23.873 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-03-21 18:25:23.873 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-03-21 18:25:23.946 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-03-21 18:25:23.954 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-03-21 18:25:23.955 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-03-21 18:25:23.956 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-03-21 18:25:23.957 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-03-21 18:25:23.965 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-03-21 18:25:23.973 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=f46e75f,type=ConfigurationPropertiesRebinder]
+2018-03-21 18:25:24.143 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-03-21 18:25:24.144 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-03-21 18:25:24.156 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-03-21 18:25:24.166 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-03-21 18:25:24.186 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:24.193 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-03-21 18:25:24.202 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-03-21 18:25:24.218 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-03-21 18:25:24.222 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 6.69 seconds (JVM running for 7.334)
+2018-03-21 18:25:41.112 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1521435935,1521511408,1521592708; Hm_lpvt_86670fd75a12201bcdcefac1e98b076f=1521623203; Hm_lvt_a46387646542db27a337e807745077f4=1521161434,1521435935,1521511408,1521592708; Hm_lpvt_a46387646542db27a337e807745077f4=1521623203] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-03-21 18:25:41.128 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-03-21 18:25:41.128 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-03-21 18:25:41.144 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 16 ms
+2018-03-21 18:25:41.157 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/] in DispatcherServlet with name 'dispatcherServlet'

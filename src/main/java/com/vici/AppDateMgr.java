@@ -12,7 +12,7 @@ import java.util.Locale;
 /**
  * 时间日期管理类
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 12:33
  **/
 @Slf4j

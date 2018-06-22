@@ -9,6 +9,12 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 过滤器，只记录DEBUG级别的日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>./log/${DEFAULT_APP_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
             <maxHistory>30</maxHistory>
@@ -20,7 +26,8 @@
     </appender>
 
 
-    <logger name="com.vici" level="INFO" additivity="false">
+    <logger name="com.csjscm.mysqldata.dao" additivity="false">
+        <level value="DEBUG" />
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </logger>

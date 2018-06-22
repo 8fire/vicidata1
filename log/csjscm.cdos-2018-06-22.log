@@ -1,0 +1,15 @@
+2018-06-22 11:57:38.279 [http-nio-8000-exec-6] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-06-22 11:57:38.289 [http-nio-8000-exec-6] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-06-22 11:57:38.297 [http-nio-8000-exec-6] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-06-22 11:57:38.313 [http-nio-8000-exec-6] DEBUG c.csjscm.mysqldata.dao.MemberUserMapper.updateById 181- ==>  Preparing: UPDATE member_user SET id = ? , credentialssalt=? , last_login_time=? where id=? 
+2018-06-22 11:57:38.314 [http-nio-8000-exec-6] DEBUG c.csjscm.mysqldata.dao.MemberUserMapper.updateById 181- ==> Parameters: 1(Integer), MTU5Mzg3NDI5MzE=(String), 2018-06-22 11:57:38(String), 1(Integer)
+2018-06-22 11:57:38.316 [http-nio-8000-exec-6] DEBUG c.csjscm.mysqldata.dao.MemberUserMapper.updateById 181- <==    Updates: 1
+2018-06-22 11:57:38.385 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-06-22 11:57:38.386 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-06-22 11:57:38.389 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-06-22 11:57:38.398 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-06-22 11:57:38.399 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-06-22 11:57:38.400 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-06-22 11:57:38.400 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-06-22 11:57:38.401 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-06-22 11:57:38.406 [http-nio-8000-exec-5] DEBUG c.c.mysqldata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 22

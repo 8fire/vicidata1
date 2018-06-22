@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.MoveOrderMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.MoveOrder">
+    <id column="TICKETNO" jdbcType="VARCHAR" property="ticketno" />
+    <result column="OUTSTORE" jdbcType="VARCHAR" property="outstore" />
+    <result column="OUTSTORENAME" jdbcType="VARCHAR" property="outstorename" />
+    <result column="INSTORE" jdbcType="VARCHAR" property="instore" />
+    <result column="INSTORENAME" jdbcType="VARCHAR" property="instorename" />
+    <result column="DEVICENO" jdbcType="VARCHAR" property="deviceno" />
+    <result column="PLANDATE" jdbcType="VARCHAR" property="plandate" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CREATEUSER" jdbcType="VARCHAR" property="createuser" />
+    <result column="CREATEDATE" jdbcType="VARCHAR" property="createdate" />
+    <result column="CHECKUSER" jdbcType="VARCHAR" property="checkuser" />
+    <result column="CHECKDATE" jdbcType="VARCHAR" property="checkdate" />
+    <result column="CHECKADVICE" jdbcType="VARCHAR" property="checkadvice" />
+    <result column="LINKUSER" jdbcType="VARCHAR" property="linkuser" />
+    <result column="LINKTEL" jdbcType="VARCHAR" property="linktel" />
+    <result column="LINADDRESS" jdbcType="VARCHAR" property="linaddress" />
+    <result column="SUMORDERNUM" jdbcType="DECIMAL" property="sumordernum" />
+    <result column="SUMOUTNUM" jdbcType="DECIMAL" property="sumoutnum" />
+    <result column="SUMINNUM" jdbcType="DECIMAL" property="suminnum" />
+    <result column="CLOSED" jdbcType="DECIMAL" property="closed" />
+    <result column="MEMOS" jdbcType="VARCHAR" property="memos" />
+    <result column="ENTERPRICE" jdbcType="VARCHAR" property="enterprice" />
+    <result column="ENTERPRICENAME" jdbcType="VARCHAR" property="enterpricename" />
+    <result column="ISDELETE" jdbcType="DECIMAL" property="isdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TICKETNO, OUTSTORE, OUTSTORENAME, INSTORE, INSTORENAME, DEVICENO, PLANDATE, STATUS, 
+    CREATEUSER, CREATEDATE, CHECKUSER, CHECKDATE, CHECKADVICE, LINKUSER, LINKTEL, LINADDRESS, 
+    SUMORDERNUM, SUMOUTNUM, SUMINNUM, CLOSED, MEMOS, ENTERPRICE, ENTERPRICENAME, ISDELETE
+  </sql>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.MoveOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from MOVEORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MOVEORDER
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MOVEORDER
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.MoveOrderExample">
+    delete from MOVEORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.MoveOrder">
+    insert into MOVEORDER (TICKETNO, OUTSTORE, OUTSTORENAME, 
+      INSTORE, INSTORENAME, DEVICENO, 
+      PLANDATE, STATUS, CREATEUSER, 
+      CREATEDATE, CHECKUSER, CHECKDATE, 
+      CHECKADVICE, LINKUSER, LINKTEL, 
+      LINADDRESS, SUMORDERNUM, SUMOUTNUM, 
+      SUMINNUM, CLOSED, MEMOS, 
+      ENTERPRICE, ENTERPRICENAME, ISDELETE
+      )
+    values (#{ticketno,jdbcType=VARCHAR}, #{outstore,jdbcType=VARCHAR}, #{outstorename,jdbcType=VARCHAR}, 
+      #{instore,jdbcType=VARCHAR}, #{instorename,jdbcType=VARCHAR}, #{deviceno,jdbcType=VARCHAR}, 
+      #{plandate,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{createuser,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=VARCHAR}, #{checkuser,jdbcType=VARCHAR}, #{checkdate,jdbcType=VARCHAR}, 
+      #{checkadvice,jdbcType=VARCHAR}, #{linkuser,jdbcType=VARCHAR}, #{linktel,jdbcType=VARCHAR}, 
+      #{linaddress,jdbcType=VARCHAR}, #{sumordernum,jdbcType=DECIMAL}, #{sumoutnum,jdbcType=DECIMAL}, 
+      #{suminnum,jdbcType=DECIMAL}, #{closed,jdbcType=DECIMAL}, #{memos,jdbcType=VARCHAR}, 
+      #{enterprice,jdbcType=VARCHAR}, #{enterpricename,jdbcType=VARCHAR}, #{isdelete,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.MoveOrder">
+    insert into MOVEORDER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        TICKETNO,
+      </if>
+      <if test="outstore != null">
+        OUTSTORE,
+      </if>
+      <if test="outstorename != null">
+        OUTSTORENAME,
+      </if>
+      <if test="instore != null">
+        INSTORE,
+      </if>
+      <if test="instorename != null">
+        INSTORENAME,
+      </if>
+      <if test="deviceno != null">
+        DEVICENO,
+      </if>
+      <if test="plandate != null">
+        PLANDATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER,
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE,
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE,
+      </if>
+      <if test="linkuser != null">
+        LINKUSER,
+      </if>
+      <if test="linktel != null">
+        LINKTEL,
+      </if>
+      <if test="linaddress != null">
+        LINADDRESS,
+      </if>
+      <if test="sumordernum != null">
+        SUMORDERNUM,
+      </if>
+      <if test="sumoutnum != null">
+        SUMOUTNUM,
+      </if>
+      <if test="suminnum != null">
+        SUMINNUM,
+      </if>
+      <if test="closed != null">
+        CLOSED,
+      </if>
+      <if test="memos != null">
+        MEMOS,
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE,
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        #{ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="outstore != null">
+        #{outstore,jdbcType=VARCHAR},
+      </if>
+      <if test="outstorename != null">
+        #{outstorename,jdbcType=VARCHAR},
+      </if>
+      <if test="instore != null">
+        #{instore,jdbcType=VARCHAR},
+      </if>
+      <if test="instorename != null">
+        #{instorename,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="plandate != null">
+        #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="linkuser != null">
+        #{linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="linaddress != null">
+        #{linaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sumordernum != null">
+        #{sumordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="sumoutnum != null">
+        #{sumoutnum,jdbcType=DECIMAL},
+      </if>
+      <if test="suminnum != null">
+        #{suminnum,jdbcType=DECIMAL},
+      </if>
+      <if test="closed != null">
+        #{closed,jdbcType=DECIMAL},
+      </if>
+      <if test="memos != null">
+        #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.MoveOrderExample" resultType="java.lang.Long">
+    select count(*) from MOVEORDER
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update MOVEORDER
+    <set>
+      <if test="record.ticketno != null">
+        TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outstore != null">
+        OUTSTORE = #{record.outstore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.outstorename != null">
+        OUTSTORENAME = #{record.outstorename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instore != null">
+        INSTORE = #{record.instore,jdbcType=VARCHAR},
+      </if>
+      <if test="record.instorename != null">
+        INSTORENAME = #{record.instorename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.deviceno != null">
+        DEVICENO = #{record.deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.plandate != null">
+        PLANDATE = #{record.plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkuser != null">
+        CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkdate != null">
+        CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkadvice != null">
+        CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkuser != null">
+        LINKUSER = #{record.linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linktel != null">
+        LINKTEL = #{record.linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linaddress != null">
+        LINADDRESS = #{record.linaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sumordernum != null">
+        SUMORDERNUM = #{record.sumordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sumoutnum != null">
+        SUMOUTNUM = #{record.sumoutnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.suminnum != null">
+        SUMINNUM = #{record.suminnum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.closed != null">
+        CLOSED = #{record.closed,jdbcType=DECIMAL},
+      </if>
+      <if test="record.memos != null">
+        MEMOS = #{record.memos,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprice != null">
+        ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpricename != null">
+        ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdelete != null">
+        ISDELETE = #{record.isdelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update MOVEORDER
+    set TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      OUTSTORE = #{record.outstore,jdbcType=VARCHAR},
+      OUTSTORENAME = #{record.outstorename,jdbcType=VARCHAR},
+      INSTORE = #{record.instore,jdbcType=VARCHAR},
+      INSTORENAME = #{record.instorename,jdbcType=VARCHAR},
+      DEVICENO = #{record.deviceno,jdbcType=VARCHAR},
+      PLANDATE = #{record.plandate,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=DECIMAL},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      LINKUSER = #{record.linkuser,jdbcType=VARCHAR},
+      LINKTEL = #{record.linktel,jdbcType=VARCHAR},
+      LINADDRESS = #{record.linaddress,jdbcType=VARCHAR},
+      SUMORDERNUM = #{record.sumordernum,jdbcType=DECIMAL},
+      SUMOUTNUM = #{record.sumoutnum,jdbcType=DECIMAL},
+      SUMINNUM = #{record.suminnum,jdbcType=DECIMAL},
+      CLOSED = #{record.closed,jdbcType=DECIMAL},
+      MEMOS = #{record.memos,jdbcType=VARCHAR},
+      ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      ISDELETE = #{record.isdelete,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.MoveOrder">
+    update MOVEORDER
+    <set>
+      <if test="outstore != null">
+        OUTSTORE = #{outstore,jdbcType=VARCHAR},
+      </if>
+      <if test="outstorename != null">
+        OUTSTORENAME = #{outstorename,jdbcType=VARCHAR},
+      </if>
+      <if test="instore != null">
+        INSTORE = #{instore,jdbcType=VARCHAR},
+      </if>
+      <if test="instorename != null">
+        INSTORENAME = #{instorename,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceno != null">
+        DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      </if>
+      <if test="plandate != null">
+        PLANDATE = #{plandate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="linkuser != null">
+        LINKUSER = #{linkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        LINKTEL = #{linktel,jdbcType=VARCHAR},
+      </if>
+      <if test="linaddress != null">
+        LINADDRESS = #{linaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sumordernum != null">
+        SUMORDERNUM = #{sumordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="sumoutnum != null">
+        SUMOUTNUM = #{sumoutnum,jdbcType=DECIMAL},
+      </if>
+      <if test="suminnum != null">
+        SUMINNUM = #{suminnum,jdbcType=DECIMAL},
+      </if>
+      <if test="closed != null">
+        CLOSED = #{closed,jdbcType=DECIMAL},
+      </if>
+      <if test="memos != null">
+        MEMOS = #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.MoveOrder">
+    update MOVEORDER
+    set OUTSTORE = #{outstore,jdbcType=VARCHAR},
+      OUTSTORENAME = #{outstorename,jdbcType=VARCHAR},
+      INSTORE = #{instore,jdbcType=VARCHAR},
+      INSTORENAME = #{instorename,jdbcType=VARCHAR},
+      DEVICENO = #{deviceno,jdbcType=VARCHAR},
+      PLANDATE = #{plandate,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      LINKUSER = #{linkuser,jdbcType=VARCHAR},
+      LINKTEL = #{linktel,jdbcType=VARCHAR},
+      LINADDRESS = #{linaddress,jdbcType=VARCHAR},
+      SUMORDERNUM = #{sumordernum,jdbcType=DECIMAL},
+      SUMOUTNUM = #{sumoutnum,jdbcType=DECIMAL},
+      SUMINNUM = #{suminnum,jdbcType=DECIMAL},
+      CLOSED = #{closed,jdbcType=DECIMAL},
+      MEMOS = #{memos,jdbcType=VARCHAR},
+      ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      ISDELETE = #{isdelete,jdbcType=DECIMAL}
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+</mapper>

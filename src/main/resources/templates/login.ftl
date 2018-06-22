@@ -1,309 +1,178 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>登录界面</title>
-		<meta name="keywords" content="登录界面" />
-		<meta name="description" content="登录界面" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="../static/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="../static/lib/respond.min.js"></script>
+    <![endif]-->
+    <link href="../static/h-ui/css/H-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="../static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+    <link href="../static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../static/lib/Hui-iconfont/1.0.8/iconfont.css" rel="stylesheet" type="text/css" />
+    <!--[if IE 6]>
+    <script type="text/javascript" src="../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>后台登录 - 管理平台 v1.0</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <style rel="stylesheet" type="text/css">
+        .fr{float:right}
+        #btnRegister{color:#ff9600}
+        a:link,a:visited{
+            text-decoration:none;  /*超链接无下划线*/
+        }
+        a:hover{
+            text-decoration:none;  /*鼠标放上去有下划线*/
+        }
+        #btnForgetpsw{color: #A60000}
+    </style>
 
-		<!-- basic styles -->
+</head>
+<body>
+<#--<input type="hidden" id="TenantId" name="TenantId" value="" />-->
+<div class="header"></div>
+<div class="loginWraper">
+    <div id="loginform" class="loginBox">
+        <form class="form form-horizontal" id="form1" name="form1" action="##" >
+            <div class="row cl">
+                <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
+                <div class="formControls col-xs-8">
+                    <input id="loginPhone" name="loginPhone" type="text" value="" placeholder="账户" class="input-text size-L">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
+                <div class="formControls col-xs-8">
+                    <input id="loginPassword" name="loginPassword" type="password" value="" placeholder="密码" class="input-text size-L">
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input class="input-text size-L" id="yzm" type="text" placeholder="验证码" onclick="if(this.value=='验证码:'){this.value='';}" value="" placeholder="验证码" style="width:150px;">
+                    <img src="" id="imageCode" style="cursor: pointer;" title="点我更换验证码"> <a id="kanbuq" onclick="changeCode()" href="javascript:;">看不清，换一张</a> </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <label for="online">
+                        <input type="checkbox" name="rememberMe" id="rememberMe" >
+                        使我保持登录状态</label>
+                </div>
+            </div>
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3" style="margin-top: -10px">
+                    <label for="online1"><a id="btnForgetpsw" class="fr">忘记密码？</a>还没有账号？<a href="/userRegister/toUserRegister" target="_blank"  id="btnRegister">立即注册</a></label>
+                </div>
+            </div>
+                <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input name="login" id="login" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                    <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
 
-		<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+<#include "commons/_footer.ftl">
+<script>
+    $(function() {
+        changeCode();
+        //debugger;//生成验证码
+        $('#kanbuq').click(function () {
+            $(this).hide().attr('src', '/user/captcha-image?' + Math.floor(Math.random()*100) ).fadeIn(); });
+        $('#yzm').blur(function () {
+            var kaptchaCode=$("#yzm").val().trim();
+            if(kaptchaCode!=""){
+                $.ajax({
+                    type:"POST",
+                    url:"/user/captchaVerify",
+                    data:{"kaptchaCode":kaptchaCode},
+                    dataType: "json",
+                    success:function(data){
+                        console.log(JSON.stringify(data));
+                        if(data.isOK=="OK"){
+                            //layer.msg("验证码正确",{icon:1,time:2000});
+                        }else{
+                            layer.msg("输入验证码错误，请重新输入",{icon:2,time:2000});
+                        }
+                    }
+                });
+            }else {
+                layer.msg("请输入验证码",{icon:2,time:2000});
+            }
+        });
 
-		<!--[if IE 7]>
-        <link rel="stylesheet" href="/static/css/font-awesome-ie7.min.css"/>
-        <![endif]-->
-
-		<!-- page specific plugin styles -->
-
-		<!-- fonts -->
-
-		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
-
-		<!-- ace styles -->
-
-		<link rel="stylesheet" href="/static/css/ace.min.css" />
-		<link rel="stylesheet" href="/static/css/ace-rtl.min.css" />
-
-		<!--[if lte IE 8]>
-        <link rel="stylesheet" href="/static/css/ace-ie.min.css"/>
-        <![endif]-->
-
-		<!-- inline styles related to this page -->
-
-		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-
-		<!--[if lt IE 9]>
-        <script src="/static/js/html5shiv.js"></script>
-        <script src="/static/js/respond.min.js"></script>
-        <![endif]-->
-	</head>
-
-	<body class="login-layout" style="background-color: #8ab4de">
-		<div class="main-container">
-			<div class="main-content">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1">
-						<div class="login-container">
-							<div class="center">
-								<h1>
-									<i class="icon-leaf green"></i>
-
-
-
-									<span class="red">微社区</span>
-									<span class="white">Application</span>
-								</h1>
-								<h4 class="blue">&copy;中原工学院 </h4>
-							</div>
-
-							<div class="space-6"></div>
-
-							<div class="position-relative">
-								<div id="login-box" class="login-box visible widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header blue lighter bigger">
-												<i class="icon-coffee green"></i>
-												请输入你的信息
-											</h4>
-
-											<div class="space-6"></div>
-
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
-															<i class="icon-user"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
-															<i class="icon-lock"></i>
-														</span>
-													</label>
-
-													<div class="space"></div>
-
-													<div class="clearfix">
-														<label class="inline">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"> 记住我</span>
-														</label>
-
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
-															<i class="icon-key"></i>
-															登录
-														</button>
-													</div>
-
-													<div class="space-4"></div>
-												</fieldset>
-											</form>
-
-											<div class="social-or-login center">
-												<span class="bigger-110">Or Login Using</span>
-											</div>
-
-											<div class="social-login center">
-												<a class="btn btn-primary">
-													<i class="icon-facebook"></i>
-												</a>
-
-												<a class="btn btn-info">
-													<i class="icon-twitter"></i>
-												</a>
-
-												<a class="btn btn-danger">
-													<i class="icon-google-plus"></i>
-												</a>
-											</div>
-										</div><!-- /widget-main -->
-
-										<div class="toolbar clearfix">
-											<div>
-												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
-													<i class="icon-arrow-left"></i>
-													忘记密码
-												</a>
-											</div>
-
-											<div>
-												<a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
-													注册
-													<i class="icon-arrow-right"></i>
-												</a>
-											</div>
-										</div>
-									</div><!-- /widget-body -->
-								</div><!-- /login-box -->
-
-								<div id="forgot-box" class="forgot-box widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header red lighter bigger">
-												<i class="icon-key"></i>
-												Retrieve Password
-											</h4>
+    });
+    function changeCode() {  //刷新
+        $('#imageCode').hide().attr('src', '/user/captcha-image?' + Math.floor(Math.random()*100) ).fadeIn();
+    }
 
 
-											<div class="space-6"></div>
-											<p>
-												Enter your email and to receive instructions
-											</p>
+    $("#login").click(function () {
+        var kaptchaCode1=$("#yzm").val().trim();
+        var loginPhone= $("#loginPhone").val().trim();
+        var loginPassword=$("#loginPassword").val();
+        var rememberMe=$("rememberMe").val();
+        if(loginPhone==""||loginPhone==undefined||loginPhone==null){
+            layer.msg("账户不能为空",{icon:0,time:2000});
+            return false;
+        }
+        if(loginPassword==""||loginPassword==undefined||loginPassword==null){
+            layer.msg("密码不能为空",{icon:0,time:2000});
+            return false;
+        }
+        if(kaptchaCode1==""||kaptchaCode1==undefined||kaptchaCode1==null){
+            layer.msg("验证码不能为空",{icon:0,time:2000});
+            return false;
+        }else {
+            $.ajax({
+                type:"POST",
+                url:"/user/captchaVerify",
+                data:{"kaptchaCode":kaptchaCode1},
+                dataType: "json",
+                success:function(data){
+                    console.log(JSON.stringify(data));
+                    if(data.isOK=="OK"){
+                        $.ajax({
+                            type: 'POST',
+                            url: '/user/ajaxlogin',
+                            data:{"loginPhone":$("#loginPhone").val(),
+                                "loginPassword":$("#loginPassword").val(),
+                                "rememberMe":$("#rememberMe").val()},
+                            dataType: 'json',
+                            success: function(data){
+                                var stringify = JSON.stringify(data);
+                                //  alert(stringify)
+                                if(data.code=='400'){
+                                    layer.msg(data.extend.data.msg,{icon:2,time:2000});
+                                }else if (data.code=='200'){
+                                   // layer.msg(data.extend.data.msg,{icon:1,time:2000});
+                                    window.location.href="../user/index"
+                                }else {
+                                    layer.msg("请联系管理员，出错了",{icon:2,time:2000});
+                                }
+                            },
+                            error:function(data) {
+                                layer.msg('服务器异常!',{icon:1,time:1000});
+                                console.log(data.msg);
+                            },
+                        });
+                    }else{
+                        layer.msg("输入验证码错误，请重新输入",{icon:2,time:2000});
+                    }
+                }
+            });
+        }
 
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
-															<i class="icon-envelope"></i>
-														</span>
-													</label>
+    });
 
-													<div class="clearfix">
-														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
-															<i class="icon-lightbulb"></i>
-															Send Me!
-														</button>
-													</div>
-												</fieldset>
-											</form>
-										</div><!-- /widget-main -->
-
-										<div class="toolbar center">
-											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												Back to login
-												<i class="icon-arrow-right"></i>
-											</a>
-										</div>
-									</div><!-- /widget-body -->
-								</div><!-- /forgot-box -->
-
-								<div id="signup-box" class="signup-box widget-box no-border">
-									<div class="widget-body">
-										<div class="widget-main">
-											<h4 class="header green lighter bigger">
-												<i class="icon-group blue"></i>
-												新用户注册
-											</h4>
-
-											<div class="space-6"></div>
-											<p> Enter your details to begin: </p>
-
-											<form>
-												<fieldset>
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="email" class="form-control" placeholder="Email" />
-															<i class="icon-envelope"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
-															<i class="icon-user"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
-															<i class="icon-lock"></i>
-														</span>
-													</label>
-
-													<label class="block clearfix">
-														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Repeat password" />
-															<i class="icon-retweet"></i>
-														</span>
-													</label>
-
-													<label class="block">
-														<input type="checkbox" class="ace" />
-														<span class="lbl">
-															我接受
-															<a href="#">用户条款</a>
-														</span>
-													</label>
-
-													<div class="space-24"></div>
-
-													<div class="clearfix">
-														<button type="reset" class="width-30 pull-left btn btn-sm">
-															<i class="icon-refresh"></i>
-															重输
-														</button>
-
-														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
-															注册
-															<i class="icon-arrow-right icon-on-right"></i>
-														</button>
-													</div>
-												</fieldset>
-											</form>
-										</div>
-
-										<div class="toolbar center">
-											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
-												<i class="icon-arrow-left"></i>
-												返回登录11
-											</a>
-										</div>
-									</div><!-- /widget-body -->
-								</div><!-- /signup-box -->
-							</div><!-- /position-relative -->
-						</div>
-					</div><!-- /.col -->
-				</div><!-- /.row -->
-			</div>
-		</div><!-- /.main-container -->
-
-		<!-- basic scripts -->
-
-		<!--[if !IE]> -->
-
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<![endif]-->
-
-		<!--[if !IE]> -->
-
-		<script type="text/javascript">
-			window.jQuery || document.write("<script src='/static/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
-		</script>
-
-		<!-- <![endif]-->
-
-		<!--[if IE]>
-<script type="text/javascript">
- window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
 </script>
-<![endif]-->
-
-		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='/static/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script>
-
-		<!-- inline scripts related to this page -->
-
-		<script type="text/javascript">
-			function show_box(id) {
-			 jQuery('.widget-box.visible').removeClass('visible');
-			 jQuery('#'+id).addClass('visible');
-			}
-		</script>
-	<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>

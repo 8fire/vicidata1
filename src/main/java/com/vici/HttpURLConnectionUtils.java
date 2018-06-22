@@ -11,7 +11,7 @@ import java.net.URL;
 /**
  * HttpURLConnectionUtils
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 1:16
  **/
 public class HttpURLConnectionUtils {

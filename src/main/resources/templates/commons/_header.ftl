@@ -9,7 +9,13 @@
                             <li><a href="javascript:;" onclick="picture_add('添加资讯','add-settlement-account.ftl.')"><i class="Hui-iconfont">&#xe613;</i> 图片</a></li>
                             <li><a href="javascript:;" onclick="product_add('添加资讯','product-add.html')"><i class="Hui-iconfont">&#xe620;</i> 产品</a></li>
                             <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
+
                         </ul>
+                            <li class="navbar-levelone current"><a href="javascript:;">平台</a></li>
+                            <li class="navbar-levelone"><a href="javascript:;">商城</a></li>
+                            <li class="navbar-levelone"><a href="javascript:;">财务</a></li>
+                            <li class="navbar-levelone"><a href="javascript:;">手机</a></li>
+                            </li>
                     </li>
                 </ul>
             </nav>

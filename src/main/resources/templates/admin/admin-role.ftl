@@ -7,54 +7,48 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理员管理 <span class="c-gray en">&gt;</span> 角色管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
-	<div class="cl pd-5 bg-1 bk-gray"> <span class="l"> <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','admin-role-add.ftl','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray">
+		<span class="l">
+			<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','to-role-add.html','800','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span>
+		<span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<table class="table table-border table-bordered table-hover table-bg">
 		<thead>
 			<tr>
-				<th scope="col" colspan="6">角色管理</th>
+				<th scope="col" colspan="8">角色管理</th>
 			</tr>
 			<tr class="text-c">
-				<th width="25"><input type="checkbox" value="" name=""></th>
 				<th width="40">ID</th>
 				<th width="200">角色名</th>
-				<th>用户列表</th>
 				<th width="300">描述</th>
+				<th width="300">创建人</th>
+                <th width="300">创建时间</th>
+                <th width="300">修改时间</th>
+                <th width="300">是否启用</th>
 				<th width="70">操作</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
-				<td>1</td>
-				<td>超级管理员</td>
-				<td><a href="#">admin</a></td>
-				<td>拥有至高无上的权利</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.ftl','1')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr>
-			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
-				<td>2</td>
-				<td>总编</td>
-				<td><a href="#">张三</a></td>
-				<td>具有添加、审核、发布、删除内容的权限</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.ftl','2')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr>
-			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
-				<td>3</td>
-				<td>栏目主辑</td>
-				<td><a href="#">李四</a>，<a href="#">王五</a></td>
-				<td>只对所在栏目具有添加、审核、发布、删除内容的权限</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.ftl','3')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr>
-			<tr class="text-c">
-				<td><input type="checkbox" value="" name=""></td>
-				<td>4</td>
-				<td>栏目编辑</td>
-				<td><a href="#">赵六</a>，<a href="#">钱七</a></td>
-				<td>只对所在栏目具有添加、删除草稿等权利。</td>
-				<td class="f-14"><a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','admin-role-add.ftl','4')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a> <a title="删除" href="javascript:;" onclick="admin_role_del(this,'1')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-			</tr>
+				<#if list ?exists>
+					<#list list as p >
+                    <tr class="text-c">
+                        <td>${p.id}</td>
+                        <td><#if p.roleName??>${p.roleName}</#if></td>
+                        <td><#if p.description??><a href="#">${p.description}</#if></a></td>
+
+                        <td><#if p.creater??>${p.creater}</#if></td>
+                        <td><#if p.gmtCreate??>${p.gmtCreate?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
+                        <td><#if p.gmtModified??>${p.gmtModified?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
+                        <td class="td-status"><span class="label label-success radius"><#if p.status==0>已启用<#else>已禁用</#if></span></td>
+                        <td class="f-14"><a title="编辑" href="javascript:;"
+											onclick="admin_role_edit('角色编辑','role-edit.html?id=${p.id}','800','800')" style="text-decoration:none">
+							<i class="Hui-iconfont">&#xe6df;</i></a>
+                            <a title="分配权限" href="javascript:;"
+                               onclick="admin_role_edit('分配权限','to-add-role-permission.html?id=${p.id}','800','800')" style="text-decoration:none">
+                                <i class="Hui-iconfont">&#xe6df;</i></a>
+							</td>
+                    </tr>
+				     </#list>
+				</#if>
 		</tbody>
 	</table>
 </div>
@@ -67,7 +61,7 @@ function admin_role_add(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 /*管理员-角色-编辑*/
-function admin_role_edit(title,url,id,w,h){
+function admin_role_edit(title,url,w,h){
 	layer_show(title,url,w,h);
 }
 /*管理员-角色-删除*/

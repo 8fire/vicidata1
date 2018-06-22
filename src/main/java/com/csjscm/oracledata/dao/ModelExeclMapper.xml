@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.ModelExeclMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.ModelExecl">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="HEADNO" jdbcType="DECIMAL" property="headno" />
+    <result column="ITEMNO" jdbcType="VARCHAR" property="itemno" />
+    <result column="SERVICER" jdbcType="VARCHAR" property="servicer" />
+    <result column="SERVICERNAME" jdbcType="VARCHAR" property="servicername" />
+    <result column="MATERIAL" jdbcType="VARCHAR" property="material" />
+    <result column="MATERIALNO" jdbcType="VARCHAR" property="materialno" />
+    <result column="CUSTOMMATERIALNO" jdbcType="VARCHAR" property="custommaterialno" />
+    <result column="MATERIALNAME" jdbcType="VARCHAR" property="materialname" />
+    <result column="MATERIALRULE" jdbcType="VARCHAR" property="materialrule" />
+    <result column="MATERIALSIZE" jdbcType="VARCHAR" property="materialsize" />
+    <result column="MATERIALTAG" jdbcType="VARCHAR" property="materialtag" />
+    <result column="ORDERUNIT" jdbcType="VARCHAR" property="orderunit" />
+    <result column="ORDERPRICE" jdbcType="DECIMAL" property="orderprice" />
+    <result column="ORDERAMOUNT" jdbcType="DECIMAL" property="orderamount" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="WARRANTYDATE" jdbcType="VARCHAR" property="warrantydate" />
+    <result column="SUPPLYDATE" jdbcType="VARCHAR" property="supplydate" />
+    <result column="MEMOS" jdbcType="VARCHAR" property="memos" />
+    <result column="TAILNO" jdbcType="DECIMAL" property="tailno" />
+    <result column="HEADINFO" jdbcType="VARCHAR" property="headinfo" />
+    <result column="FILEURL" jdbcType="VARCHAR" property="fileurl" />
+    <result column="CATEGORYNAME" jdbcType="VARCHAR" property="categoryname" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    ID, HEADNO, ITEMNO, SERVICER, SERVICERNAME, MATERIAL, MATERIALNO, CUSTOMMATERIALNO, 
+    MATERIALNAME, MATERIALRULE, MATERIALSIZE, MATERIALTAG, ORDERUNIT, ORDERPRICE, ORDERAMOUNT, 
+    ORDERNUM, WARRANTYDATE, SUPPLYDATE, MEMOS, TAILNO, HEADINFO, FILEURL, CATEGORYNAME
+  </sql>
+
+  <select id="findModelExcelAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from MODELEXECL
+  </select>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MODELEXECL
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MODELEXECL
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+
+</mapper>

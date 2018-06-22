@@ -3,7 +3,7 @@ import java.math.BigDecimal;
 /**
  * 资金计算类
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 1:09
  **/
 public class AppBigDecimal {

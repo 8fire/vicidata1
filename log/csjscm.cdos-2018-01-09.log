@@ -1,0 +1,1413 @@
+2018-01-09 08:37:28.160 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@284b0e45: startup date [Tue Jan 09 08:37:28 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:37:28.241 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:37:28.306 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:37:28.336 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57841159] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:37:28.599 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:37:28.608 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@405da113: startup date [Tue Jan 09 08:37:28 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@284b0e45
+2018-01-09 08:37:29.382 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:37:29.468 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:37:29.536 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:37:29.546 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:37:29.610 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b6a0e5c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:37:29.633 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57841159] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:37:29.966 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:37:29.973 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:37:29.973 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:37:30.065 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:37:30.065 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1457 ms
+2018-01-09 08:37:30.137 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:37:30.140 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:37:30.691 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:37:30.692 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:37:30.693 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:37:30.693 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:37:30.694 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:37:30.696 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:37:30.698 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:37:30.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:37:30.700 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:37:30.702 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:37:30.702 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:37:30.800 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:37:30.833 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@405da113: startup date [Tue Jan 09 08:37:28 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@284b0e45
+2018-01-09 08:37:31.240 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:37:31.357 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:37:31.442 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:37:31.445 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:37:31.445 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:37:31.449 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:37:31.450 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:37:31.518 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:37:31.525 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:37:31.525 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:37:31.526 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:37:31.528 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:37:31.537 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:37:31.545 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=405da113,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:37:31.695 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:37:31.696 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:37:31.709 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:37:31.721 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:37:31.742 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:37:31.749 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:37:31.758 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:37:31.770 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:37:31.774 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.948 seconds (JVM running for 5.02)
+2018-01-09 08:37:45.108 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515399021] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:37:45.115 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:37:45.115 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:37:45.132 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 17 ms
+2018-01-09 08:37:45.143 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/] in DispatcherServlet with name 'dispatcherServlet'
+2018-01-09 08:37:45.240 [http-nio-8080-exec-2] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/favicon.ico] in DispatcherServlet with name 'dispatcherServlet'
+2018-01-09 08:38:14.692 [http-nio-8080-exec-2] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@54b1d70a]
+2018-01-09 08:38:14.800 [http-nio-8080-exec-2] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:38:14.805 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:40:36.283 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@a2e49d5: startup date [Tue Jan 09 08:40:36 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:40:36.327 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:40:36.456 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:40:36.479 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$7b85d189] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:40:36.743 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:40:36.751 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@376f1ab9: startup date [Tue Jan 09 08:40:36 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@a2e49d5
+2018-01-09 08:40:37.473 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:40:37.567 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:40:37.642 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:40:37.659 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:40:37.717 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$5f6bce8c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:40:37.740 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$7b85d189] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:40:38.027 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:40:38.033 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:40:38.033 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:40:38.110 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:40:38.111 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1360 ms
+2018-01-09 08:40:38.181 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:40:38.184 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:40:38.699 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:40:38.701 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:40:38.701 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:40:38.701 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:40:38.702 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:40:38.703 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:40:38.706 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:40:38.706 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:40:38.707 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:40:38.709 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:40:38.709 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:40:38.792 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:40:38.823 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@376f1ab9: startup date [Tue Jan 09 08:40:36 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@a2e49d5
+2018-01-09 08:40:39.199 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:40:39.308 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:40:39.394 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:40:39.396 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:40:39.397 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:40:39.400 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:40:39.400 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:40:39.469 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:40:39.477 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:40:39.477 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:40:39.478 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:40:39.480 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:40:39.489 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:40:39.497 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=376f1ab9,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:40:39.641 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:40:39.642 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:40:39.653 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:40:39.663 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:40:39.682 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:40:39.688 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:40:39.696 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:40:39.708 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:40:39.712 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.89 seconds (JVM running for 4.423)
+2018-01-09 08:40:50.862 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515453055] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:40:50.867 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:40:50.867 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:40:50.881 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-01-09 08:40:51.116 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@5159a5d2]
+2018-01-09 08:40:51.184 [http-nio-8080-exec-1] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:40:51.190 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:40:53.373 [http-nio-8080-exec-2] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@4a39ffb7]
+2018-01-09 08:40:53.379 [http-nio-8080-exec-2] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:40:53.386 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> articleTypesList  [in template "article/articletype.ftl" at line 776, column 46]
+
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${articleTypesList}  [in template "article/articletype.ftl" at line 776, column 44]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:389)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:41:31.491 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:41:31.500 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@61ed8f3a: startup date [Tue Jan 09 08:41:31 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:41:31.643 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:41:31.668 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$29877d1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:41:31.943 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:41:31.951 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@19d1402d: startup date [Tue Jan 09 08:41:31 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@61ed8f3a
+2018-01-09 08:41:32.643 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:41:32.733 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:41:32.810 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:41:32.821 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:41:32.894 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d6d7a1f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:41:32.919 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$29877d1c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:41:33.230 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:41:33.236 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:41:33.237 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:41:33.320 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:41:33.321 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1370 ms
+2018-01-09 08:41:33.397 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:41:33.400 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:41:33.964 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:41:33.966 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:41:33.966 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:41:33.966 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:41:33.966 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:41:33.968 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:41:33.970 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:41:33.971 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:41:33.972 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:41:33.974 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:41:33.974 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:41:34.065 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:41:34.097 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@19d1402d: startup date [Tue Jan 09 08:41:31 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@61ed8f3a
+2018-01-09 08:41:34.504 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:41:34.634 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:41:34.726 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:41:34.729 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:41:34.729 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:41:34.733 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:41:34.733 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:41:34.801 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:41:34.808 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:41:34.809 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:41:34.809 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:41:34.811 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:41:34.819 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:41:34.827 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=19d1402d,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:41:34.986 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:41:34.987 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:41:35.001 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:41:35.013 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:41:35.035 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:41:35.041 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:41:35.051 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:41:35.063 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:41:35.068 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 4.184 seconds (JVM running for 4.758)
+2018-01-09 08:42:12.659 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515453055] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:42:12.664 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:42:12.664 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:42:12.677 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-01-09 08:42:12.902 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@fc7b6e3]
+2018-01-09 08:45:06.956 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@49dce8eb: startup date [Tue Jan 09 08:45:06 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:45:07.083 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:45:07.125 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:45:07.149 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d420d4b3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:45:07.422 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:45:07.430 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f865f3: startup date [Tue Jan 09 08:45:07 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@49dce8eb
+2018-01-09 08:45:08.121 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:45:08.208 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:45:08.279 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:45:08.288 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:45:08.355 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b806d1b6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:45:08.377 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d420d4b3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:45:08.660 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:45:08.666 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:45:08.667 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:45:08.742 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:45:08.744 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1314 ms
+2018-01-09 08:45:08.814 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:45:08.817 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:45:09.306 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:45:09.308 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:45:09.308 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:45:09.308 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:45:09.309 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:45:09.310 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:45:09.313 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:45:09.313 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:45:09.314 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:45:09.316 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:45:09.316 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:45:09.397 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:45:09.429 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@6f865f3: startup date [Tue Jan 09 08:45:07 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@49dce8eb
+2018-01-09 08:45:09.810 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:45:09.918 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:45:09.999 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:45:10.001 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:45:10.001 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:45:10.004 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:45:10.004 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:45:10.072 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:45:10.079 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:45:10.080 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:45:10.081 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:45:10.082 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:45:10.092 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:45:10.099 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=6f865f3,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:45:10.245 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:45:10.245 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:45:10.257 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:45:10.266 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:45:10.285 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:45:10.291 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:45:10.299 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:45:10.312 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:45:10.316 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.798 seconds (JVM running for 4.33)
+2018-01-09 08:45:14.523 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:45:14.529 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:45:14.529 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:45:14.547 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-01-09 08:45:14.800 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@1c6376ba]
+2018-01-09 08:45:14.899 [http-nio-8080-exec-1] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core._TemplateModelException: Can't convert the date-like value to string because it isn't known if it's a date (no time part), time or date-time value.
+The blamed expression:
+==> p.gmtCreate  [in template "article/articletype.ftl" at line 787, column 55]
+
+----
+Tip: Use ?date, ?time, or ?datetime to tell FreeMarker the exact type.
+----
+Tip: If you need a particular format only once, use ?string(pattern), like ?string('dd.MM.yyyy HH:mm:ss'), to specify which fields to display. 
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmtCreate}  [in template "article/articletype.ftl" at line 787, column 53]
+----
+	at freemarker.core.MessageUtil.newCantFormatUnknownTypeDateException(MessageUtil.java:296)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1631)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1616)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:380)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: freemarker.core.UnknownDateTypeFormattingUnsupportedException: Can't convert the date-like value to string because it isn't known if it's a date (no time part), time or date-time value.
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1693)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1463)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1629)
+	... 56 common frames omitted
+2018-01-09 08:45:14.907 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core._TemplateModelException: Can't convert the date-like value to string because it isn't known if it's a date (no time part), time or date-time value.
+The blamed expression:
+==> p.gmtCreate  [in template "article/articletype.ftl" at line 787, column 55]
+
+----
+Tip: Use ?date, ?time, or ?datetime to tell FreeMarker the exact type.
+----
+Tip: If you need a particular format only once, use ?string(pattern), like ?string('dd.MM.yyyy HH:mm:ss'), to specify which fields to display. 
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmtCreate}  [in template "article/articletype.ftl" at line 787, column 53]
+----] with root cause
+freemarker.core.UnknownDateTypeFormattingUnsupportedException: Can't convert the date-like value to string because it isn't known if it's a date (no time part), time or date-time value.
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1693)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1463)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1629)
+	at freemarker.core.Environment.getTemplateDateFormat(Environment.java:1616)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:380)
+	at freemarker.core.EvalUtil.coerceModelToStringOrMarkup(EvalUtil.java:358)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:50:28.688 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@35b1d286: startup date [Tue Jan 09 08:50:28 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:50:28.843 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:50:28.842 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:50:28.872 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d821bdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:50:29.143 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:50:29.152 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f4e7cbe: startup date [Tue Jan 09 08:50:29 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@35b1d286
+2018-01-09 08:50:29.847 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:50:29.929 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:50:30.001 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:50:30.011 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:50:30.078 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bc07babf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:50:30.103 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d821bdbc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:50:30.420 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:50:30.427 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:50:30.427 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:50:30.511 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:50:30.512 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1360 ms
+2018-01-09 08:50:30.585 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:50:30.588 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:50:31.098 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:50:31.100 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:50:31.101 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:50:31.101 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:50:31.101 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:50:31.103 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:50:31.106 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:50:31.107 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:50:31.107 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:50:31.109 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:50:31.109 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:50:31.196 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:50:31.231 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@f4e7cbe: startup date [Tue Jan 09 08:50:29 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@35b1d286
+2018-01-09 08:50:31.588 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:50:31.702 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:50:31.794 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:50:31.796 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:50:31.797 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:50:31.800 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:50:31.800 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:50:31.866 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:50:31.873 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:50:31.873 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:50:31.874 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:50:31.876 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:50:31.885 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:50:31.892 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=f4e7cbe,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:50:32.044 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:50:32.044 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:50:32.057 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:50:32.068 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:50:32.089 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:50:32.096 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:50:32.104 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:50:32.116 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:50:32.121 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.921 seconds (JVM running for 4.488)
+2018-01-09 08:54:45.628 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:54:45.634 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:54:45.634 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:54:45.655 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms
+2018-01-09 08:54:45.927 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@fc7b6e3]
+2018-01-09 08:54:46.060 [http-nio-8080-exec-1] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToPlainText(EvalUtil.java:442)
+	at freemarker.core.Expression.evalAndCoerceToPlainText(Expression.java:101)
+	at freemarker.core.BuiltInsForMultipleTypes$dateBI._eval(BuiltInsForMultipleTypes.java:244)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:54:46.066 [http-nio-8080-exec-1] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToPlainText(EvalUtil.java:442)
+	at freemarker.core.Expression.evalAndCoerceToPlainText(Expression.java:101)
+	at freemarker.core.BuiltInsForMultipleTypes$dateBI._eval(BuiltInsForMultipleTypes.java:244)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:54:48.686 [http-nio-8080-exec-2] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@34273aaa]
+2018-01-09 08:54:48.696 [http-nio-8080-exec-2] ERROR freemarker.runtime 59- Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToPlainText(EvalUtil.java:442)
+	at freemarker.core.Expression.evalAndCoerceToPlainText(Expression.java:101)
+	at freemarker.core.BuiltInsForMultipleTypes$dateBI._eval(BuiltInsForMultipleTypes.java:244)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:54:48.701 [http-nio-8080-exec-2] ERROR o.a.c.c.C.[.[localhost].[/].[dispatcherServlet] 181- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> p.gmt_modified  [in template "article/articletype.ftl" at line 788, column 55]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: ${p.gmt_modified?time}  [in template "article/articletype.ftl" at line 788, column 53]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.EvalUtil.coerceModelToTextualCommon(EvalUtil.java:467)
+	at freemarker.core.EvalUtil.coerceModelToPlainText(EvalUtil.java:442)
+	at freemarker.core.Expression.evalAndCoerceToPlainText(Expression.java:101)
+	at freemarker.core.BuiltInsForMultipleTypes$dateBI._eval(BuiltInsForMultipleTypes.java:244)
+	at freemarker.core.Expression.eval(Expression.java:83)
+	at freemarker.core.DollarVariable.calculateInterpolatedStringOrMarkup(DollarVariable.java:96)
+	at freemarker.core.DollarVariable.accept(DollarVariable.java:59)
+	at freemarker.core.Environment.visit(Environment.java:361)
+	at freemarker.core.IteratorBlock$IterationContext.executedNestedContentForCollOrSeqListing(IteratorBlock.java:317)
+	at freemarker.core.IteratorBlock$IterationContext.executeNestedContent(IteratorBlock.java:271)
+	at freemarker.core.IteratorBlock$IterationContext.accept(IteratorBlock.java:242)
+	at freemarker.core.Environment.visitIteratorBlock(Environment.java:635)
+	at freemarker.core.IteratorBlock.acceptWithResult(IteratorBlock.java:107)
+	at freemarker.core.IteratorBlock.accept(IteratorBlock.java:93)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-09 08:59:08.172 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352: startup date [Tue Jan 09 08:59:08 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 08:59:08.364 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:59:08.399 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$a95225f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:59:08.458 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 08:59:08.714 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 08:59:08.723 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b653840: startup date [Tue Jan 09 08:59:08 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352
+2018-01-09 08:59:09.431 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 08:59:09.516 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 08:59:09.596 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 08:59:09.605 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 08:59:09.670 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8d3822f7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:59:09.693 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$a95225f4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 08:59:09.991 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 08:59:09.998 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 08:59:09.998 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 08:59:10.077 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 08:59:10.077 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1354 ms
+2018-01-09 08:59:10.154 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 08:59:10.157 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 08:59:10.665 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 08:59:10.666 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 08:59:10.667 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 08:59:10.667 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 08:59:10.667 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 08:59:10.669 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 08:59:10.672 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 08:59:10.672 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 08:59:10.673 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 08:59:10.675 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 08:59:10.675 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 08:59:10.757 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 08:59:10.788 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b653840: startup date [Tue Jan 09 08:59:08 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352
+2018-01-09 08:59:11.157 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 08:59:11.265 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 08:59:11.348 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 08:59:11.350 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:59:11.350 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:59:11.353 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 08:59:11.353 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 08:59:11.422 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 08:59:11.428 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 08:59:11.429 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 08:59:11.430 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 08:59:11.432 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 08:59:11.441 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 08:59:11.448 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=b653840,type=ConfigurationPropertiesRebinder]
+2018-01-09 08:59:11.595 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 08:59:11.596 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 08:59:11.607 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 08:59:11.616 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 08:59:11.635 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:59:11.642 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 08:59:11.650 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 08:59:11.662 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 08:59:11.666 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.907 seconds (JVM running for 4.488)
+2018-01-09 08:59:30.144 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 08:59:30.150 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 08:59:30.150 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 08:59:30.163 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-01-09 08:59:30.411 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@3b28e5e8]
+2018-01-09 09:00:40.416 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@54a16ba6: startup date [Tue Jan 09 09:00:40 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 09:00:40.500 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 09:00:40.560 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 09:00:40.585 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$4b057782] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:00:40.859 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 09:00:40.868 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ccf0bb2: startup date [Tue Jan 09 09:00:40 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@54a16ba6
+2018-01-09 09:00:41.550 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 09:00:41.637 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 09:00:41.707 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 09:00:41.718 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 09:00:41.787 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$2eeb7485] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:00:41.808 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$4b057782] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:00:42.086 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 09:00:42.092 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 09:00:42.093 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 09:00:42.168 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 09:00:42.168 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1300 ms
+2018-01-09 09:00:42.239 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 09:00:42.242 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 09:00:42.729 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 09:00:42.731 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 09:00:42.731 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 09:00:42.731 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 09:00:42.731 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 09:00:42.733 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 09:00:42.735 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 09:00:42.736 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 09:00:42.736 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 09:00:42.739 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 09:00:42.739 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 09:00:42.820 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 09:00:42.851 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ccf0bb2: startup date [Tue Jan 09 09:00:40 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@54a16ba6
+2018-01-09 09:00:43.197 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 09:00:43.304 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 09:00:43.384 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 09:00:43.386 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 09:00:43.386 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 09:00:43.389 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 09:00:43.389 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 09:00:43.459 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 09:00:43.466 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 09:00:43.467 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 09:00:43.467 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 09:00:43.469 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 09:00:43.478 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 09:00:43.486 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=5ccf0bb2,type=ConfigurationPropertiesRebinder]
+2018-01-09 09:00:43.631 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 09:00:43.632 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 09:00:43.642 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 09:00:43.652 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 09:00:43.671 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 09:00:43.678 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 09:00:43.686 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 09:00:43.698 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 09:00:43.702 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 3.753 seconds (JVM running for 4.434)
+2018-01-09 09:00:48.452 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 09:00:48.457 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 09:00:48.457 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 09:00:48.470 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-01-09 09:00:48.689 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@4d101f04]
+2018-01-09 09:09:21.396 [http-nio-8080-exec-8] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@18f110f3]
+2018-01-09 09:17:42.230 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352: startup date [Tue Jan 09 09:17:42 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 09:17:42.301 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 09:17:42.356 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 09:17:42.381 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$63374eed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:17:42.650 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 09:17:42.658 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@59286c76: startup date [Tue Jan 09 09:17:42 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352
+2018-01-09 09:17:43.326 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 09:17:43.405 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 09:17:43.473 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 09:17:43.484 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 09:17:43.547 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$471d4bf0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:17:43.568 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$63374eed] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 09:17:43.841 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 09:17:43.847 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 09:17:43.848 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 09:17:43.921 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 09:17:43.922 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1264 ms
+2018-01-09 09:17:43.994 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 09:17:43.997 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 09:17:44.508 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 09:17:44.509 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 09:17:44.509 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 09:17:44.510 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 09:17:44.510 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 09:17:44.512 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 09:17:44.514 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 09:17:44.515 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 09:17:44.516 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 09:17:44.518 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 09:17:44.518 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 09:17:44.604 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 09:17:44.638 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@59286c76: startup date [Tue Jan 09 09:17:42 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@3bad6352
+2018-01-09 09:17:44.992 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 09:17:45.105 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 09:17:45.187 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 09:17:45.190 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 09:17:45.190 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 09:17:45.193 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 09:17:45.193 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 09:17:45.259 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 09:17:45.266 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 09:17:45.267 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 09:17:45.268 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 09:17:45.270 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 09:17:45.279 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 09:17:45.286 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=59286c76,type=ConfigurationPropertiesRebinder]
+2018-01-09 09:17:45.431 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 09:17:45.431 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 09:17:45.443 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 09:17:45.454 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 09:17:45.472 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 09:17:45.477 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 09:17:45.485 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 09:17:45.498 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 09:17:45.502 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 4.508 seconds (JVM running for 5.196)
+2018-01-09 09:17:56.201 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 09:17:56.206 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 09:17:56.206 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 09:17:56.218 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 12 ms
+2018-01-09 09:17:56.446 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@47b4ee3c]
+2018-01-09 09:22:55.986 [http-nio-8080-exec-8] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/article/tables.html] in DispatcherServlet with name 'dispatcherServlet'
+2018-01-09 15:43:47.636 [restartedMain] INFO  o.s.c.a.AnnotationConfigApplicationContext 583- Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@592d19bc: startup date [Tue Jan 09 15:43:47 GMT+08:00 2018]; root of context hierarchy
+2018-01-09 15:43:47.702 [background-preinit] INFO  org.hibernate.validator.internal.util.Version 30- HV000001: Hibernate Validator 5.3.6.Final
+2018-01-09 15:43:47.882 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 15:43:47.914 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c291b9a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 15:43:48.228 [restartedMain] INFO  com.csjscm.VicidataApplication 593- No active profile set, falling back to default profiles: default
+2018-01-09 15:43:48.236 [restartedMain] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext 583- Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@653f2804: startup date [Tue Jan 09 15:43:48 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@592d19bc
+2018-01-09 15:43:48.967 [restartedMain] WARN  org.mybatis.spring.mapper.ClassPathMapperScanner 166- No MyBatis mapper was found in '[com.csjscm.mysqldata.controller, com.csjscm.mysqldata]' package. Please check your configuration.
+2018-01-09 15:43:49.051 [restartedMain] WARN  o.s.c.annotation.ConfigurationClassPostProcessor 373- Cannot enhance @Configuration bean definition 'mysqlDataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-09 15:43:49.122 [restartedMain] INFO  o.springframework.cloud.context.scope.GenericScope 263- BeanFactory id=f17d6a7f-3339-31d1-a871-5f32f8741848
+2018-01-09 15:43:49.132 [restartedMain] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor 155- JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-09 15:43:49.203 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a677b6a4] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 15:43:49.225 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker 327- Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c291b9a1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-09 15:43:49.534 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 89- Tomcat initialized with port(s): 8080 (http)
+2018-01-09 15:43:49.542 [restartedMain] INFO  org.apache.catalina.core.StandardService 179- Starting service [Tomcat]
+2018-01-09 15:43:49.542 [restartedMain] INFO  org.apache.catalina.core.StandardEngine 179- Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-09 15:43:49.622 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring embedded WebApplicationContext
+2018-01-09 15:43:49.622 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader 276- Root WebApplicationContext: initialization completed in 1386 ms
+2018-01-09 15:43:49.695 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean 190- Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-09 15:43:49.698 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean 258- Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-09 15:43:50.252 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/article/toarticle]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.articlecontroller.ArticleController.toArticle()
+2018-01-09 15:43:50.253 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/userlogin],methods=[GET]}" onto public java.util.List<com.csjscm.mysqldata.model.UserModel> com.csjscm.mysqldata.controller.UserController.selectUser()
+2018-01-09 15:43:50.254 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/view1],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.viewex()
+2018-01-09 15:43:50.254 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/tologin],methods=[GET]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.toLogin()
+2018-01-09 15:43:50.254 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/user/backlogin],methods=[POST]}" onto public org.springframework.web.servlet.ModelAndView com.csjscm.mysqldata.controller.UserController.backLogin()
+2018-01-09 15:43:50.257 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/v2/api-docs],methods=[GET],produces=[application/json || application/hal+json]}" onto public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)
+2018-01-09 15:43:50.259 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/ui]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.UiConfiguration> springfox.documentation.swagger.web.ApiResourceController.uiConfiguration()
+2018-01-09 15:43:50.260 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources]}" onto org.springframework.http.ResponseEntity<java.util.List<springfox.documentation.swagger.web.SwaggerResource>> springfox.documentation.swagger.web.ApiResourceController.swaggerResources()
+2018-01-09 15:43:50.261 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/swagger-resources/configuration/security]}" onto org.springframework.http.ResponseEntity<springfox.documentation.swagger.web.SecurityConfiguration> springfox.documentation.swagger.web.ApiResourceController.securityConfiguration()
+2018-01-09 15:43:50.262 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-09 15:43:50.263 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping 543- Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-09 15:43:50.365 [restartedMain] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping 362- Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-09 15:43:50.397 [restartedMain] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter 534- Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@653f2804: startup date [Tue Jan 09 15:43:48 GMT+08:00 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@592d19bc
+2018-01-09 15:43:50.752 [restartedMain] INFO  o.s.w.servlet.view.freemarker.FreeMarkerConfigurer 127- ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-09 15:43:50.873 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer 58- LiveReload server is running on port 35729
+2018-01-09 15:43:50.960 [restartedMain] WARN  o.s.c.netflix.archaius.ArchaiusAutoConfiguration 138- No spring.application.name found, defaulting to 'application'
+2018-01-09 15:43:50.962 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 15:43:50.963 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 15:43:50.966 [restartedMain] WARN  com.netflix.config.sources.URLConfigurationSource 121- No URLs will be polled as dynamic configuration sources.
+2018-01-09 15:43:50.966 [restartedMain] INFO  com.netflix.config.sources.URLConfigurationSource 122- To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2018-01-09 15:43:51.035 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 431- Registering beans for JMX exposure on startup
+2018-01-09 15:43:51.042 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-01-09 15:43:51.043 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-01-09 15:43:51.043 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 916- Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-01-09 15:43:51.045 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-01-09 15:43:51.054 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-01-09 15:43:51.061 [restartedMain] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter 678- Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=653f2804,type=ConfigurationPropertiesRebinder]
+2018-01-09 15:43:51.214 [restartedMain] INFO  o.s.context.support.DefaultLifecycleProcessor 343- Starting beans in phase 2147483647
+2018-01-09 15:43:51.214 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 120- Context refreshed
+2018-01-09 15:43:51.228 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper 123- Found 1 custom documentation plugin(s)
+2018-01-09 15:43:51.240 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner 41- Scanning for api listing references
+2018-01-09 15:43:51.263 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-09 15:43:51.271 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol 179- Starting ProtocolHandler ["http-nio-8080"]
+2018-01-09 15:43:51.278 [restartedMain] INFO  org.apache.tomcat.util.net.NioSelectorPool 179- Using a shared selector for servlet write/read
+2018-01-09 15:43:51.291 [restartedMain] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer 201- Tomcat started on port(s): 8080 (http)
+2018-01-09 15:43:51.294 [restartedMain] INFO  com.csjscm.VicidataApplication 57- Started VicidataApplication in 4.372 seconds (JVM running for 5.137)
+2018-01-09 15:45:16.142 [http-nio-8080-exec-1] INFO  org.apache.tomcat.util.http.parser.Cookie 179- A cookie header was received [1514507499,1514855453,1514944390; Hm_lvt_86670fd75a12201bcdcefac1e98b076f=1514432269,1514507499,1514855453,1514944390; UM_distinctid=160d339257b548-078d2d863b0112-6f16107f-1fa400-160d339257ca90; CNZZDATA155540=cnzz_eid%3D1094665924-1515372020-%26ntime%3D1515458455] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+2018-01-09 15:45:16.148 [http-nio-8080-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] 179- Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-09 15:45:16.149 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 489- FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-09 15:45:16.167 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet 508- FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-01-09 15:45:20.952 [http-nio-8080-exec-1] INFO  c.q.q.c.articlecontroller.ArticleController 29- articleTypesList[com.csjscm.mysqldata.model.ArticleType@55a214be]
+2018-01-09 16:45:22.854 [http-nio-8080-exec-3] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/ServiceAction/com.eweaver.customaction.servlet.TestCustomTimeoutReminderAction] in DispatcherServlet with name 'dispatcherServlet'
+2018-01-09 16:45:50.741 [http-nio-8080-exec-1] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/ServiceAction/com.eweaver.customaction.servlet.TestCustomTimeoutReminderAction] in DispatcherServlet with name 'dispatcherServlet'
+2018-01-09 16:46:31.190 [http-nio-8080-exec-7] WARN  org.springframework.web.servlet.PageNotFound 1176- No mapping found for HTTP request with URI [/ServiceAction/com.eweaver.customaction.servlet;TestCustomTimeoutReminderAction] in DispatcherServlet with name 'dispatcherServlet'

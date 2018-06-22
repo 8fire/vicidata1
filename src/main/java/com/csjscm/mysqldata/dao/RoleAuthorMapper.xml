@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.RoleAuthorMapper">
+    <resultMap id="RoleAuthorMap" type="com.csjscm.mysqldata.model.RoleAuth">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="authorization_type" jdbcType="VARCHAR" property="authorizationType" />
+        <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+        <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+        <association property="authorizationsList" column="authorization_id" javaType="com.csjscm.mysqldata.model.Authorizations">
+            <id property="id" jdbcType="INTEGER"  column="id" />
+            <result column="parent_tr_id" jdbcType="INTEGER" property="parentTrId" />
+            <result column="authorization_name" jdbcType="VARCHAR" property="authorizationName" />
+            <result column="description" jdbcType="VARCHAR" property="description" />
+            <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+            <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+            <result column="status" jdbcType="INTEGER" property="status" />
+            <result column="creater" jdbcType="VARCHAR" property="creater" />
+        </association>
+    </resultMap>
+    <sql id="Query_Where">
+        <where>
+            <if test="id !=null">
+                and r.id=#{id,jdbcType=INTEGER}
+            </if>
+            <if test="status !=null">
+                and r.status=#{status,jdbcType=INTEGER}
+            </if>
+            <if test="roleId !=null">
+                and r.role_id=#{roleId,jdbcType=INTEGER}
+            </if>
+            <if test="authorizationId !=null">
+                and r.authorization_id=#{authorizationId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </sql>
+
+    <select id="queryForWhere" resultMap="RoleAuthorMap" parameterType="java.util.Map">
+        select * from role_authorization r
+        LEFT JOIN authorizations a on r.authorization_id=a.id
+        <include refid="Query_Where"/>
+    </select>
+</mapper>

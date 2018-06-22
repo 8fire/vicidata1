@@ -10,14 +10,15 @@
 </head>
 <body>
 <article class="page-container">
-	<form action="../user/saveAdminRole.html" method="post" class="form form-horizontal" id="form-admin-role-add">
+	<form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
 					  <#if mvMap.list?exists>
 					      <#list mvMap.list as p>
                               <input type="text" class="input-text" value="${p.login_phone}" name="login_phone" readonly="readonly">
-                              <input type="hidden" class="input-text" value="${p.id}"  name="id">
+                              <input type="hidden" class="input-text" value="${p.id}"  name="uid">
+                              <input type="hidden" class="input-text" value="${mvMap.id}"  name="id">
 					      </#list>
 					  </#if>
             </div>
@@ -181,9 +182,26 @@ $(function(){
 		focusCleanup:true,
 		success:"valid",
 		submitHandler:function(form){
-			$(form).ajaxSubmit();
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.layer.close(index);
+			$(form).ajaxSubmit({
+                type: 'post',
+                url: "../user/saveAdminRole.html",
+                success: function(data){
+                /*    var stringify = JSON.stringify(data);
+                    alert(stringify);*/
+                    if(data.code=='200'){
+                        layer.msg('修改成功!',{icon:1,time:1000});
+                        window.parent.location.reload();
+                    }else {
+                        layer.msg('修改失败!',{icon:0,time:1000});
+                    }
+
+                },
+                error: function(){
+                    layer.msg('error!',{icon:1,time:1000});
+                }
+            });
+	/*		var index = parent.layer.getFrameIndex(window.name);
+			parent.layer.close(index);*/
 		}
 	});
 });

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.PaymentMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.Payment">
+    <id column="TICKETNO" jdbcType="VARCHAR" property="ticketno" />
+    <result column="PURCHORDER" jdbcType="VARCHAR" property="purchorder" />
+    <result column="FUNDNATURE" jdbcType="DECIMAL" property="fundnature" />
+    <result column="SETTLEMENTMETHOD" jdbcType="DECIMAL" property="settlementmethod" />
+    <result column="PAYER" jdbcType="VARCHAR" property="payer" />
+    <result column="PAYERNAME" jdbcType="VARCHAR" property="payername" />
+    <result column="RECEIVABLES" jdbcType="VARCHAR" property="receivables" />
+    <result column="RECEIVABLESNAME" jdbcType="VARCHAR" property="receivablesname" />
+    <result column="PAYAMOUNT" jdbcType="VARCHAR" property="payamount" />
+    <result column="PAYDATE" jdbcType="VARCHAR" property="paydate" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CREATEUSER" jdbcType="VARCHAR" property="createuser" />
+    <result column="CREATEDATE" jdbcType="VARCHAR" property="createdate" />
+    <result column="CHECKUSER" jdbcType="VARCHAR" property="checkuser" />
+    <result column="CHECKDATE" jdbcType="VARCHAR" property="checkdate" />
+    <result column="CHECKADVICE" jdbcType="VARCHAR" property="checkadvice" />
+    <result column="ENCLOSURE" jdbcType="VARCHAR" property="enclosure" />
+    <result column="MEMOS" jdbcType="VARCHAR" property="memos" />
+    <result column="ENTERPRICE" jdbcType="VARCHAR" property="enterprice" />
+    <result column="ENTERPRICENAME" jdbcType="VARCHAR" property="enterpricename" />
+    <result column="ISDELETE" jdbcType="DECIMAL" property="isdelete" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TICKETNO, PURCHORDER, FUNDNATURE, SETTLEMENTMETHOD, PAYER, PAYERNAME, RECEIVABLES, 
+    RECEIVABLESNAME, PAYAMOUNT, PAYDATE, STATUS, CREATEUSER, CREATEDATE, CHECKUSER, CHECKDATE, 
+    CHECKADVICE, ENCLOSURE, MEMOS, ENTERPRICE, ENTERPRICENAME, ISDELETE
+  </sql>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.PaymentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from PAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PAYMENT
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PAYMENT
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.PaymentExample">
+    delete from PAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.Payment">
+    insert into PAYMENT (TICKETNO, PURCHORDER, FUNDNATURE, 
+      SETTLEMENTMETHOD, PAYER, PAYERNAME, 
+      RECEIVABLES, RECEIVABLESNAME, PAYAMOUNT, 
+      PAYDATE, STATUS, CREATEUSER, 
+      CREATEDATE, CHECKUSER, CHECKDATE, 
+      CHECKADVICE, ENCLOSURE, MEMOS, 
+      ENTERPRICE, ENTERPRICENAME, ISDELETE
+      )
+    values (#{ticketno,jdbcType=VARCHAR}, #{purchorder,jdbcType=VARCHAR}, #{fundnature,jdbcType=DECIMAL}, 
+      #{settlementmethod,jdbcType=DECIMAL}, #{payer,jdbcType=VARCHAR}, #{payername,jdbcType=VARCHAR}, 
+      #{receivables,jdbcType=VARCHAR}, #{receivablesname,jdbcType=VARCHAR}, #{payamount,jdbcType=VARCHAR}, 
+      #{paydate,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, #{createuser,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=VARCHAR}, #{checkuser,jdbcType=VARCHAR}, #{checkdate,jdbcType=VARCHAR}, 
+      #{checkadvice,jdbcType=VARCHAR}, #{enclosure,jdbcType=VARCHAR}, #{memos,jdbcType=VARCHAR}, 
+      #{enterprice,jdbcType=VARCHAR}, #{enterpricename,jdbcType=VARCHAR}, #{isdelete,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.Payment">
+    insert into PAYMENT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        TICKETNO,
+      </if>
+      <if test="purchorder != null">
+        PURCHORDER,
+      </if>
+      <if test="fundnature != null">
+        FUNDNATURE,
+      </if>
+      <if test="settlementmethod != null">
+        SETTLEMENTMETHOD,
+      </if>
+      <if test="payer != null">
+        PAYER,
+      </if>
+      <if test="payername != null">
+        PAYERNAME,
+      </if>
+      <if test="receivables != null">
+        RECEIVABLES,
+      </if>
+      <if test="receivablesname != null">
+        RECEIVABLESNAME,
+      </if>
+      <if test="payamount != null">
+        PAYAMOUNT,
+      </if>
+      <if test="paydate != null">
+        PAYDATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER,
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE,
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE,
+      </if>
+      <if test="enclosure != null">
+        ENCLOSURE,
+      </if>
+      <if test="memos != null">
+        MEMOS,
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE,
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        #{ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="purchorder != null">
+        #{purchorder,jdbcType=VARCHAR},
+      </if>
+      <if test="fundnature != null">
+        #{fundnature,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementmethod != null">
+        #{settlementmethod,jdbcType=DECIMAL},
+      </if>
+      <if test="payer != null">
+        #{payer,jdbcType=VARCHAR},
+      </if>
+      <if test="payername != null">
+        #{payername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivables != null">
+        #{receivables,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesname != null">
+        #{receivablesname,jdbcType=VARCHAR},
+      </if>
+      <if test="payamount != null">
+        #{payamount,jdbcType=VARCHAR},
+      </if>
+      <if test="paydate != null">
+        #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="enclosure != null">
+        #{enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="memos != null">
+        #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.PaymentExample" resultType="java.lang.Long">
+    select count(*) from PAYMENT
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update PAYMENT
+    <set>
+      <if test="record.ticketno != null">
+        TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchorder != null">
+        PURCHORDER = #{record.purchorder,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundnature != null">
+        FUNDNATURE = #{record.fundnature,jdbcType=DECIMAL},
+      </if>
+      <if test="record.settlementmethod != null">
+        SETTLEMENTMETHOD = #{record.settlementmethod,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payer != null">
+        PAYER = #{record.payer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payername != null">
+        PAYERNAME = #{record.payername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivables != null">
+        RECEIVABLES = #{record.receivables,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receivablesname != null">
+        RECEIVABLESNAME = #{record.receivablesname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payamount != null">
+        PAYAMOUNT = #{record.payamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paydate != null">
+        PAYDATE = #{record.paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkuser != null">
+        CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkdate != null">
+        CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkadvice != null">
+        CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enclosure != null">
+        ENCLOSURE = #{record.enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memos != null">
+        MEMOS = #{record.memos,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprice != null">
+        ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpricename != null">
+        ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdelete != null">
+        ISDELETE = #{record.isdelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update PAYMENT
+    set TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      PURCHORDER = #{record.purchorder,jdbcType=VARCHAR},
+      FUNDNATURE = #{record.fundnature,jdbcType=DECIMAL},
+      SETTLEMENTMETHOD = #{record.settlementmethod,jdbcType=DECIMAL},
+      PAYER = #{record.payer,jdbcType=VARCHAR},
+      PAYERNAME = #{record.payername,jdbcType=VARCHAR},
+      RECEIVABLES = #{record.receivables,jdbcType=VARCHAR},
+      RECEIVABLESNAME = #{record.receivablesname,jdbcType=VARCHAR},
+      PAYAMOUNT = #{record.payamount,jdbcType=VARCHAR},
+      PAYDATE = #{record.paydate,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=DECIMAL},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      ENCLOSURE = #{record.enclosure,jdbcType=VARCHAR},
+      MEMOS = #{record.memos,jdbcType=VARCHAR},
+      ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      ISDELETE = #{record.isdelete,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.Payment">
+    update PAYMENT
+    <set>
+      <if test="purchorder != null">
+        PURCHORDER = #{purchorder,jdbcType=VARCHAR},
+      </if>
+      <if test="fundnature != null">
+        FUNDNATURE = #{fundnature,jdbcType=DECIMAL},
+      </if>
+      <if test="settlementmethod != null">
+        SETTLEMENTMETHOD = #{settlementmethod,jdbcType=DECIMAL},
+      </if>
+      <if test="payer != null">
+        PAYER = #{payer,jdbcType=VARCHAR},
+      </if>
+      <if test="payername != null">
+        PAYERNAME = #{payername,jdbcType=VARCHAR},
+      </if>
+      <if test="receivables != null">
+        RECEIVABLES = #{receivables,jdbcType=VARCHAR},
+      </if>
+      <if test="receivablesname != null">
+        RECEIVABLESNAME = #{receivablesname,jdbcType=VARCHAR},
+      </if>
+      <if test="payamount != null">
+        PAYAMOUNT = #{payamount,jdbcType=VARCHAR},
+      </if>
+      <if test="paydate != null">
+        PAYDATE = #{paydate,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="enclosure != null">
+        ENCLOSURE = #{enclosure,jdbcType=VARCHAR},
+      </if>
+      <if test="memos != null">
+        MEMOS = #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.Payment">
+    update PAYMENT
+    set PURCHORDER = #{purchorder,jdbcType=VARCHAR},
+      FUNDNATURE = #{fundnature,jdbcType=DECIMAL},
+      SETTLEMENTMETHOD = #{settlementmethod,jdbcType=DECIMAL},
+      PAYER = #{payer,jdbcType=VARCHAR},
+      PAYERNAME = #{payername,jdbcType=VARCHAR},
+      RECEIVABLES = #{receivables,jdbcType=VARCHAR},
+      RECEIVABLESNAME = #{receivablesname,jdbcType=VARCHAR},
+      PAYAMOUNT = #{payamount,jdbcType=VARCHAR},
+      PAYDATE = #{paydate,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      ENCLOSURE = #{enclosure,jdbcType=VARCHAR},
+      MEMOS = #{memos,jdbcType=VARCHAR},
+      ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      ISDELETE = #{isdelete,jdbcType=DECIMAL}
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+</mapper>

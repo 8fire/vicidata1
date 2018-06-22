@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.CabinetOnlinePayMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.CabinetOnlinePay">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="REQUESTID" jdbcType="VARCHAR" property="requestid" />
+    <result column="NODEID" jdbcType="VARCHAR" property="nodeid" />
+    <result column="ROWINDEX" jdbcType="VARCHAR" property="rowindex" />
+    <result column="MERCHANTNAME" jdbcType="VARCHAR" property="merchantname" />
+    <result column="MERCHANTSEQ" jdbcType="VARCHAR" property="merchantseq" />
+    <result column="ORDERINFO" jdbcType="VARCHAR" property="orderinfo" />
+    <result column="VOUCHERNO" jdbcType="VARCHAR" property="voucherno" />
+    <result column="BANKTRADENO" jdbcType="VARCHAR" property="banktradeno" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="REFNO" jdbcType="VARCHAR" property="refno" />
+    <result column="BATCHNO" jdbcType="VARCHAR" property="batchno" />
+    <result column="CARDTYPE" jdbcType="VARCHAR" property="cardtype" />
+    <result column="CARDNO" jdbcType="VARCHAR" property="cardno" />
+    <result column="CBCODE" jdbcType="VARCHAR" property="cbcode" />
+    <result column="CARDNAME" jdbcType="VARCHAR" property="cardname" />
+    <result column="FEE" jdbcType="VARCHAR" property="fee" />
+    <result column="TRANSTYPE" jdbcType="VARCHAR" property="transtype" />
+    <result column="CUPTERMID" jdbcType="VARCHAR" property="cuptermid" />
+    <result column="CUPTSAMNO" jdbcType="VARCHAR" property="cuptsamno" />
+    <result column="CENTERINFO" jdbcType="VARCHAR" property="centerinfo" />
+    <result column="CENTERSEQID" jdbcType="VARCHAR" property="centerseqid" />
+    <result column="BANKORDERNO" jdbcType="VARCHAR" property="bankorderno" />
+    <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
+    <result column="TRANSDATE" jdbcType="VARCHAR" property="transdate" />
+    <result column="TRANSTIME" jdbcType="VARCHAR" property="transtime" />
+    <result column="TRADESTATUS" jdbcType="VARCHAR" property="tradestatus" />
+    <result column="SELECTTRADETYPE" jdbcType="VARCHAR" property="selecttradetype" />
+    <result column="PINGORDERID" jdbcType="VARCHAR" property="pingorderid" />
+    <result column="HBFQNUM" jdbcType="VARCHAR" property="hbfqnum" />
+    <result column="CSJROYALITYAMOUNT" jdbcType="VARCHAR" property="csjroyalityamount" />
+    <result column="CUSROYALITYAMOUNT" jdbcType="VARCHAR" property="cusroyalityamount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, REQUESTID, NODEID, ROWINDEX, MERCHANTNAME, MERCHANTSEQ, ORDERINFO, VOUCHERNO, 
+    BANKTRADENO, REMARK, REFNO, BATCHNO, CARDTYPE, CARDNO, CBCODE, CARDNAME, FEE, TRANSTYPE, 
+    CUPTERMID, CUPTSAMNO, CENTERINFO, CENTERSEQID, BANKORDERNO, AMOUNT, TRANSDATE, TRANSTIME, 
+    TRADESTATUS, SELECTTRADETYPE, PINGORDERID, HBFQNUM, CSJROYALITYAMOUNT, CUSROYALITYAMOUNT
+  </sql>
+  <select id="selectAll" resultType="com.csjscm.oracledata.model.CabinetOnlinePay">
+    select sl.objname selecttradetype,st.objname tradestatus,uc.id id, uc.requestid requestid, uc.merchantname merchantname, uc.merchantseq merchantseq, uc.orderinfo orderinfo, uc.voucherno voucherno,
+    uc.banktradeno banktradeno, uc.remark remark, uc.refno refno, uc.batchno batchno, uc.cardtype cardtype, uc.cardno cardno, uc.cbcode cbcode, uc.cardname cardname, uc.fee fee, uc.transtype transtype,
+    uc.cuptermid cuptermid, uc.cuptsamno cuptsamno, uc.centerinfo centerinfo, uc.centerseqid centerseqid, uc.bankorderno bankorderno, uc.amount amount, uc.transdate transdate, uc.transtime transtime,
+     uc.pingorderid pingorderid, uc.hbfqnum hbfqnum, uc.csjroyalityamount csjroyalityamount, uc.cusroyalityamount cusroyalityamount
+    from uf_cabinet_onlinepay uc
+    left join selectitem sl on uc.selecttradetype=sl.id
+    left join selectitem st on st.id=uc.tradestatus
+  </select>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.CabinetOnlinePayExample" resultMap="BaseResultMap">
+
+
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from UF_CABINET_ONLINEPAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from UF_CABINET_ONLINEPAY
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from UF_CABINET_ONLINEPAY
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.CabinetOnlinePayExample">
+    delete from UF_CABINET_ONLINEPAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.CabinetOnlinePay">
+    insert into UF_CABINET_ONLINEPAY (ID, REQUESTID, NODEID, 
+      ROWINDEX, MERCHANTNAME, MERCHANTSEQ, 
+      ORDERINFO, VOUCHERNO, BANKTRADENO, 
+      REMARK, REFNO, BATCHNO, 
+      CARDTYPE, CARDNO, CBCODE, 
+      CARDNAME, FEE, TRANSTYPE, 
+      CUPTERMID, CUPTSAMNO, CENTERINFO, 
+      CENTERSEQID, BANKORDERNO, AMOUNT, 
+      TRANSDATE, TRANSTIME, TRADESTATUS, 
+      SELECTTRADETYPE, PINGORDERID, HBFQNUM, 
+      CSJROYALITYAMOUNT, CUSROYALITYAMOUNT)
+    values (#{id,jdbcType=VARCHAR}, #{requestid,jdbcType=VARCHAR}, #{nodeid,jdbcType=VARCHAR}, 
+      #{rowindex,jdbcType=VARCHAR}, #{merchantname,jdbcType=VARCHAR}, #{merchantseq,jdbcType=VARCHAR}, 
+      #{orderinfo,jdbcType=VARCHAR}, #{voucherno,jdbcType=VARCHAR}, #{banktradeno,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{refno,jdbcType=VARCHAR}, #{batchno,jdbcType=VARCHAR}, 
+      #{cardtype,jdbcType=VARCHAR}, #{cardno,jdbcType=VARCHAR}, #{cbcode,jdbcType=VARCHAR}, 
+      #{cardname,jdbcType=VARCHAR}, #{fee,jdbcType=VARCHAR}, #{transtype,jdbcType=VARCHAR}, 
+      #{cuptermid,jdbcType=VARCHAR}, #{cuptsamno,jdbcType=VARCHAR}, #{centerinfo,jdbcType=VARCHAR}, 
+      #{centerseqid,jdbcType=VARCHAR}, #{bankorderno,jdbcType=VARCHAR}, #{amount,jdbcType=VARCHAR}, 
+      #{transdate,jdbcType=VARCHAR}, #{transtime,jdbcType=VARCHAR}, #{tradestatus,jdbcType=VARCHAR}, 
+      #{selecttradetype,jdbcType=VARCHAR}, #{pingorderid,jdbcType=VARCHAR}, #{hbfqnum,jdbcType=VARCHAR}, 
+      #{csjroyalityamount,jdbcType=VARCHAR}, #{cusroyalityamount,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.CabinetOnlinePay">
+    insert into UF_CABINET_ONLINEPAY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="requestid != null">
+        REQUESTID,
+      </if>
+      <if test="nodeid != null">
+        NODEID,
+      </if>
+      <if test="rowindex != null">
+        ROWINDEX,
+      </if>
+      <if test="merchantname != null">
+        MERCHANTNAME,
+      </if>
+      <if test="merchantseq != null">
+        MERCHANTSEQ,
+      </if>
+      <if test="orderinfo != null">
+        ORDERINFO,
+      </if>
+      <if test="voucherno != null">
+        VOUCHERNO,
+      </if>
+      <if test="banktradeno != null">
+        BANKTRADENO,
+      </if>
+      <if test="remark != null">
+        REMARK,
+      </if>
+      <if test="refno != null">
+        REFNO,
+      </if>
+      <if test="batchno != null">
+        BATCHNO,
+      </if>
+      <if test="cardtype != null">
+        CARDTYPE,
+      </if>
+      <if test="cardno != null">
+        CARDNO,
+      </if>
+      <if test="cbcode != null">
+        CBCODE,
+      </if>
+      <if test="cardname != null">
+        CARDNAME,
+      </if>
+      <if test="fee != null">
+        FEE,
+      </if>
+      <if test="transtype != null">
+        TRANSTYPE,
+      </if>
+      <if test="cuptermid != null">
+        CUPTERMID,
+      </if>
+      <if test="cuptsamno != null">
+        CUPTSAMNO,
+      </if>
+      <if test="centerinfo != null">
+        CENTERINFO,
+      </if>
+      <if test="centerseqid != null">
+        CENTERSEQID,
+      </if>
+      <if test="bankorderno != null">
+        BANKORDERNO,
+      </if>
+      <if test="amount != null">
+        AMOUNT,
+      </if>
+      <if test="transdate != null">
+        TRANSDATE,
+      </if>
+      <if test="transtime != null">
+        TRANSTIME,
+      </if>
+      <if test="tradestatus != null">
+        TRADESTATUS,
+      </if>
+      <if test="selecttradetype != null">
+        SELECTTRADETYPE,
+      </if>
+      <if test="pingorderid != null">
+        PINGORDERID,
+      </if>
+      <if test="hbfqnum != null">
+        HBFQNUM,
+      </if>
+      <if test="csjroyalityamount != null">
+        CSJROYALITYAMOUNT,
+      </if>
+      <if test="cusroyalityamount != null">
+        CUSROYALITYAMOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="requestid != null">
+        #{requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rowindex != null">
+        #{rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantname != null">
+        #{merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantseq != null">
+        #{merchantseq,jdbcType=VARCHAR},
+      </if>
+      <if test="orderinfo != null">
+        #{orderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherno != null">
+        #{voucherno,jdbcType=VARCHAR},
+      </if>
+      <if test="banktradeno != null">
+        #{banktradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refno != null">
+        #{refno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null">
+        #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null">
+        #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null">
+        #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="cbcode != null">
+        #{cbcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null">
+        #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="transtype != null">
+        #{transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="cuptermid != null">
+        #{cuptermid,jdbcType=VARCHAR},
+      </if>
+      <if test="cuptsamno != null">
+        #{cuptsamno,jdbcType=VARCHAR},
+      </if>
+      <if test="centerinfo != null">
+        #{centerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="centerseqid != null">
+        #{centerseqid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankorderno != null">
+        #{bankorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="transdate != null">
+        #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transtime != null">
+        #{transtime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradestatus != null">
+        #{tradestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="selecttradetype != null">
+        #{selecttradetype,jdbcType=VARCHAR},
+      </if>
+      <if test="pingorderid != null">
+        #{pingorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="hbfqnum != null">
+        #{hbfqnum,jdbcType=VARCHAR},
+      </if>
+      <if test="csjroyalityamount != null">
+        #{csjroyalityamount,jdbcType=VARCHAR},
+      </if>
+      <if test="cusroyalityamount != null">
+        #{cusroyalityamount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.CabinetOnlinePayExample" resultType="java.lang.Long">
+    select count(*) from UF_CABINET_ONLINEPAY
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update UF_CABINET_ONLINEPAY
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.requestid != null">
+        REQUESTID = #{record.requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nodeid != null">
+        NODEID = #{record.nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rowindex != null">
+        ROWINDEX = #{record.rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantname != null">
+        MERCHANTNAME = #{record.merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.merchantseq != null">
+        MERCHANTSEQ = #{record.merchantseq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderinfo != null">
+        ORDERINFO = #{record.orderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.voucherno != null">
+        VOUCHERNO = #{record.voucherno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.banktradeno != null">
+        BANKTRADENO = #{record.banktradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refno != null">
+        REFNO = #{record.refno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.batchno != null">
+        BATCHNO = #{record.batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardtype != null">
+        CARDTYPE = #{record.cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardno != null">
+        CARDNO = #{record.cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cbcode != null">
+        CBCODE = #{record.cbcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cardname != null">
+        CARDNAME = #{record.cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fee != null">
+        FEE = #{record.fee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transtype != null">
+        TRANSTYPE = #{record.transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cuptermid != null">
+        CUPTERMID = #{record.cuptermid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cuptsamno != null">
+        CUPTSAMNO = #{record.cuptsamno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.centerinfo != null">
+        CENTERINFO = #{record.centerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.centerseqid != null">
+        CENTERSEQID = #{record.centerseqid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bankorderno != null">
+        BANKORDERNO = #{record.bankorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.amount != null">
+        AMOUNT = #{record.amount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transdate != null">
+        TRANSDATE = #{record.transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.transtime != null">
+        TRANSTIME = #{record.transtime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tradestatus != null">
+        TRADESTATUS = #{record.tradestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selecttradetype != null">
+        SELECTTRADETYPE = #{record.selecttradetype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pingorderid != null">
+        PINGORDERID = #{record.pingorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hbfqnum != null">
+        HBFQNUM = #{record.hbfqnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.csjroyalityamount != null">
+        CSJROYALITYAMOUNT = #{record.csjroyalityamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cusroyalityamount != null">
+        CUSROYALITYAMOUNT = #{record.cusroyalityamount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update UF_CABINET_ONLINEPAY
+    set ID = #{record.id,jdbcType=VARCHAR},
+      REQUESTID = #{record.requestid,jdbcType=VARCHAR},
+      NODEID = #{record.nodeid,jdbcType=VARCHAR},
+      ROWINDEX = #{record.rowindex,jdbcType=VARCHAR},
+      MERCHANTNAME = #{record.merchantname,jdbcType=VARCHAR},
+      MERCHANTSEQ = #{record.merchantseq,jdbcType=VARCHAR},
+      ORDERINFO = #{record.orderinfo,jdbcType=VARCHAR},
+      VOUCHERNO = #{record.voucherno,jdbcType=VARCHAR},
+      BANKTRADENO = #{record.banktradeno,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      REFNO = #{record.refno,jdbcType=VARCHAR},
+      BATCHNO = #{record.batchno,jdbcType=VARCHAR},
+      CARDTYPE = #{record.cardtype,jdbcType=VARCHAR},
+      CARDNO = #{record.cardno,jdbcType=VARCHAR},
+      CBCODE = #{record.cbcode,jdbcType=VARCHAR},
+      CARDNAME = #{record.cardname,jdbcType=VARCHAR},
+      FEE = #{record.fee,jdbcType=VARCHAR},
+      TRANSTYPE = #{record.transtype,jdbcType=VARCHAR},
+      CUPTERMID = #{record.cuptermid,jdbcType=VARCHAR},
+      CUPTSAMNO = #{record.cuptsamno,jdbcType=VARCHAR},
+      CENTERINFO = #{record.centerinfo,jdbcType=VARCHAR},
+      CENTERSEQID = #{record.centerseqid,jdbcType=VARCHAR},
+      BANKORDERNO = #{record.bankorderno,jdbcType=VARCHAR},
+      AMOUNT = #{record.amount,jdbcType=VARCHAR},
+      TRANSDATE = #{record.transdate,jdbcType=VARCHAR},
+      TRANSTIME = #{record.transtime,jdbcType=VARCHAR},
+      TRADESTATUS = #{record.tradestatus,jdbcType=VARCHAR},
+      SELECTTRADETYPE = #{record.selecttradetype,jdbcType=VARCHAR},
+      PINGORDERID = #{record.pingorderid,jdbcType=VARCHAR},
+      HBFQNUM = #{record.hbfqnum,jdbcType=VARCHAR},
+      CSJROYALITYAMOUNT = #{record.csjroyalityamount,jdbcType=VARCHAR},
+      CUSROYALITYAMOUNT = #{record.cusroyalityamount,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.CabinetOnlinePay">
+    update UF_CABINET_ONLINEPAY
+    <set>
+      <if test="requestid != null">
+        REQUESTID = #{requestid,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeid != null">
+        NODEID = #{nodeid,jdbcType=VARCHAR},
+      </if>
+      <if test="rowindex != null">
+        ROWINDEX = #{rowindex,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantname != null">
+        MERCHANTNAME = #{merchantname,jdbcType=VARCHAR},
+      </if>
+      <if test="merchantseq != null">
+        MERCHANTSEQ = #{merchantseq,jdbcType=VARCHAR},
+      </if>
+      <if test="orderinfo != null">
+        ORDERINFO = #{orderinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="voucherno != null">
+        VOUCHERNO = #{voucherno,jdbcType=VARCHAR},
+      </if>
+      <if test="banktradeno != null">
+        BANKTRADENO = #{banktradeno,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="refno != null">
+        REFNO = #{refno,jdbcType=VARCHAR},
+      </if>
+      <if test="batchno != null">
+        BATCHNO = #{batchno,jdbcType=VARCHAR},
+      </if>
+      <if test="cardtype != null">
+        CARDTYPE = #{cardtype,jdbcType=VARCHAR},
+      </if>
+      <if test="cardno != null">
+        CARDNO = #{cardno,jdbcType=VARCHAR},
+      </if>
+      <if test="cbcode != null">
+        CBCODE = #{cbcode,jdbcType=VARCHAR},
+      </if>
+      <if test="cardname != null">
+        CARDNAME = #{cardname,jdbcType=VARCHAR},
+      </if>
+      <if test="fee != null">
+        FEE = #{fee,jdbcType=VARCHAR},
+      </if>
+      <if test="transtype != null">
+        TRANSTYPE = #{transtype,jdbcType=VARCHAR},
+      </if>
+      <if test="cuptermid != null">
+        CUPTERMID = #{cuptermid,jdbcType=VARCHAR},
+      </if>
+      <if test="cuptsamno != null">
+        CUPTSAMNO = #{cuptsamno,jdbcType=VARCHAR},
+      </if>
+      <if test="centerinfo != null">
+        CENTERINFO = #{centerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="centerseqid != null">
+        CENTERSEQID = #{centerseqid,jdbcType=VARCHAR},
+      </if>
+      <if test="bankorderno != null">
+        BANKORDERNO = #{bankorderno,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null">
+        AMOUNT = #{amount,jdbcType=VARCHAR},
+      </if>
+      <if test="transdate != null">
+        TRANSDATE = #{transdate,jdbcType=VARCHAR},
+      </if>
+      <if test="transtime != null">
+        TRANSTIME = #{transtime,jdbcType=VARCHAR},
+      </if>
+      <if test="tradestatus != null">
+        TRADESTATUS = #{tradestatus,jdbcType=VARCHAR},
+      </if>
+      <if test="selecttradetype != null">
+        SELECTTRADETYPE = #{selecttradetype,jdbcType=VARCHAR},
+      </if>
+      <if test="pingorderid != null">
+        PINGORDERID = #{pingorderid,jdbcType=VARCHAR},
+      </if>
+      <if test="hbfqnum != null">
+        HBFQNUM = #{hbfqnum,jdbcType=VARCHAR},
+      </if>
+      <if test="csjroyalityamount != null">
+        CSJROYALITYAMOUNT = #{csjroyalityamount,jdbcType=VARCHAR},
+      </if>
+      <if test="cusroyalityamount != null">
+        CUSROYALITYAMOUNT = #{cusroyalityamount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.CabinetOnlinePay">
+    update UF_CABINET_ONLINEPAY
+    set REQUESTID = #{requestid,jdbcType=VARCHAR},
+      NODEID = #{nodeid,jdbcType=VARCHAR},
+      ROWINDEX = #{rowindex,jdbcType=VARCHAR},
+      MERCHANTNAME = #{merchantname,jdbcType=VARCHAR},
+      MERCHANTSEQ = #{merchantseq,jdbcType=VARCHAR},
+      ORDERINFO = #{orderinfo,jdbcType=VARCHAR},
+      VOUCHERNO = #{voucherno,jdbcType=VARCHAR},
+      BANKTRADENO = #{banktradeno,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      REFNO = #{refno,jdbcType=VARCHAR},
+      BATCHNO = #{batchno,jdbcType=VARCHAR},
+      CARDTYPE = #{cardtype,jdbcType=VARCHAR},
+      CARDNO = #{cardno,jdbcType=VARCHAR},
+      CBCODE = #{cbcode,jdbcType=VARCHAR},
+      CARDNAME = #{cardname,jdbcType=VARCHAR},
+      FEE = #{fee,jdbcType=VARCHAR},
+      TRANSTYPE = #{transtype,jdbcType=VARCHAR},
+      CUPTERMID = #{cuptermid,jdbcType=VARCHAR},
+      CUPTSAMNO = #{cuptsamno,jdbcType=VARCHAR},
+      CENTERINFO = #{centerinfo,jdbcType=VARCHAR},
+      CENTERSEQID = #{centerseqid,jdbcType=VARCHAR},
+      BANKORDERNO = #{bankorderno,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=VARCHAR},
+      TRANSDATE = #{transdate,jdbcType=VARCHAR},
+      TRANSTIME = #{transtime,jdbcType=VARCHAR},
+      TRADESTATUS = #{tradestatus,jdbcType=VARCHAR},
+      SELECTTRADETYPE = #{selecttradetype,jdbcType=VARCHAR},
+      PINGORDERID = #{pingorderid,jdbcType=VARCHAR},
+      HBFQNUM = #{hbfqnum,jdbcType=VARCHAR},
+      CSJROYALITYAMOUNT = #{csjroyalityamount,jdbcType=VARCHAR},
+      CUSROYALITYAMOUNT = #{cusroyalityamount,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -25,7 +25,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">上次登录时间：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="<#if memberUser.last_login_time??>${memberUser.last_login_time}</#if> " readonly="readonly" placeholder="" id="last_login_time"  name="last_login_time">
+                <input type="text" class="input-text" value="<#if memberUser.last_login_time??>${memberUser.last_login_time?string('yyyy-MM-dd hh:mm:ss')}</#if> " readonly="readonly" placeholder="" id="last_login_time"  name="last_login_time">
             </div>
         </div>
 	<#--<div class="row cl">

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.MemberUserMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.MemberUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="login_phone" jdbcType="VARCHAR" property="login_phone" />
+    <result column="login_email" jdbcType="VARCHAR" property="login_email" />
+    <result column="login_password" jdbcType="VARCHAR" property="login_password" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmt_create" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmt_modified" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="credentialssalt" jdbcType="VARCHAR" property="credentialssalt" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="last_login_time" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time
+  </sql>
+  <sql id="Query_Memberuser_Where">
+    <where>
+      <if test="id !=null">
+        and id=#{id,jdbcType=INTEGER}
+      </if>
+      <if test="status !=null">
+        and status=#{status,jdbcType=VARCHAR}
+      </if>
+      <if test="login_phone !=null">
+        and login_phone=#{login_phone,jdbcType=VARCHAR}
+      </if>
+      <if test="login_email !=null">
+        and login_email=#{login_email,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>
+  <select id="selectBywhere" parameterType="com.csjscm.mysqldata.model.MemberUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from member_user
+    <include refid="Query_Memberuser_Where"/>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.csjscm.mysqldata.model.MemberUser" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from member_user
+    where id = #{id}
+  </select>
+  <select id="selectByName" parameterType="com.csjscm.mysqldata.model.MemberUser" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from member_user
+        where login_phone=#{login_phone,jdbcType=VARCHAR}
+    </select>
+  <!--根据ID修改-->
+  <update id="updateById"  parameterType="map">
+    UPDATE member_user
+    <set>
+    <if test="id != null">
+      id = #{id,jdbcType=INTEGER}
+    </if>
+      <if test="status != null">
+        ,status = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="login_phone != null">
+        ,login_phone = #{login_phone,jdbcType=VARCHAR}
+      </if>
+      <if test="login_email !=null">
+        ,login_email=#{login_email,jdbcType=VARCHAR}
+      </if>
+      <if test="credentialssalt !=null">
+       , credentialssalt=#{credentialssalt,jdbcType=VARCHAR}
+      </if>
+      <if test="login_password !=null">
+        ,login_password=#{login_password,jdbcType=VARCHAR}
+      </if>
+      <if test="last_login_time!= null">
+       , last_login_time=#{last_login_time,jdbcType=TIMESTAMP}
+      </if>
+    </set>
+    where id=#{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from member_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.MemberUser">
+    insert into member_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="login_phone != null">
+        login_phone,
+      </if>
+      <if test="login_email != null">
+        login_email,
+      </if>
+      <if test="login_password != null">
+        login_password,
+      </if>
+      <if test="gmt_create != null">
+        gmt_create,
+      </if>
+      <if test="gmt_modified != null">
+        gmt_modified,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="credentialssalt != null">
+        credentialssalt,
+      </if>
+      <if test="last_login_time !=null">
+        last_login_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="login_phone != null">
+        #{login_phone,jdbcType=VARCHAR},
+      </if>
+      <if test="login_email != null">
+        #{login_email,jdbcType=VARCHAR},
+      </if>
+      <if test="login_password != null">
+        #{login_password,jdbcType=VARCHAR},
+      </if>
+      <if test="gmt_create != null">
+        #{gmt_create,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmt_modified != null">
+        #{gmt_modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="credentialssalt != null">
+        #{credentialssalt,jdbcType=VARCHAR},
+      </if>
+      <if test="last_login_time!= null">
+        #{last_login_time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,186 @@
+2018-05-29 16:06:19.008 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:06:19.017 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:06:19.025 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:06:19.042 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==>  Preparing: UPDATE member_user SET id = ? , credentialssalt=? , last_login_time=? where id=? 
+2018-05-29 16:06:19.043 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==> Parameters: 1(Integer), MTU5Mzg3NDI5MzE=(String), 2018-05-29 16:06:19(String), 1(Integer)
+2018-05-29 16:06:19.045 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- <==    Updates: 1
+2018-05-29 16:06:19.115 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:06:19.116 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:06:19.118 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:06:19.131 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 16:06:19.131 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:19.133 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:06:19.134 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 16:06:19.134 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:19.141 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 19
+2018-05-29 16:06:24.400 [http-nio-8000-exec-5] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==>  Preparing: select id, role_name, description, status, gmt_create, gmt_modified, parent_tr_id, creater from role WHERE ( status = ? ) 
+2018-05-29 16:06:24.401 [http-nio-8000-exec-5] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==> Parameters: 0(Integer)
+2018-05-29 16:06:24.404 [http-nio-8000-exec-5] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- <==      Total: 3
+2018-05-29 16:06:26.856 [http-nio-8000-exec-8] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==>  Preparing: select id, role_name, description, status, gmt_create, gmt_modified, parent_tr_id, creater from role WHERE ( id = ? ) 
+2018-05-29 16:06:26.856 [http-nio-8000-exec-8] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:26.858 [http-nio-8000-exec-8] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:06:26.859 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.SysMenuMapper.getAllSysMenuInfo 181- ==>  Preparing: select s.id flevelid, s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,p.id slevelid ,ah.authorization_name authorizationName,ah.id aid FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id 
+2018-05-29 16:06:26.860 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.SysMenuMapper.getAllSysMenuInfo 181- ==> Parameters: 
+2018-05-29 16:06:26.868 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.SysMenuMapper.getAllSysMenuInfo 181- <==      Total: 39
+2018-05-29 16:06:33.520 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.deleteByExample 181- ==>  Preparing: delete from role_sysmenu WHERE ( roleid = ? ) 
+2018-05-29 16:06:33.520 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.deleteByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:33.521 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.deleteByExample 181- <==    Updates: 9
+2018-05-29 16:06:33.523 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.524 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 2(Integer), 2018-05-29 16:06:33.522(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.525 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.537 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.538 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 1(Integer), 2018-05-29 16:06:33.537(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.539 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.540 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.540 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 20(Integer), 2018-05-29 16:06:33.539(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.541 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.543 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.544 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 16(Integer), 2018-05-29 16:06:33.542(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.545 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.546 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.546 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 17(Integer), 2018-05-29 16:06:33.545(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.547 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.548 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.549 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 18(Integer), 2018-05-29 16:06:33.547(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.550 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.551 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.552 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 22(Integer), 2018-05-29 16:06:33.55(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.553 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.555 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.556 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 19(Integer), 2018-05-29 16:06:33.554(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.556 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.557 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.558 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 21(Integer), 2018-05-29 16:06:33.557(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.559 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.560 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==>  Preparing: insert into role_sysmenu ( roleid, menu_id, gmt_create, creater, status ) values ( ?, ?, ?, ?, ? ) 
+2018-05-29 16:06:33.561 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- ==> Parameters: 1(Integer), 23(Integer), 2018-05-29 16:06:33.56(Timestamp), 15938742931(String), 0(Integer)
+2018-05-29 16:06:33.561 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleSysmenuMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.564 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.deleteByExample 181- ==>  Preparing: delete from role_authorization WHERE ( role_id = ? ) 
+2018-05-29 16:06:33.564 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.deleteByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:33.565 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.deleteByExample 181- <==    Updates: 10
+2018-05-29 16:06:33.566 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.567 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 1(Integer), 2018-05-29 16:06:33.566(Timestamp), 0(Integer)
+2018-05-29 16:06:33.567 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.568 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.568 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 2(Integer), 2018-05-29 16:06:33.568(Timestamp), 0(Integer)
+2018-05-29 16:06:33.569 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.570 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.571 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 3(Integer), 2018-05-29 16:06:33.57(Timestamp), 0(Integer)
+2018-05-29 16:06:33.572 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.573 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.573 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 8(Integer), 2018-05-29 16:06:33.572(Timestamp), 0(Integer)
+2018-05-29 16:06:33.574 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.575 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.575 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 9(Integer), 2018-05-29 16:06:33.574(Timestamp), 0(Integer)
+2018-05-29 16:06:33.576 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.577 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.578 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 10(Integer), 2018-05-29 16:06:33.576(Timestamp), 0(Integer)
+2018-05-29 16:06:33.578 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.579 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.579 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 11(Integer), 2018-05-29 16:06:33.579(Timestamp), 0(Integer)
+2018-05-29 16:06:33.579 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.580 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.581 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 12(Integer), 2018-05-29 16:06:33.58(Timestamp), 0(Integer)
+2018-05-29 16:06:33.581 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.581 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.582 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 13(Integer), 2018-05-29 16:06:33.581(Timestamp), 0(Integer)
+2018-05-29 16:06:33.582 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.583 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.583 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 14(Integer), 2018-05-29 16:06:33.582(Timestamp), 0(Integer)
+2018-05-29 16:06:33.584 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.584 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.585 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 15(Integer), 2018-05-29 16:06:33.584(Timestamp), 0(Integer)
+2018-05-29 16:06:33.585 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.586 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.587 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 16(Integer), 2018-05-29 16:06:33.586(Timestamp), 0(Integer)
+2018-05-29 16:06:33.587 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.588 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.588 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 17(Integer), 2018-05-29 16:06:33.588(Timestamp), 0(Integer)
+2018-05-29 16:06:33.589 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.589 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.590 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 18(Integer), 2018-05-29 16:06:33.589(Timestamp), 0(Integer)
+2018-05-29 16:06:33.590 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.590 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.591 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 19(Integer), 2018-05-29 16:06:33.59(Timestamp), 0(Integer)
+2018-05-29 16:06:33.591 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.591 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==>  Preparing: insert into role_authorization ( role_id, authorization_id, gmt_create, status ) values ( ?, ?, ?, ? ) 
+2018-05-29 16:06:33.592 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- ==> Parameters: 1(Integer), 20(Integer), 2018-05-29 16:06:33.591(Timestamp), 0(Integer)
+2018-05-29 16:06:33.592 [http-nio-8000-exec-2] DEBUG c.q.q.dao.RoleAuthorizationMapper.insertSelective 181- <==    Updates: 1
+2018-05-29 16:06:33.603 [http-nio-8000-exec-10] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==>  Preparing: select id, role_name, description, status, gmt_create, gmt_modified, parent_tr_id, creater from role WHERE ( status = ? ) 
+2018-05-29 16:06:33.604 [http-nio-8000-exec-10] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- ==> Parameters: 0(Integer)
+2018-05-29 16:06:33.605 [http-nio-8000-exec-10] DEBUG c.qiming.qimingdata.dao.RoleMapper.selectByExample 181- <==      Total: 3
+2018-05-29 16:06:36.471 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:06:36.475 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:06:36.479 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:06:36.482 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 16:06:36.483 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:36.486 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:06:36.487 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 16:06:36.488 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:36.493 [http-nio-8000-exec-1] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 20
+2018-05-29 16:06:53.264 [http-nio-8000-exec-8] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- ==>  Preparing: SELECT u.id id, u.user_id userId ,u.role_id roleId,u.gmt_time gmtTime,u.gmt_modify gmtModify,u.status status, m.login_phone loginPhone,m.login_email loginEmail,r.role_name roleName from user_role u LEFT JOIN member_user m on u.user_id=m.id LEFT JOIN role r on u.role_id=r.id where m.status=0 and r.status=0 and u.user_id=? order by u.id 
+2018-05-29 16:06:53.265 [http-nio-8000-exec-8] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:53.271 [http-nio-8000-exec-8] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- <==      Total: 1
+2018-05-29 16:06:53.275 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- ==>  Preparing: select * from role_authorization r LEFT JOIN authorizations a on r.authorization_id=a.id WHERE r.role_id=? 
+2018-05-29 16:06:53.276 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- ==> Parameters: 1(Integer)
+2018-05-29 16:06:53.285 [http-nio-8000-exec-8] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- <==      Total: 16
+2018-05-29 16:06:53.293 [http-nio-8000-exec-8] DEBUG c.q.q.d.J.getJobAndTriggerDetails 181- ==>  Preparing: SELECT qrtz_job_details.JOB_NAME, qrtz_job_details.JOB_GROUP, qrtz_job_details.JOB_CLASS_NAME, qrtz_triggers.TRIGGER_NAME, qrtz_triggers.TRIGGER_GROUP, qrtz_cron_triggers.CRON_EXPRESSION, qrtz_cron_triggers.TIME_ZONE_ID FROM qrtz_job_details JOIN qrtz_triggers JOIN qrtz_cron_triggers ON qrtz_job_details.JOB_NAME = qrtz_triggers.JOB_NAME AND qrtz_triggers.TRIGGER_NAME = qrtz_cron_triggers.TRIGGER_NAME AND qrtz_triggers.TRIGGER_GROUP = qrtz_cron_triggers.TRIGGER_GROUP 
+2018-05-29 16:06:53.293 [http-nio-8000-exec-8] DEBUG c.q.q.d.J.getJobAndTriggerDetails 181- ==> Parameters: 
+2018-05-29 16:06:53.295 [http-nio-8000-exec-8] DEBUG c.q.q.d.J.getJobAndTriggerDetails 181- <==      Total: 1
+2018-05-29 16:06:53.296 [http-nio-8000-exec-8] DEBUG c.q.q.dao.SchelduleJobMapper.queryForDetail 181- ==>  Preparing: SELECT id,jobname,jobgroup,jobstatus,auditstatus,quartzclass,cronexpression,description,gmt_modified,gmt_create FROM schedule_job 
+2018-05-29 16:06:53.296 [http-nio-8000-exec-8] DEBUG c.q.q.dao.SchelduleJobMapper.queryForDetail 181- ==> Parameters: 
+2018-05-29 16:06:53.298 [http-nio-8000-exec-8] DEBUG c.q.q.dao.SchelduleJobMapper.queryForDetail 181- <==      Total: 1
+2018-05-29 16:21:30.179 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:21:30.181 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:21:30.185 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:21:30.187 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 16:21:30.187 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:21:30.189 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:21:30.189 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 16:21:30.190 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 16:21:30.193 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 20
+2018-05-29 16:33:01.275 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:33:01.284 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:33:01.292 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:33:01.306 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==>  Preparing: UPDATE member_user SET id = ? , credentialssalt=? , last_login_time=? where id=? 
+2018-05-29 16:33:01.307 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==> Parameters: 1(Integer), MTU5Mzg3NDI5MzE=(String), 2018-05-29 16:33:01(String), 1(Integer)
+2018-05-29 16:33:01.309 [http-nio-8000-exec-5] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- <==    Updates: 1
+2018-05-29 16:33:01.365 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:33:01.366 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:33:01.368 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:33:01.380 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 16:33:01.380 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:33:01.381 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:33:01.382 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 16:33:01.383 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 16:33:01.388 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 20
+2018-05-29 16:46:56.849 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 16:46:56.852 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 16:46:56.856 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 16:46:56.858 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 16:46:56.859 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 16:46:56.861 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 16:46:56.862 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 16:46:56.863 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 16:46:56.868 [http-nio-8000-exec-7] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 20
+2018-05-29 16:47:29.947 [http-nio-8000-exec-4] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- ==>  Preparing: SELECT u.id id, u.user_id userId ,u.role_id roleId,u.gmt_time gmtTime,u.gmt_modify gmtModify,u.status status, m.login_phone loginPhone,m.login_email loginEmail,r.role_name roleName from user_role u LEFT JOIN member_user m on u.user_id=m.id LEFT JOIN role r on u.role_id=r.id where m.status=0 and r.status=0 and u.user_id=? order by u.id 
+2018-05-29 16:47:29.948 [http-nio-8000-exec-4] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- ==> Parameters: 1(Integer)
+2018-05-29 16:47:29.952 [http-nio-8000-exec-4] DEBUG c.q.q.dao.userRolesMapper.queryForUserRoles 181- <==      Total: 1
+2018-05-29 16:47:29.954 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- ==>  Preparing: select * from role_authorization r LEFT JOIN authorizations a on r.authorization_id=a.id WHERE r.role_id=? 
+2018-05-29 16:47:29.955 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- ==> Parameters: 1(Integer)
+2018-05-29 16:47:29.964 [http-nio-8000-exec-4] DEBUG c.q.qimingdata.dao.RoleAuthorMapper.queryForWhere 181- <==      Total: 16
+2018-05-29 17:57:24.977 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 17:57:24.978 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 17:57:24.979 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 17:57:24.980 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==>  Preparing: UPDATE member_user SET id = ? , credentialssalt=? , last_login_time=? where id=? 
+2018-05-29 17:57:24.980 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- ==> Parameters: 1(Integer), MTU5Mzg3NDI5MzE=(String), 2018-05-29 17:57:24(String), 1(Integer)
+2018-05-29 17:57:24.983 [http-nio-8000-exec-9] DEBUG c.q.qimingdata.dao.MemberUserMapper.updateById 181- <==    Updates: 1
+2018-05-29 17:57:24.992 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==>  Preparing: select id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time from member_user where login_phone=? 
+2018-05-29 17:57:24.992 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- ==> Parameters: 15938742931(String)
+2018-05-29 17:57:24.993 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.MemberUserMapper.selectByName 181- <==      Total: 1
+2018-05-29 17:57:24.994 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==>  Preparing: select id, user_id, role_id, gmt_time, gmt_modify, status, menuid from user_role WHERE ( user_id = ? ) 
+2018-05-29 17:57:24.994 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- ==> Parameters: 1(Integer)
+2018-05-29 17:57:24.995 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.userRolesMapper.selectByExample 181- <==      Total: 1
+2018-05-29 17:57:24.995 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==>  Preparing: select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM sysmenu s INNER JOIN sysmenu p on s.id=p.parent_id left JOIN role_sysmenu r on p.id=r.menu_id left join authorizations ah on ah.parent_tr_id=p.id where r.roleid=? 
+2018-05-29 17:57:24.995 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- ==> Parameters: 1(Integer)
+2018-05-29 17:57:24.999 [http-nio-8000-exec-2] DEBUG c.q.qimingdata.dao.SysMenuMapper.getSysMenuInfo 181- <==      Total: 20

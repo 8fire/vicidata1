@@ -18,7 +18,25 @@ datasource:
     testOnReturn: false
     poolPreparedStatements: true
     useGlobalDataSourceStat: true
-
+  mysql1:
+    url: jdbc:mysql://192.168.2.222:3306/csjmro_test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowMultiQueries=true&useSSL=true&verifyServerCertificate=false
+    username: csjmro_test
+    password: test123456
+    driver-class-name: com.mysql.jdbc.Driver
+    filters: stat
+    maxActive: 200
+    initialSize: 10
+    maxWait: 60000
+    minIdle: 20
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: "select 1"
+    testWhileIdle: true
+    maxOpenPreparedStatements: 20
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    useGlobalDataSourceStat: true
 
 
   oracle:
@@ -30,7 +48,7 @@ datasource:
 
 
 server:
-  port: 8082
+  port: 8000
 
   spring.http.encoding.force: true
   spring.http.encoding.charset: UTF-8
@@ -59,3 +77,9 @@ redis:
         min-idle: 0
 # 连接超时时间（毫秒）
     timeout: 0
+
+freemarker:
+    content-type: text/html
+    #加上下面两行，问题就解决了
+    settings:
+      classic_compatible: true

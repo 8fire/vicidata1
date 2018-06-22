@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.AuthorizationsMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.Authorizations">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="parent_tr_id" jdbcType="INTEGER" property="parentTrId" />
+    <result column="authorization_name" jdbcType="VARCHAR" property="authorizationName" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="creater" jdbcType="VARCHAR" property="creater" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, parent_tr_id, authorization_name, description, gmt_create, gmt_modified, status, 
+    creater
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from authorizations
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from authorizations
+    where status=0
+  </select>
+  <select id="countAuthorizations" resultType="java.lang.Integer">
+    SELECT  count(id) from authorizations
+    where status=0
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from authorizations
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.csjscm.mysqldata.model.Authorizations">
+    insert into authorizations (id, parent_tr_id, authorization_name, 
+      description, gmt_create, gmt_modified, 
+      status, creater)
+    values (#{id,jdbcType=INTEGER}, #{parentTrId,jdbcType=INTEGER}, #{authorizationName,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=INTEGER}, #{creater,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.Authorizations">
+    insert into authorizations
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentTrId != null">
+        parent_tr_id,
+      </if>
+      <if test="authorizationName != null">
+        authorization_name,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creater != null">
+        creater,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="parentTrId != null">
+        #{parentTrId,jdbcType=INTEGER},
+      </if>
+      <if test="authorizationName != null">
+        #{authorizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        #{creater,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.mysqldata.model.Authorizations">
+    update authorizations
+    <set>
+      <if test="parentTrId != null">
+        parent_tr_id = #{parentTrId,jdbcType=INTEGER},
+      </if>
+      <if test="authorizationName != null">
+        authorization_name = #{authorizationName,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="creater != null">
+        creater = #{creater,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+</mapper>

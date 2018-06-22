@@ -6,11 +6,11 @@ import java.util.Map;
 /**
  * 包装信息返回类
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 3:40
  **/
 public class MsgResponse {
-    //状态码，成功200，失败400
+    //状态码，成功200，失败400,201自定义错误
     private int code;
 
     //错误和成功信息
@@ -28,7 +28,7 @@ public class MsgResponse {
         return msg;
     }
 
-    //成功信息
+    //失败信息
     public static MsgResponse fail()
     {
         MsgResponse msg = new MsgResponse();
@@ -36,7 +36,13 @@ public class MsgResponse {
         msg.setMsg("调用API失败!");
         return msg;
     }
-
+    public static MsgResponse isDefine(String info)
+    {
+        MsgResponse msg = new MsgResponse();
+        msg.setCode(201);
+        msg.setMsg(info);
+        return msg;
+    }
     //添加包含的数据
     public MsgResponse add(String key, Object value)
     {

@@ -19,7 +19,7 @@ import java.util.UUID;
 /**
  * 正则表达式校验
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 上午 11:56
  **/
 @Slf4j

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * 字符串判断工具类
  *
- * @author qiming
+ * @author csjscm
  * create 2018-04-08 下午 1:11
  **/
 public class AppStringUtils {

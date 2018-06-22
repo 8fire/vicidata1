@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.MoveinOrderItemMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.MoveinOrderItem">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="TICKETNO" jdbcType="VARCHAR" property="ticketno" />
+    <result column="ITEMNO" jdbcType="VARCHAR" property="itemno" />
+    <result column="MATERIAL" jdbcType="VARCHAR" property="material" />
+    <result column="MATERIALNO" jdbcType="VARCHAR" property="materialno" />
+    <result column="CUSTOMMATERIALNO" jdbcType="VARCHAR" property="custommaterialno" />
+    <result column="MATERIALNAME" jdbcType="VARCHAR" property="materialname" />
+    <result column="MATERIALRULE" jdbcType="VARCHAR" property="materialrule" />
+    <result column="MATERIALSIZE" jdbcType="VARCHAR" property="materialsize" />
+    <result column="MATERIALTAG" jdbcType="VARCHAR" property="materialtag" />
+    <result column="ORDERUNIT" jdbcType="VARCHAR" property="orderunit" />
+    <result column="ORDERNUM" jdbcType="DECIMAL" property="ordernum" />
+    <result column="INNUM" jdbcType="DECIMAL" property="innum" />
+    <result column="MOVEORDERITEMID" jdbcType="VARCHAR" property="moveorderitemid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TICKETNO, ITEMNO, MATERIAL, MATERIALNO, CUSTOMMATERIALNO, MATERIALNAME, MATERIALRULE, 
+    MATERIALSIZE, MATERIALTAG, ORDERUNIT, ORDERNUM, INNUM, MOVEORDERITEMID
+  </sql>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.MoveinOrderItemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from MOVEINORDER_ITEM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from MOVEINORDER_ITEM
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from MOVEINORDER_ITEM
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.MoveinOrderItemExample">
+    delete from MOVEINORDER_ITEM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.MoveinOrderItem">
+    insert into MOVEINORDER_ITEM (ID, TICKETNO, ITEMNO, 
+      MATERIAL, MATERIALNO, CUSTOMMATERIALNO, 
+      MATERIALNAME, MATERIALRULE, MATERIALSIZE, 
+      MATERIALTAG, ORDERUNIT, ORDERNUM, 
+      INNUM, MOVEORDERITEMID)
+    values (#{id,jdbcType=VARCHAR}, #{ticketno,jdbcType=VARCHAR}, #{itemno,jdbcType=VARCHAR}, 
+      #{material,jdbcType=VARCHAR}, #{materialno,jdbcType=VARCHAR}, #{custommaterialno,jdbcType=VARCHAR}, 
+      #{materialname,jdbcType=VARCHAR}, #{materialrule,jdbcType=VARCHAR}, #{materialsize,jdbcType=VARCHAR}, 
+      #{materialtag,jdbcType=VARCHAR}, #{orderunit,jdbcType=VARCHAR}, #{ordernum,jdbcType=DECIMAL}, 
+      #{innum,jdbcType=DECIMAL}, #{moveorderitemid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.MoveinOrderItem">
+    insert into MOVEINORDER_ITEM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ticketno != null">
+        TICKETNO,
+      </if>
+      <if test="itemno != null">
+        ITEMNO,
+      </if>
+      <if test="material != null">
+        MATERIAL,
+      </if>
+      <if test="materialno != null">
+        MATERIALNO,
+      </if>
+      <if test="custommaterialno != null">
+        CUSTOMMATERIALNO,
+      </if>
+      <if test="materialname != null">
+        MATERIALNAME,
+      </if>
+      <if test="materialrule != null">
+        MATERIALRULE,
+      </if>
+      <if test="materialsize != null">
+        MATERIALSIZE,
+      </if>
+      <if test="materialtag != null">
+        MATERIALTAG,
+      </if>
+      <if test="orderunit != null">
+        ORDERUNIT,
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM,
+      </if>
+      <if test="innum != null">
+        INNUM,
+      </if>
+      <if test="moveorderitemid != null">
+        MOVEORDERITEMID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ticketno != null">
+        #{ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemno != null">
+        #{itemno,jdbcType=VARCHAR},
+      </if>
+      <if test="material != null">
+        #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="materialno != null">
+        #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="custommaterialno != null">
+        #{custommaterialno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null">
+        #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="materialrule != null">
+        #{materialrule,jdbcType=VARCHAR},
+      </if>
+      <if test="materialsize != null">
+        #{materialsize,jdbcType=VARCHAR},
+      </if>
+      <if test="materialtag != null">
+        #{materialtag,jdbcType=VARCHAR},
+      </if>
+      <if test="orderunit != null">
+        #{orderunit,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="innum != null">
+        #{innum,jdbcType=DECIMAL},
+      </if>
+      <if test="moveorderitemid != null">
+        #{moveorderitemid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.MoveinOrderItemExample" resultType="java.lang.Long">
+    select count(*) from MOVEINORDER_ITEM
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update MOVEINORDER_ITEM
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ticketno != null">
+        TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.itemno != null">
+        ITEMNO = #{record.itemno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.material != null">
+        MATERIAL = #{record.material,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialno != null">
+        MATERIALNO = #{record.materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.custommaterialno != null">
+        CUSTOMMATERIALNO = #{record.custommaterialno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialname != null">
+        MATERIALNAME = #{record.materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialrule != null">
+        MATERIALRULE = #{record.materialrule,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialsize != null">
+        MATERIALSIZE = #{record.materialsize,jdbcType=VARCHAR},
+      </if>
+      <if test="record.materialtag != null">
+        MATERIALTAG = #{record.materialtag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderunit != null">
+        ORDERUNIT = #{record.orderunit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordernum != null">
+        ORDERNUM = #{record.ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.innum != null">
+        INNUM = #{record.innum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.moveorderitemid != null">
+        MOVEORDERITEMID = #{record.moveorderitemid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update MOVEINORDER_ITEM
+    set ID = #{record.id,jdbcType=VARCHAR},
+      TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      ITEMNO = #{record.itemno,jdbcType=VARCHAR},
+      MATERIAL = #{record.material,jdbcType=VARCHAR},
+      MATERIALNO = #{record.materialno,jdbcType=VARCHAR},
+      CUSTOMMATERIALNO = #{record.custommaterialno,jdbcType=VARCHAR},
+      MATERIALNAME = #{record.materialname,jdbcType=VARCHAR},
+      MATERIALRULE = #{record.materialrule,jdbcType=VARCHAR},
+      MATERIALSIZE = #{record.materialsize,jdbcType=VARCHAR},
+      MATERIALTAG = #{record.materialtag,jdbcType=VARCHAR},
+      ORDERUNIT = #{record.orderunit,jdbcType=VARCHAR},
+      ORDERNUM = #{record.ordernum,jdbcType=DECIMAL},
+      INNUM = #{record.innum,jdbcType=DECIMAL},
+      MOVEORDERITEMID = #{record.moveorderitemid,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.MoveinOrderItem">
+    update MOVEINORDER_ITEM
+    <set>
+      <if test="ticketno != null">
+        TICKETNO = #{ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="itemno != null">
+        ITEMNO = #{itemno,jdbcType=VARCHAR},
+      </if>
+      <if test="material != null">
+        MATERIAL = #{material,jdbcType=VARCHAR},
+      </if>
+      <if test="materialno != null">
+        MATERIALNO = #{materialno,jdbcType=VARCHAR},
+      </if>
+      <if test="custommaterialno != null">
+        CUSTOMMATERIALNO = #{custommaterialno,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null">
+        MATERIALNAME = #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="materialrule != null">
+        MATERIALRULE = #{materialrule,jdbcType=VARCHAR},
+      </if>
+      <if test="materialsize != null">
+        MATERIALSIZE = #{materialsize,jdbcType=VARCHAR},
+      </if>
+      <if test="materialtag != null">
+        MATERIALTAG = #{materialtag,jdbcType=VARCHAR},
+      </if>
+      <if test="orderunit != null">
+        ORDERUNIT = #{orderunit,jdbcType=VARCHAR},
+      </if>
+      <if test="ordernum != null">
+        ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      </if>
+      <if test="innum != null">
+        INNUM = #{innum,jdbcType=DECIMAL},
+      </if>
+      <if test="moveorderitemid != null">
+        MOVEORDERITEMID = #{moveorderitemid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.MoveinOrderItem">
+    update MOVEINORDER_ITEM
+    set TICKETNO = #{ticketno,jdbcType=VARCHAR},
+      ITEMNO = #{itemno,jdbcType=VARCHAR},
+      MATERIAL = #{material,jdbcType=VARCHAR},
+      MATERIALNO = #{materialno,jdbcType=VARCHAR},
+      CUSTOMMATERIALNO = #{custommaterialno,jdbcType=VARCHAR},
+      MATERIALNAME = #{materialname,jdbcType=VARCHAR},
+      MATERIALRULE = #{materialrule,jdbcType=VARCHAR},
+      MATERIALSIZE = #{materialsize,jdbcType=VARCHAR},
+      MATERIALTAG = #{materialtag,jdbcType=VARCHAR},
+      ORDERUNIT = #{orderunit,jdbcType=VARCHAR},
+      ORDERNUM = #{ordernum,jdbcType=DECIMAL},
+      INNUM = #{innum,jdbcType=DECIMAL},
+      MOVEORDERITEMID = #{moveorderitemid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

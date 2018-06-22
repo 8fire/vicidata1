@@ -49,8 +49,8 @@
                 <td>${p.id}</td>
                 <td>${p.login_phone}</td>
                 <td>${p.login_email}</td>
-                <td><#if p.gmt_create??>${p.last_login_time}</#if></td>
-                <td><#if p.gmt_create??>${p.gmt_create!}</#if></td>
+                <td><#if p.last_login_time??>${p.last_login_time?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
+                <td><#if p.gmt_create??>${p.gmt_create?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
                 <td class="td-status"><span class="label label-success radius"><#if p.status==0>已启用<#else>已禁用</#if></span></td>
                 <td class="td-manage">
 					<a style="text-decoration:none" onClick="admin_stop(this,'${p.id}')" href="javascript:;" title="停用"><i class="Hui-iconfont">&#xe631;</i></a>
@@ -117,18 +117,19 @@ function admin_stop(obj,id){
                     id:id,
                     flag:1
                 },
-                function(data,status){
+                function(data){
 					var stringify = JSON.stringify(data);
-					if(data.code=='200'){
+					if(data.code=='200') {
                         $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已禁用</span>');
 
-                       // $(obj).remove();
-                        layer.msg('已停用!',{icon: 5,time:1000});
-                       // location.reload();
-					}else {
+                        // $(obj).remove();
+                        layer.msg('已停用!', {icon: 5, time: 1000});
+                        // location.reload();
+                    }else if(data.code='403'){
+                        layer.msg(data.msg, {icon: 5, time: 1000});
+					} else {
                         layer.msg('更新状态失败!',{icon: 5,time:1000});
 					}
-                    alert("Data: " + stringify + "\nStatus: " + status);
                 });
 
 	});
@@ -143,7 +144,7 @@ function admin_start(obj,id){
                     id:id,
 					flag:0
                 },
-                function(data,status){
+                function(data){
                     var stringify = JSON.stringify(data);
                     if(data.code=='200'){
                        // $(obj).parents("tr").find(".td-manage").prepend('<a onClick="admin_stop(this,id)" href="javascript:;" title="停用" style="text-decoration:none"><i class="Hui-iconfont">&#xe631;</i></a>');
@@ -151,10 +152,11 @@ function admin_start(obj,id){
                        // $(obj).remove();
                         layer.msg('已启用!', {icon: 6,time:1000});
                         //location.reload();
-                    }else {
+                    }else if(data.code='403'){
+                        layer.msg(data.msg, {icon: 5, time: 1000});
+					} else {
                         layer.msg('更新状态失败!',{icon: 5,time:1000});
                     }
-                    alert("Data: " + stringify + "\nStatus: " + status);
                 });
 
 	});

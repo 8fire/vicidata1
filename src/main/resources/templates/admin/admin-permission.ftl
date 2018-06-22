@@ -17,7 +17,7 @@
 		<span class="l">
 			<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
 			<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-			<a href="javascript:;" onclick="admin_permission_add('添加权限节点','admin-permission-add.html','','310')" class="btn btn-primary radius">
+			<a href="javascript:;" onclick="admin_permission_add('添加权限节点','admin-permission-add.html','500','310')" class="btn btn-primary radius">
 				<i class="Hui-iconfont">&#xe600;</i> 添加权限节点</a>
 			<#--<a href="javascript:;" onclick="admin_permission_add('用户分配角色','toAdminRoleAdd.html','500','850')" class="btn btn-primary radius">
 				<i class="Hui-iconfont">&#xe600;</i> 用户分配角色</a>-->
@@ -32,7 +32,7 @@
 				<th scope="col" colspan="7">权限节点</th>
 			</tr>
 			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
+				<#--<th width="25"><input type="checkbox" name="" value=""></th>-->
                 <th width="40">ID</th>
                 <th width="150">登录手机号</th>
 
@@ -41,28 +41,21 @@
 			</tr>
 		</thead>
 		<tbody  >
-		   <#if mvMap.list?exists>
-		       <#list mvMap.list as p>
+		   <#if mvMap?exists>
+		       <#list mvMap as p>
                <tr class="text-c">
-                   <td><input type="checkbox" value="${p.id}" name="r"></td>
+                  <#-- <td><input type="checkbox" value="${p.id}" name="r"></td>-->
                    <td>${p.id}</td>
-                   <td>${p.login_phone}</td>
-				   <td>
-					 <#--  <#if mvMap.roleList?exists>
-                        <#list mvMap.roleList as m>
-
-							  <input type="radio" value="${m.id}" name="roleName" id="${m.id}">
-                               <label for="${m.id}" >${m.roleName}</label>
-					   </#list>
-                    </#if>-->
-				   </td>
+                   <td>${p.loginPhone}</td>
+				   <td>${p.roleName}</td>
                    <td>
-                       <a title="分配角色" href="javascript:;" onclick="admin_permission_add('用户分配角色','../user/toAdminRoleAdd.html?id='+${p.id},'','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+                     <a title="分配角色" href="javascript:;" onclick="admin_permission_add('用户分配角色','../user/toAdminRoleAdd.html?uid=${p.userId}&id=${p.id}','700','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 					   <a title="删除" href="javascript:;" onclick="getTableContent()" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
                        <a title="删除" href="javascript:;" id="edit" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 				   </td>
                </tr>
 		       </#list>
+
 		   </#if>
 
 		</tbody>
@@ -83,8 +76,8 @@
 	h		弹出层高度（缺省调默认值）
 */
 /*管理员-权限-添加*/
-function admin_permission_add(title,url,id,w,h){
-    layer_show(title,url,id,w,h);
+function admin_permission_add(title,url,w,h){
+    layer_show(title,url,w,h);
 }
     $("#myTable tbody").on('click','a#edit',function () {
 		var alter1= $('#myTable').DataTable().row($(this).parents("tr")).data();

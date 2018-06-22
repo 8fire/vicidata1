@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.SysMenu">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="user_role_id" jdbcType="INTEGER" property="userRoleId" />
+    <result column="gmt_time" jdbcType="TIMESTAMP" property="gmtTime" />
+    <result column="image" jdbcType="VARCHAR" property="syImage"/>
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+  </resultMap>
+  <resultMap id="menuInfoMap" type="com.csjscm.mysqldata.model.SysMenuInfo">
+    <id column="id" jdbcType="INTEGER" property="syId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="syMenuName" />
+    <result column="parent_id" jdbcType="INTEGER" property="smParentId" />
+    <result column="id" jdbcType="INTEGER" property="smId" />
+    <result column="url" jdbcType="VARCHAR" property="syUrl" />
+    <result column="menu_name" jdbcType="VARCHAR" property="smMenuName" />
+    <result column="url" jdbcType="VARCHAR" property="smUrl" />
+    <result column="image" jdbcType="VARCHAR" property="syImage"/>
+  </resultMap>
+  <resultMap id="menuInfoMap1" type="com.csjscm.mysqldata.model.SysMenu">
+    <result column="menuName" jdbcType="VARCHAR" property="menuName" />
+    <result column="user_role_id" jdbcType="INTEGER" property="userRoleId" />
+    <result column="syImage" jdbcType="VARCHAR" property="syImage"/>
+    <result column="flevelid" jdbcType="INTEGER" property="id"/>
+    <collection property="sysMenuList"  ofType="com.csjscm.mysqldata.model.SysMenu1">
+        <result column="pMenuName" jdbcType="VARCHAR" property="menuName1" />
+        <result column="url1" jdbcType="VARCHAR" property="url1" />
+       <result column="slevelid" jdbcType="INTEGER" property="id1"/>
+        <collection property="authorizationsList" ofType="com.csjscm.mysqldata.model.Authorizations">
+          <id column="aid" property="id"/>
+          <result column="authorizationName" jdbcType="VARCHAR" property="authorizationName" />
+          <result column="aid" jdbcType="INTEGER" property="id"/>
+        </collection>
+    </collection>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, menu_name, user_role_id, gmt_time, status, gmt_modified, parent_id, url
+  </sql>
+  <select id="getSysMenuInfoByPid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM sysmenu
+    where parent_id!=#{parentId,jdbcType=INTEGER}
+    order by id
+  </select>
+  <select id="getSysMenuInfo" resultMap="menuInfoMap1" parameterType="java.lang.Integer">
+   select s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,ah.authorization_name authorizationName FROM
+   sysmenu s INNER  JOIN sysmenu p on s.id=p.parent_id
+   left JOIN role_sysmenu r on p.id=r.menu_id
+    left join authorizations ah on ah.parent_tr_id=p.id
+     where  r.roleid=#{rid,jdbcType=VARCHAR}
+  </select>
+  <!--查询所有的权限-->
+  <select id="getAllSysMenuInfo" resultMap="menuInfoMap1" >
+    select s.id flevelid, s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,p.id slevelid ,ah.authorization_name authorizationName,ah.id aid  FROM
+    sysmenu s INNER  JOIN sysmenu p on s.id=p.parent_id
+    left JOIN role_sysmenu r on p.id=r.menu_id
+    left join authorizations ah on ah.parent_tr_id=p.id
+  </select>
+
+  <!--查询菜单信息-->
+  <select id="selectMenuInfo"  resultMap="menuInfoMap" >
+   SELECT DISTINCT sy.id syId ,sy.menu_name syMenuName,sy.url syUrl,sy.image syImage
+    from sysmenu sy
+    INNER  JOIN sysmenu  sm on sm.parent_id=sy.id
+    LEFT JOIN user_role ur on sy.id=ur.menuid
+    LEFT JOIN role r on  ur.role_id=r.id
+    where sy.parent_id=0
+    order by sy.id
+  </select>
+  <select id="selectMenuInfoByPid"  resultMap="menuInfoMap" parameterType="java.lang.Integer">
+    SELECT DISTINCT sy.id syId ,sy.menu_name syMenuName,sy.url syUrl,sy.image syImage
+    from sysmenu sy
+    left  JOIN sysmenu  sm on sm.parent_id=sy.id
+    LEFT JOIN user_role ur on sy.id=ur.menuid
+    LEFT JOIN role r on  ur.role_id=r.id
+    where sy.parent_id=#{parentid,jdbcType=INTEGER}
+    order by sy.id
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sysmenu
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sysmenu
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.csjscm.mysqldata.model.SysMenu">
+    insert into sysmenu (id, menu_name, user_role_id, 
+      gmt_time, status, gmt_modified, 
+      parent_id, url)
+    values (#{id,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{userRoleId,jdbcType=INTEGER}, 
+      #{gmtTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{gmtModified,jdbcType=TIMESTAMP}, 
+      #{parentId,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.SysMenu">
+    insert into sysmenu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="menuName != null">
+        menu_name,
+      </if>
+      <if test="userRoleId != null">
+        user_role_id,
+      </if>
+      <if test="gmtTime != null">
+        gmt_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoleId != null">
+        #{userRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="gmtTime != null">
+        #{gmtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null">
+        #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.mysqldata.model.SysMenu">
+    update sysmenu
+    <set>
+      <if test="menuName != null">
+        menu_name = #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="userRoleId != null">
+        user_role_id = #{userRoleId,jdbcType=INTEGER},
+      </if>
+      <if test="gmtTime != null">
+        gmt_time = #{gmtTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.mysqldata.model.SysMenu">
+    update sysmenu
+    set menu_name = #{menuName,jdbcType=VARCHAR},
+      user_role_id = #{userRoleId,jdbcType=INTEGER},
+      gmt_time = #{gmtTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      gmt_modified = #{gmtModified,jdbcType=TIMESTAMP},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
