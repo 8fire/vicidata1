@@ -5,6 +5,8 @@ import com.vici.response.MsgResponse;
 import com.vici.response.ViciException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.UnauthorizedException;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,8 +21,9 @@ import java.util.Map;
  * @author csjscm
  * create 2018-05-23 下午 2:51
  **/
-/*@ControllerAdvice*/
+@ControllerAdvice
 @Slf4j
+@Configuration
 public class ViciExceptionHandler {
     public static final String IMOOC_ERROR_VIEW = "/commons/error";
     public static final String UNAUTHORIZED_ERROR_VIEW = "/commons/403";

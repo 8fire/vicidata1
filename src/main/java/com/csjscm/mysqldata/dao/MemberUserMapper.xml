@@ -11,10 +11,17 @@
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="credentialssalt" jdbcType="VARCHAR" property="credentialssalt" />
     <result column="last_login_time" jdbcType="TIMESTAMP" property="last_login_time" />
+    <result column="login_count" jdbcType="INTEGER" property="login_count" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="card_id" jdbcType="VARCHAR" property="card_id" />
+    <result column="checkuser" jdbcType="VARCHAR" property="checkuser" />
+    <result column="checkadvice" jdbcType="VARCHAR" property="checkadvice" />
+    <result column="checkdate" jdbcType="TIMESTAMP" property="checkdate" />
   </resultMap>
 
   <sql id="Base_Column_List">
-    id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time
+    id, login_phone, login_email, login_password, gmt_create, gmt_modified, status, credentialssalt,last_login_time,login_count,
+    username,card_id,checkuser,checkadvice,checkdate
   </sql>
   <sql id="Query_Memberuser_Where">
     <where>
@@ -29,6 +36,12 @@
       </if>
       <if test="login_email !=null">
         and login_email=#{login_email,jdbcType=VARCHAR}
+      </if>
+      <if test="username!=null">
+        and username=#{username,jdbcType=VARCHAR}
+      </if>
+      <if test="card_id!=null">
+        and card_id=#{card_id,jdbcType=VARCHAR}
       </if>
     </where>
   </sql>
@@ -55,25 +68,43 @@
     UPDATE member_user
     <set>
     <if test="id != null">
-      id = #{id,jdbcType=INTEGER}
+      id = #{id,jdbcType=INTEGER},
     </if>
       <if test="status != null">
-        ,status = #{status,jdbcType=INTEGER}
+        status = #{status,jdbcType=INTEGER},
       </if>
       <if test="login_phone != null">
-        ,login_phone = #{login_phone,jdbcType=VARCHAR}
+        login_phone = #{login_phone,jdbcType=VARCHAR},
       </if>
       <if test="login_email !=null">
-        ,login_email=#{login_email,jdbcType=VARCHAR}
+        login_email=#{login_email,jdbcType=VARCHAR},
       </if>
       <if test="credentialssalt !=null">
-       , credentialssalt=#{credentialssalt,jdbcType=VARCHAR}
+       credentialssalt=#{credentialssalt,jdbcType=VARCHAR},
       </if>
       <if test="login_password !=null">
-        ,login_password=#{login_password,jdbcType=VARCHAR}
+        login_password=#{login_password,jdbcType=VARCHAR},
       </if>
       <if test="last_login_time!= null">
-       , last_login_time=#{last_login_time,jdbcType=TIMESTAMP}
+        last_login_time=#{last_login_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="login_count!= null">
+        login_count=#{login_count,jdbcType=INTEGER},
+      </if>
+      <if test="username!= null">
+        username=#{username,jdbcType=VARCHAR},
+      </if>
+      <if test="card_id!= null">
+        card_id=#{card_id,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser!= null">
+        checkuser=#{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice!= null">
+        checkadvice=#{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate!= null">
+        checkdate=#{checkdate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id=#{id,jdbcType=INTEGER}
@@ -114,6 +145,24 @@
       <if test="last_login_time !=null">
         last_login_time,
       </if>
+      <if test="login_count!= null">
+        login_count,
+      </if>
+      <if test="username!= null">
+        username,
+      </if>
+      <if test="card_id!= null">
+        card_id,
+      </if>
+      <if test="checkuser!= null">
+       checkuser,
+      </if>
+      <if test="checkadvice!= null">
+        checkadvice,
+      </if>
+      <if test="checkdate!= null">
+        checkdate,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -142,6 +191,24 @@
       </if>
       <if test="last_login_time!= null">
         #{last_login_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="login_count!= null">
+        #{login_count,jdbcType=INTEGER},
+      </if>
+      <if test="username!= null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="card_id!= null">
+        #{card_id,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser!= null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice!= null">
+       #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate!= null">
+        #{checkdate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>

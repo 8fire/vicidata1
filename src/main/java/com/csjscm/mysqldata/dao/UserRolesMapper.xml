@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.csjscm.mysqldata.dao.userRolesMapper">
-  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.userRoles">
+<mapper namespace="com.csjscm.mysqldata.dao.UserRolesMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.UserRoles">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="role_id" jdbcType="INTEGER" property="roleId" />
@@ -90,7 +90,7 @@
     order by u.id
   </select>
 
-  <select id="selectByExample" parameterType="com.csjscm.mysqldata.model.userRolesExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.csjscm.mysqldata.model.UserRolesExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -114,13 +114,13 @@
     delete from user_role
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.csjscm.mysqldata.model.userRolesExample">
+  <delete id="deleteByExample" parameterType="com.csjscm.mysqldata.model.UserRolesExample">
     delete from user_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.csjscm.mysqldata.model.userRoles">
+  <insert id="insert" parameterType="com.csjscm.mysqldata.model.UserRoles">
     insert into user_role (id, user_id, role_id, 
       gmt_time, gmt_modify, status, 
       menuid)
@@ -128,7 +128,7 @@
       #{gmtTime,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{menuid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.userRoles">
+  <insert id="insertSelective" parameterType="com.csjscm.mysqldata.model.UserRoles">
     insert into user_role
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -177,7 +177,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.csjscm.mysqldata.model.userRolesExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.csjscm.mysqldata.model.UserRolesExample" resultType="java.lang.Long">
     select count(*) from user_role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -225,7 +225,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.mysqldata.model.userRoles">
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.mysqldata.model.UserRoles">
     update user_role
     <set>
       <if test="userId != null">
@@ -249,7 +249,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.csjscm.mysqldata.model.userRoles">
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.mysqldata.model.UserRoles">
     update user_role
     set user_id = #{userId,jdbcType=INTEGER},
       role_id = #{roleId,jdbcType=INTEGER},

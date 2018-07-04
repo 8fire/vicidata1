@@ -22,7 +22,7 @@
                 <i class="Hui-iconfont">&#xe600;</i> 添加定时任务</a>
         </span>
     </div>
-	<table class="table table-border table-bordered table-bg">
+	<table class="table table-border table-bordered table-bg table-sort">
 		<thead>
 			<tr>
 				<th scope="col" colspan="9">定时任务列表</th>
@@ -73,6 +73,9 @@
 <script type="text/javascript" src="../../static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="../../static/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+    $('.table-sort').dataTable({
+
+    });
 /*
 	参数解释：
 	title	标题

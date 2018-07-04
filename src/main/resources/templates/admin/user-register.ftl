@@ -51,7 +51,7 @@
 
                             <span class="ie8 icon-close close hide"></span>
                             <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus"><span>请填写有效的邮箱(包含.,@等)</span></label>
+                            <label class="focus"><span>请填写有效的邮箱(包含.,@等特殊符号)</span></label>
                             <label class="focus valid"></label>
                         </div>
                     </div>
@@ -161,15 +161,26 @@
 
                         </div>
                     </div>
+
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>用户姓名：</span>
+                        <div class="f-fl item-ifo">
+                            <input type="text" name="userName" class="txt03 f-r3 required" keycodes="tel" tabindex="2" data-valid="isNonEmpty||isUname" data-error="用户姓名不能为空||用户姓名格式不正确" maxlength="11" id="userName" />
+                            <span class="ie8 icon-close close hide"></span>
+                            <label class="icon-sucessfill blank hide"></label>
+                            <label class="focus">请填写有效的用户名称</label>
+                            <label class="focus valid"></label>
+                        </div>
+                    </div>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>身份证号：</span>
-                        <#--<div class="f-fl item-ifo">
-                            <input type="text" class="txt03 f-r3 required" tabindex="2" data-valid="isNonEmpty||isCard" data-error="身份证号不能为空||身份证号码格式不正确" maxlength="18" id="phone" />
+                        <div class="f-fl item-ifo">
+                            <input type="text" name="cardId" class="txt03 f-r3 required" tabindex="2" data-valid="isNonEmpty||isCard" data-error="身份证号不能为空||身份证号码格式不正确" maxlength="18" id="card_id" />
                             <span class="ie8 icon-close close hide"></span>
                             <label class="icon-sucessfill blank hide"></label>
                             <label class="focus">请填写18位有效的身份证号码</label>
                             <label class="focus valid"></label>
-                        </div>-->
+                        </div>
                     </div>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl">&nbsp;</span>
@@ -181,8 +192,8 @@
                 </div>
                 </form>
                 <div id="part4" class="part4 text-center" style="display:none">
-                    <h3>恭喜cz82465，您已成功申请账号，审核需要1-2个工作日，通过后我们会通过邮箱通知您！</h3>
-                    <p class="c-666 f-mt30 f-mb50">页面将在 <strong id="times" class="f-size18">10</strong> 秒钟后，跳转到 <a href="http://www.17sucai.com/" class="c-blue">用户中心</a></p>
+                    <h3 id="message"></h3>
+                    <p class="c-666 f-mt30 f-mb50">页面将在 <strong id="times" class="f-size18">10</strong> 秒钟后，跳转到 <a href="/user/tologin" class="c-blue">用户登录中心</a></p>
                 </div>
             </div>
         </div>
@@ -202,10 +213,32 @@
     $(function(){
         //第一页的确定按钮
         $("#btn_part1").click(function(){
-            if(!verifyCheck._click()) return;
-            $(".part1").hide();
-            $(".part2").show();
-            $(".step li").eq(1).addClass("on");
+            $.ajax({
+                type: "POST",   //提交的方法
+                url:"/userRegister/verifyCheck", //提交的地址
+                data:{"loginPhone":$("#phone").val(),"loginEmail":$("#email").val()},
+                async: true,
+                dataType: "json",
+                error: function(request) {  //失败的话
+                    layer.open({
+                        title: '提示信息'
+                        ,content: '对不起，服务器异常！'
+                    });
+                },
+                success: function(data) {  //成功
+                    if(data=='0'){
+                        layer.msg('该手机号已注册过!',{icon:0,time:1000});
+                    }else if(data=="1") {
+                        layer.msg('该邮箱已注册过!',{icon:0,time:1000});
+                    }else {
+                        if(!verifyCheck._click()) return;
+                        $(".part1").hide();
+                        $(".part2").show();
+                        $(".step li").eq(1).addClass("on");
+                    }
+                }
+            });
+
         });
         //第二页的确定按钮
         $("#btn_part2").click(function(){
@@ -214,46 +247,49 @@
             $(".part3").show();
         });
         //第三页的确定按钮
-       /* $("#btn_part3").click(function(){
-            if(!verifyCheck._click()) return;
-            $(".part3").hide();
-            $(".part4").show();
-            $(".step li").eq(2).addClass("on");
-            countdown({
-                maxTime:10,
-                ing:function(c){
-                    $("#times").text(c);
+        $("#btn_part3").click(function () {
+            var phone =$("#phone").val();
+            $("#btn_part3").attr('disabled',"true");
+            $.ajax({
+                type: "POST",   //提交的方法
+                url:"/userRegister/register", //提交的地址
+                data:$('#registerFrom').serialize(),// 序列化表单值
+                async: true,
+                dataType: "json",
+                error: function(request) {  //失败的话
+                    alert("Connection error");
                 },
-                after:function(){
-                    window.location.href="my.html";
+                success: function(data) {  //成功
+                    if(data.code=='200'){
+                        // if(!verifyCheck._click()) return;
+                        $("#btn_part3").removeAttr("disabled");
+                        $(".part3").hide();
+                        $(".part4").show();
+                        $("#message").html('恭喜<span style="color:red">'+ phone+'</span>，您已成功申请账号，审核需要1-2个工作日，通过后我们会通过邮箱通知您!');
+                        $(".step li").eq(2).addClass("on");
+                        countdown({
+                            maxTime:10,
+                            ing:function(c){
+                                $("#times").text(c);
+                            },
+                            after:function(){
+                                window.location.href="/user/tologin";
+                            }
+                        });
+                    }else {
+                        layer.open({
+                            title: '提示信息'
+                            ,content: '对不起，您本次注册失败！'
+                        });
+                    }
+
+
                 }
             });
-        });*/
-    });
-    $("#btn_part3").click(function () {
-        $("#btn_part3").attr('disabled',"true");
-        $.ajax({
-            type: "POST",   //提交的方法
-            url:"/userRegister/register", //提交的地址
-            data:$('#registerFrom').serialize(),// 序列化表单值
-            async: true,
-            dataType: "json",
-            error: function(request) {  //失败的话
-                alert("Connection error");
-            },
-            success: function(data) {  //成功
-                if(data.code=='200'){
-                    $("#btn_part3").removeAttr("disabled");
-                    $(".part3").hide();
-                    $(".part4").show();
-                }else {
-                    alert("注册失败");
-                }
-
-
-            }
         });
+
     });
+
     function showoutc(){$(".m-sPopBg,.m-sPopCon").show();}
     function closeClause(){
         $(".m-sPopBg,.m-sPopCon").hide();

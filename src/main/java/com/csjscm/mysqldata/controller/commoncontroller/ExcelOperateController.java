@@ -1,4 +1,4 @@
-package com.csjscm.mysqldata.controller.commonapicontroller;
+package com.csjscm.mysqldata.controller.commoncontroller;
 
 import com.csjscm.oracledata.model.Payment;
 import com.vici.POIUtil;

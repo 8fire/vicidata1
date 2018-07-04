@@ -53,6 +53,7 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/user/mytest","anon");
         filterChainDefinitionMap.put("/userRegister/toUserRegister","anon");
         filterChainDefinitionMap.put("/userRegister/register","anon");
+        filterChainDefinitionMap.put("/userRegister/verifyCheck","anon");
         filterChainDefinitionMap.put("/**", "authc");
         //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
         shiroFilterFactoryBean.setLoginUrl("/user/tologin");
@@ -168,24 +169,5 @@ public class ShiroConfiguration {
         cookieRememberMeManager.setCipherKey(Base64.decode("3AvVhmFLUs0KTA3Kprsdag=="));
         return cookieRememberMeManager;
     }
-  /*  @Bean(name = "securityManager")
-    public DefaultWebSecurityManager defaultWebSecurityManager(authRealm realm){
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        //设置realm
-        securityManager.setRealm(realm);
-        //用户授权/认证信息Cache, 采用EhCache缓存
-        securityManager.setCacheManager(getEhCacheManager());
-        //注入记住我管理器
-        return securityManager;
-    }*/
-    /**
-     * 异常处理
-     * @return
-     */
-   /* @Bean
-    public HandlerExceptionResolver solver(){
-        HandlerExceptionResolver handlerExceptionResolver=new MyExceptionResolver();
-        return handlerExceptionResolver;
-    }*/
 }
 

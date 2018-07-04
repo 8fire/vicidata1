@@ -1,5 +1,6 @@
 package com.csjscm.mysqldata.service.impl;
 
+import com.vici.response.MsgResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -46,7 +47,28 @@ public class MailService {
            log.error("发送html邮件时发生异常！", e);
        }
    }
-
+    /**
+     * 发送HTML邮件
+     * @param to
+     * @param subject
+     * @param content
+     */
+    public MsgResponse sendReturnHtmlMail(String to, String subject, String content){
+        MimeMessage message=mailSender.createMimeMessage();
+        try {
+            MimeMessageHelper helper=new MimeMessageHelper(message);
+            helper.setFrom(from);
+            helper.setTo(to);
+            helper.setSubject(subject);
+            helper.setText(content,true);
+            mailSender.send(message);
+            log.info("html邮件发送成功");
+            return MsgResponse.success();
+        }catch (MessagingException e){
+            log.error("发送html邮件时发生异常！", e);
+            return MsgResponse.fail();
+        }
+    }
     /**
      * 发送带附件邮件
      * 添加多个附件可以使用多条 helper.addAttachment(fileName, file)

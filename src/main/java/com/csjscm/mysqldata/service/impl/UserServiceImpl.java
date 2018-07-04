@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private RoleMapper roleMapper;
     @Resource
-    private userRolesMapper userRolesMapper;
+    private UserRolesMapper userRolesMapper;
     @Resource
     private RoleAuthorMapper roleAuthorMapper;
     @Resource
@@ -98,7 +98,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, Object> insertUserRoles(userRoles userRoles) {
+    public Map<String, Object> insertUserRoles(UserRoles userRoles) {
         Map<String,Object> map =Maps.newHashMap();
         int i = userRolesMapper.insertSelective(userRoles);
         if(i>0){
@@ -115,7 +115,7 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     @Override
-    public Map<String, Object> updateUserRoleByid(userRoles userRoles) {
+    public Map<String, Object> updateUserRoleByid(UserRoles userRoles) {
         Map<String,Object> map =Maps.newHashMap();
         int i = userRolesMapper.updateByPrimaryKeySelective(userRoles);
         if(i>0){
@@ -269,9 +269,9 @@ public class UserServiceImpl implements UserService {
         memberUser.setLogin_phone(currentUser);
         MemberUser newMemberUser= memberUserMapper.selectByName(memberUser);
         if(!AppStringUtils.isNullOrEmpty(memberUser)){
-            userRolesExample roleExample=new userRolesExample();
+            UserRolesExample roleExample=new UserRolesExample();
             roleExample.createCriteria().andUserIdEqualTo(newMemberUser.getId());
-            List<userRoles> userRoles = userRolesMapper.selectByExample(roleExample);
+            List<UserRoles> userRoles = userRolesMapper.selectByExample(roleExample);
             List<SysMenu1> sysMenus = sysMenuMapper.getSysMenuInfo(userRoles.get(0).getRoleId());
             return sysMenus;
         }else {

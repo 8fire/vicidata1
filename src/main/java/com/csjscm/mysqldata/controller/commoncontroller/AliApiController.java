@@ -1,4 +1,4 @@
-package com.csjscm.mysqldata.controller.commonapicontroller;
+package com.csjscm.mysqldata.controller.commoncontroller;
 
 import com.csjscm.mysqldata.model.RequestInfo;
 import com.csjscm.mysqldata.service.impl.AliApiServiceImpl;

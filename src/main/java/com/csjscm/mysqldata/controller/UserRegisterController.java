@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -67,5 +68,21 @@ public class UserRegisterController {
     public MsgResponse registerMemberUser(HttpServletRequest request){
         int i = userRegisterService.userRegister(request);
         return i==0?MsgResponse.success():MsgResponse.fail();
+    }
+
+    /**
+     * 效验账户是否已经存在
+     */
+    @RequestMapping(value = "/verifyCheck",method = RequestMethod.POST)
+    public Integer verifyCheck(@RequestParam("loginPhone") String loginPhone,
+                               @RequestParam("loginEmail") String loginEmail){
+        Boolean existAccount = userRegisterService.isExistAccount(loginPhone);
+        Boolean existEmail = userRegisterService.isExistEmail(loginEmail);
+        if(existAccount){
+            return 0;
+        }else if(existEmail){
+            return 1;
+        }
+        return 2;
     }
 }

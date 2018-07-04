@@ -489,12 +489,12 @@ public class UserController {
                                 @RequestParam(value="id",required = false) Integer id,
                                 @RequestParam(value = "rid",required = false) Integer rid
                                ){
-        userRoles userRoles=new userRoles();
+        UserRoles userRoles=new UserRoles();
         userRoles.setId(id);
         userRoles.setUserId(uid);
         userRoles.setRoleId(rid);
         userRoles.setGmtModify(new Date());
-        //userRoles.setStatus(0);
+        //UserRoles.setStatus(0);
         Map<String, Object> map = userService.updateUserRoleByid(userRoles);
         int status = (int)map.get("status");
         if(status==0){

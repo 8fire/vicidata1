@@ -91,6 +91,9 @@ $(function(){
 				success: function(data){
 				    if(data=='0'){
                         layer.msg('添加成功!',{icon:1,time:1000});
+                        var index = parent.layer.getFrameIndex(window.name);
+                        parent.$('.btn-refresh').click();
+                        parent.layer.close(index);
                         window.parent.location.reload();
 					}else {
                         layer.msg('添加失败!',{icon:0,time:1000});
@@ -101,9 +104,7 @@ $(function(){
 					layer.msg('error!',{icon:1,time:1000});
 				}
 			});
-			var index = parent.layer.getFrameIndex(window.name);
-			parent.$('.btn-refresh').click();
-			parent.layer.close(index);
+
 		}
 	});
 });

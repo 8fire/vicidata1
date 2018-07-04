@@ -56,6 +56,9 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="../../static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
+    $('.table').dataTable({
+
+    });
 /*管理员-角色-添加*/
 function admin_role_add(title,url,w,h){
 	layer_show(title,url,w,h);

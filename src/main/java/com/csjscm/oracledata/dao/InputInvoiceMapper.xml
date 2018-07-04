@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.oracledata.dao.InputInvoiceMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.oracledata.model.InputInvoice">
+    <id column="TICKETNO" jdbcType="VARCHAR" property="ticketno" />
+    <result column="SERVICER" jdbcType="VARCHAR" property="servicer" />
+    <result column="SERVICERNAME" jdbcType="VARCHAR" property="servicername" />
+    <result column="INVOICENO" jdbcType="VARCHAR" property="invoiceno" />
+    <result column="INVOICETYPE" jdbcType="DECIMAL" property="invoicetype" />
+    <result column="INVOICENUM" jdbcType="DECIMAL" property="invoicenum" />
+    <result column="PLANINVOICEAMOUNT" jdbcType="DECIMAL" property="planinvoiceamount" />
+    <result column="INVOICEAMOUNT" jdbcType="DECIMAL" property="invoiceamount" />
+    <result column="INVOICEUSER" jdbcType="VARCHAR" property="invoiceuser" />
+    <result column="INVOICEDATE" jdbcType="VARCHAR" property="invoicedate" />
+    <result column="TAXAMOUNT" jdbcType="DECIMAL" property="taxamount" />
+    <result column="PRETAXAMOUNT" jdbcType="DECIMAL" property="pretaxamount" />
+    <result column="VERIFYAMOUNT" jdbcType="DECIMAL" property="verifyamount" />
+    <result column="RECEIVEDATE" jdbcType="VARCHAR" property="receivedate" />
+    <result column="RECEIVEUSER" jdbcType="VARCHAR" property="receiveuser" />
+    <result column="ENTERPRICE" jdbcType="VARCHAR" property="enterprice" />
+    <result column="ENTERPRICENAME" jdbcType="VARCHAR" property="enterpricename" />
+    <result column="STATUS" jdbcType="DECIMAL" property="status" />
+    <result column="CREATEUSER" jdbcType="VARCHAR" property="createuser" />
+    <result column="CREATEDATE" jdbcType="VARCHAR" property="createdate" />
+    <result column="CHECKUSER" jdbcType="VARCHAR" property="checkuser" />
+    <result column="CHECKDATE" jdbcType="VARCHAR" property="checkdate" />
+    <result column="CHECKADVICE" jdbcType="VARCHAR" property="checkadvice" />
+    <result column="MEMOS" jdbcType="VARCHAR" property="memos" />
+    <result column="ISDELETE" jdbcType="DECIMAL" property="isdelete" />
+    <result column="PLANINVOICENUM" jdbcType="DECIMAL" property="planinvoicenum" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    TICKETNO, SERVICER, SERVICERNAME, INVOICENO, INVOICETYPE, INVOICENUM, PLANINVOICEAMOUNT, 
+    INVOICEAMOUNT, INVOICEUSER, INVOICEDATE, TAXAMOUNT, PRETAXAMOUNT, VERIFYAMOUNT, RECEIVEDATE, 
+    RECEIVEUSER, ENTERPRICE, ENTERPRICENAME, STATUS, CREATEUSER, CREATEDATE, CHECKUSER, 
+    CHECKDATE, CHECKADVICE, MEMOS, ISDELETE, PLANINVOICENUM
+  </sql>
+  <select id="selectByExample" parameterType="com.csjscm.oracledata.model.InputInvoiceExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from INPUTINVOICE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from INPUTINVOICE
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from INPUTINVOICE
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.csjscm.oracledata.model.InputInvoiceExample">
+    delete from INPUTINVOICE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.csjscm.oracledata.model.InputInvoice">
+    insert into INPUTINVOICE (TICKETNO, SERVICER, SERVICERNAME, 
+      INVOICENO, INVOICETYPE, INVOICENUM, 
+      PLANINVOICEAMOUNT, INVOICEAMOUNT, INVOICEUSER, 
+      INVOICEDATE, TAXAMOUNT, PRETAXAMOUNT, 
+      VERIFYAMOUNT, RECEIVEDATE, RECEIVEUSER, 
+      ENTERPRICE, ENTERPRICENAME, STATUS, 
+      CREATEUSER, CREATEDATE, CHECKUSER, 
+      CHECKDATE, CHECKADVICE, MEMOS, 
+      ISDELETE, PLANINVOICENUM)
+    values (#{ticketno,jdbcType=VARCHAR}, #{servicer,jdbcType=VARCHAR}, #{servicername,jdbcType=VARCHAR}, 
+      #{invoiceno,jdbcType=VARCHAR}, #{invoicetype,jdbcType=DECIMAL}, #{invoicenum,jdbcType=DECIMAL}, 
+      #{planinvoiceamount,jdbcType=DECIMAL}, #{invoiceamount,jdbcType=DECIMAL}, #{invoiceuser,jdbcType=VARCHAR}, 
+      #{invoicedate,jdbcType=VARCHAR}, #{taxamount,jdbcType=DECIMAL}, #{pretaxamount,jdbcType=DECIMAL}, 
+      #{verifyamount,jdbcType=DECIMAL}, #{receivedate,jdbcType=VARCHAR}, #{receiveuser,jdbcType=VARCHAR}, 
+      #{enterprice,jdbcType=VARCHAR}, #{enterpricename,jdbcType=VARCHAR}, #{status,jdbcType=DECIMAL}, 
+      #{createuser,jdbcType=VARCHAR}, #{createdate,jdbcType=VARCHAR}, #{checkuser,jdbcType=VARCHAR}, 
+      #{checkdate,jdbcType=VARCHAR}, #{checkadvice,jdbcType=VARCHAR}, #{memos,jdbcType=VARCHAR}, 
+      #{isdelete,jdbcType=DECIMAL}, #{planinvoicenum,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.csjscm.oracledata.model.InputInvoice">
+    insert into INPUTINVOICE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        TICKETNO,
+      </if>
+      <if test="servicer != null">
+        SERVICER,
+      </if>
+      <if test="servicername != null">
+        SERVICERNAME,
+      </if>
+      <if test="invoiceno != null">
+        INVOICENO,
+      </if>
+      <if test="invoicetype != null">
+        INVOICETYPE,
+      </if>
+      <if test="invoicenum != null">
+        INVOICENUM,
+      </if>
+      <if test="planinvoiceamount != null">
+        PLANINVOICEAMOUNT,
+      </if>
+      <if test="invoiceamount != null">
+        INVOICEAMOUNT,
+      </if>
+      <if test="invoiceuser != null">
+        INVOICEUSER,
+      </if>
+      <if test="invoicedate != null">
+        INVOICEDATE,
+      </if>
+      <if test="taxamount != null">
+        TAXAMOUNT,
+      </if>
+      <if test="pretaxamount != null">
+        PRETAXAMOUNT,
+      </if>
+      <if test="verifyamount != null">
+        VERIFYAMOUNT,
+      </if>
+      <if test="receivedate != null">
+        RECEIVEDATE,
+      </if>
+      <if test="receiveuser != null">
+        RECEIVEUSER,
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE,
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="createuser != null">
+        CREATEUSER,
+      </if>
+      <if test="createdate != null">
+        CREATEDATE,
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER,
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE,
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE,
+      </if>
+      <if test="memos != null">
+        MEMOS,
+      </if>
+      <if test="isdelete != null">
+        ISDELETE,
+      </if>
+      <if test="planinvoicenum != null">
+        PLANINVOICENUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ticketno != null">
+        #{ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="servicer != null">
+        #{servicer,jdbcType=VARCHAR},
+      </if>
+      <if test="servicername != null">
+        #{servicername,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null">
+        #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetype != null">
+        #{invoicetype,jdbcType=DECIMAL},
+      </if>
+      <if test="invoicenum != null">
+        #{invoicenum,jdbcType=DECIMAL},
+      </if>
+      <if test="planinvoiceamount != null">
+        #{planinvoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceamount != null">
+        #{invoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceuser != null">
+        #{invoiceuser,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicedate != null">
+        #{invoicedate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxamount != null">
+        #{taxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="pretaxamount != null">
+        #{pretaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="verifyamount != null">
+        #{verifyamount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivedate != null">
+        #{receivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveuser != null">
+        #{receiveuser,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="memos != null">
+        #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=DECIMAL},
+      </if>
+      <if test="planinvoicenum != null">
+        #{planinvoicenum,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.csjscm.oracledata.model.InputInvoiceExample" resultType="java.lang.Long">
+    select count(*) from INPUTINVOICE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update INPUTINVOICE
+    <set>
+      <if test="record.ticketno != null">
+        TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servicer != null">
+        SERVICER = #{record.servicer,jdbcType=VARCHAR},
+      </if>
+      <if test="record.servicername != null">
+        SERVICERNAME = #{record.servicername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoiceno != null">
+        INVOICENO = #{record.invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoicetype != null">
+        INVOICETYPE = #{record.invoicetype,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoicenum != null">
+        INVOICENUM = #{record.invoicenum,jdbcType=DECIMAL},
+      </if>
+      <if test="record.planinvoiceamount != null">
+        PLANINVOICEAMOUNT = #{record.planinvoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoiceamount != null">
+        INVOICEAMOUNT = #{record.invoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.invoiceuser != null">
+        INVOICEUSER = #{record.invoiceuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.invoicedate != null">
+        INVOICEDATE = #{record.invoicedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taxamount != null">
+        TAXAMOUNT = #{record.taxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.pretaxamount != null">
+        PRETAXAMOUNT = #{record.pretaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.verifyamount != null">
+        VERIFYAMOUNT = #{record.verifyamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.receivedate != null">
+        RECEIVEDATE = #{record.receivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.receiveuser != null">
+        RECEIVEUSER = #{record.receiveuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterprice != null">
+        ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.enterpricename != null">
+        ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createuser != null">
+        CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null">
+        CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkuser != null">
+        CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkdate != null">
+        CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkadvice != null">
+        CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memos != null">
+        MEMOS = #{record.memos,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdelete != null">
+        ISDELETE = #{record.isdelete,jdbcType=DECIMAL},
+      </if>
+      <if test="record.planinvoicenum != null">
+        PLANINVOICENUM = #{record.planinvoicenum,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update INPUTINVOICE
+    set TICKETNO = #{record.ticketno,jdbcType=VARCHAR},
+      SERVICER = #{record.servicer,jdbcType=VARCHAR},
+      SERVICERNAME = #{record.servicername,jdbcType=VARCHAR},
+      INVOICENO = #{record.invoiceno,jdbcType=VARCHAR},
+      INVOICETYPE = #{record.invoicetype,jdbcType=DECIMAL},
+      INVOICENUM = #{record.invoicenum,jdbcType=DECIMAL},
+      PLANINVOICEAMOUNT = #{record.planinvoiceamount,jdbcType=DECIMAL},
+      INVOICEAMOUNT = #{record.invoiceamount,jdbcType=DECIMAL},
+      INVOICEUSER = #{record.invoiceuser,jdbcType=VARCHAR},
+      INVOICEDATE = #{record.invoicedate,jdbcType=VARCHAR},
+      TAXAMOUNT = #{record.taxamount,jdbcType=DECIMAL},
+      PRETAXAMOUNT = #{record.pretaxamount,jdbcType=DECIMAL},
+      VERIFYAMOUNT = #{record.verifyamount,jdbcType=DECIMAL},
+      RECEIVEDATE = #{record.receivedate,jdbcType=VARCHAR},
+      RECEIVEUSER = #{record.receiveuser,jdbcType=VARCHAR},
+      ENTERPRICE = #{record.enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{record.enterpricename,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=DECIMAL},
+      CREATEUSER = #{record.createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{record.createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{record.checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{record.checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{record.checkadvice,jdbcType=VARCHAR},
+      MEMOS = #{record.memos,jdbcType=VARCHAR},
+      ISDELETE = #{record.isdelete,jdbcType=DECIMAL},
+      PLANINVOICENUM = #{record.planinvoicenum,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.csjscm.oracledata.model.InputInvoice">
+    update INPUTINVOICE
+    <set>
+      <if test="servicer != null">
+        SERVICER = #{servicer,jdbcType=VARCHAR},
+      </if>
+      <if test="servicername != null">
+        SERVICERNAME = #{servicername,jdbcType=VARCHAR},
+      </if>
+      <if test="invoiceno != null">
+        INVOICENO = #{invoiceno,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetype != null">
+        INVOICETYPE = #{invoicetype,jdbcType=DECIMAL},
+      </if>
+      <if test="invoicenum != null">
+        INVOICENUM = #{invoicenum,jdbcType=DECIMAL},
+      </if>
+      <if test="planinvoiceamount != null">
+        PLANINVOICEAMOUNT = #{planinvoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceamount != null">
+        INVOICEAMOUNT = #{invoiceamount,jdbcType=DECIMAL},
+      </if>
+      <if test="invoiceuser != null">
+        INVOICEUSER = #{invoiceuser,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicedate != null">
+        INVOICEDATE = #{invoicedate,jdbcType=VARCHAR},
+      </if>
+      <if test="taxamount != null">
+        TAXAMOUNT = #{taxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="pretaxamount != null">
+        PRETAXAMOUNT = #{pretaxamount,jdbcType=DECIMAL},
+      </if>
+      <if test="verifyamount != null">
+        VERIFYAMOUNT = #{verifyamount,jdbcType=DECIMAL},
+      </if>
+      <if test="receivedate != null">
+        RECEIVEDATE = #{receivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="receiveuser != null">
+        RECEIVEUSER = #{receiveuser,jdbcType=VARCHAR},
+      </if>
+      <if test="enterprice != null">
+        ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      </if>
+      <if test="enterpricename != null">
+        ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=DECIMAL},
+      </if>
+      <if test="createuser != null">
+        CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkuser != null">
+        CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      </if>
+      <if test="checkadvice != null">
+        CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      </if>
+      <if test="memos != null">
+        MEMOS = #{memos,jdbcType=VARCHAR},
+      </if>
+      <if test="isdelete != null">
+        ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      </if>
+      <if test="planinvoicenum != null">
+        PLANINVOICENUM = #{planinvoicenum,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.csjscm.oracledata.model.InputInvoice">
+    update INPUTINVOICE
+    set SERVICER = #{servicer,jdbcType=VARCHAR},
+      SERVICERNAME = #{servicername,jdbcType=VARCHAR},
+      INVOICENO = #{invoiceno,jdbcType=VARCHAR},
+      INVOICETYPE = #{invoicetype,jdbcType=DECIMAL},
+      INVOICENUM = #{invoicenum,jdbcType=DECIMAL},
+      PLANINVOICEAMOUNT = #{planinvoiceamount,jdbcType=DECIMAL},
+      INVOICEAMOUNT = #{invoiceamount,jdbcType=DECIMAL},
+      INVOICEUSER = #{invoiceuser,jdbcType=VARCHAR},
+      INVOICEDATE = #{invoicedate,jdbcType=VARCHAR},
+      TAXAMOUNT = #{taxamount,jdbcType=DECIMAL},
+      PRETAXAMOUNT = #{pretaxamount,jdbcType=DECIMAL},
+      VERIFYAMOUNT = #{verifyamount,jdbcType=DECIMAL},
+      RECEIVEDATE = #{receivedate,jdbcType=VARCHAR},
+      RECEIVEUSER = #{receiveuser,jdbcType=VARCHAR},
+      ENTERPRICE = #{enterprice,jdbcType=VARCHAR},
+      ENTERPRICENAME = #{enterpricename,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=DECIMAL},
+      CREATEUSER = #{createuser,jdbcType=VARCHAR},
+      CREATEDATE = #{createdate,jdbcType=VARCHAR},
+      CHECKUSER = #{checkuser,jdbcType=VARCHAR},
+      CHECKDATE = #{checkdate,jdbcType=VARCHAR},
+      CHECKADVICE = #{checkadvice,jdbcType=VARCHAR},
+      MEMOS = #{memos,jdbcType=VARCHAR},
+      ISDELETE = #{isdelete,jdbcType=DECIMAL},
+      PLANINVOICENUM = #{planinvoicenum,jdbcType=DECIMAL}
+    where TICKETNO = #{ticketno,jdbcType=VARCHAR}
+  </update>
+</mapper>

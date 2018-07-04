@@ -10,4 +10,10 @@ import javax.servlet.http.HttpServletRequest;
  **/
 public interface UserRegisterService {
     int userRegister(HttpServletRequest request);
+
+    /**
+     * 用户注册的审核功能
+     * @return
+     */
+    String registerJob();
 }

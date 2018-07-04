@@ -18,27 +18,6 @@ datasource:
     testOnReturn: false
     poolPreparedStatements: true
     useGlobalDataSourceStat: true
-  mysql1:
-    url: jdbc:mysql://192.168.2.222:3306/csjmro_test?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC&allowMultiQueries=true&useSSL=true&verifyServerCertificate=false
-    username: csjmro_test
-    password: test123456
-    driver-class-name: com.mysql.jdbc.Driver
-    filters: stat
-    maxActive: 200
-    initialSize: 10
-    maxWait: 60000
-    minIdle: 20
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: "select 1"
-    testWhileIdle: true
-    maxOpenPreparedStatements: 20
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    useGlobalDataSourceStat: true
-
-
   oracle:
         #测试环境
     url: jdbc:oracle:thin:@192.168.2.222:1521:orcl
@@ -48,7 +27,7 @@ datasource:
 
 
 server:
-  port: 8000
+  port: 8003
 
   spring.http.encoding.force: true
   spring.http.encoding.charset: UTF-8

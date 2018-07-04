@@ -33,9 +33,9 @@ public interface UserService {
 
     Map<String, Object> selectRolesBywhere(RoleExample roleExample);
 
-    Map<String, Object> insertUserRoles(userRoles userRoles);
+    Map<String, Object> insertUserRoles(UserRoles userRoles);
 
-    Map<String, Object> updateUserRoleByid(userRoles userRoles);
+    Map<String, Object> updateUserRoleByid(UserRoles userRoles);
 
     Map<String, Object> queryForUserRoles(Map<String, Object> mapId);
 

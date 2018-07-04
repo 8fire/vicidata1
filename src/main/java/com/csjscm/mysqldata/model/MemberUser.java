@@ -1,7 +1,9 @@
 package com.csjscm.mysqldata.model;
 
-import java.util.Date;
+import lombok.Data;
 
+import java.util.Date;
+@Data
 public class MemberUser {
     private Integer id;
 
@@ -21,75 +23,15 @@ public class MemberUser {
 
     private Date last_login_time;
 
-    public Integer getId() {
-        return id;
-    }
+    private Integer login_count;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private String username;
 
-    public Date getLast_login_time() {
-        return last_login_time;
-    }
+    private String card_id;
 
-    public void setLast_login_time(Date last_login_time) {
-        this.last_login_time = last_login_time;
-    }
+    private String checkuser;
 
-    public String getLogin_phone() {
-        return login_phone;
-    }
+    private String checkadvice;
 
-    public void setLogin_phone(String login_phone) {
-        this.login_phone = login_phone;
-    }
-
-    public String getLogin_email() {
-        return login_email;
-    }
-
-    public void setLogin_email(String login_email) {
-        this.login_email = login_email;
-    }
-
-    public String getLogin_password() {
-        return login_password;
-    }
-
-    public void setLogin_password(String login_password) {
-        this.login_password = login_password;
-    }
-
-    public Date getGmt_create() {
-        return gmt_create;
-    }
-
-    public void setGmt_create(Date gmt_create) {
-        this.gmt_create = gmt_create;
-    }
-
-    public Date getGmt_modified() {
-        return gmt_modified;
-    }
-
-    public void setGmt_modified(Date gmt_modified) {
-        this.gmt_modified = gmt_modified;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public String getCredentialssalt() {
-        return credentialssalt;
-    }
-
-    public void setCredentialssalt(String credentialssalt) {
-        this.credentialssalt = credentialssalt == null ? null : credentialssalt.trim();
-    }
+    private String checkdate;
 }
