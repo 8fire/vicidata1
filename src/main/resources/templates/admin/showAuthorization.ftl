@@ -9,7 +9,7 @@
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
-            <a href="javascript:;" onclick="admin_add('添加新权限','authorization-add.html','800','500')" class="btn btn-primary radius">
+            <a href="javascript:;" onclick="admin_add('添加新权限','authorization-add.ftl','800','500')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe600;</i> 添加新权限</a>
         </span>
         <span class="r">

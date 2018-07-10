@@ -69,7 +69,7 @@
                     <label for="online1"><a id="btnForgetpsw" class="fr">忘记密码？</a>还没有账号？<a href="/userRegister/toUserRegister" target="_blank"  id="btnRegister">立即注册</a></label>
                 </div>
             </div>
-                <div class="row cl">
+            <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3">
                     <input name="login" id="login" type="button" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
                     <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
@@ -119,7 +119,7 @@
         var kaptchaCode1=$("#yzm").val().trim();
         var loginPhone= $("#loginPhone").val().trim();
         var loginPassword=$("#loginPassword").val();
-        var rememberMe=$("rememberMe").val();
+        var rememberMe=$("#rememberMe").is(':checked');
         if(loginPhone==""||loginPhone==undefined||loginPhone==null){
             layer.msg("账户不能为空",{icon:0,time:2000});
             return false;
@@ -143,9 +143,11 @@
                         $.ajax({
                             type: 'POST',
                             url: '/user/ajaxlogin',
-                            data:{"loginPhone":$("#loginPhone").val(),
+                            data:{
+                                "loginPhone":$("#loginPhone").val(),
                                 "loginPassword":$("#loginPassword").val(),
-                                "rememberMe":$("#rememberMe").val()},
+                                "rememberMe":$("#rememberMe").is(':checked')
+                            },
                             dataType: 'json',
                             success: function(data){
                                 var stringify = JSON.stringify(data);

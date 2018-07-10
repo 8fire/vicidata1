@@ -70,7 +70,7 @@ public class UserController {
     @RequestMapping(value="/ajaxlogin",method = RequestMethod.POST)
     public MsgResponse ajaxlogin(@Param("loginPassword") String loginPassword,
                                  @Param("loginPhone") String loginPhone,
-                                 @Param("rememberMe") Boolean rememberMe) {
+                                 @Param("rememberMe") String rememberMe) {
         MemberUser user = new MemberUser();
         user.setLogin_password(loginPassword);
         JSONObject jsonObject = new JSONObject();
@@ -82,7 +82,7 @@ public class UserController {
             name = loginPhone;
             user.setLogin_email(name);
         }
-        UsernamePasswordToken token = new UsernamePasswordToken(name, loginPassword, rememberMe);
+        UsernamePasswordToken token = new UsernamePasswordToken(name, loginPassword,Boolean.parseBoolean(rememberMe));
         Subject currentUser = SecurityUtils.getSubject();
         try {
             currentUser.login(token);
@@ -178,8 +178,6 @@ public class UserController {
      */
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public ModelAndView logout(){
-        Map<String, Object> resultMap = new LinkedHashMap<>();
-        ModelAndView mv=new ModelAndView();
         try {
             //退出
             SecurityUtils.getSubject().logout();
@@ -210,7 +208,6 @@ public class UserController {
     @RequestMapping(value = "/welcome")
     public ModelAndView welcome(HttpServletRequest request){
         ModelAndView modelAndView=new ModelAndView();
-        //List<SysMenu1> test = userService.getSysMenuInfo();
         Map<String,Object> map =Maps.newHashMap();
         //获取用户请求IP地址
         String ipAddr = RequestUtils.getIpAddr(request);
@@ -616,7 +613,7 @@ public class UserController {
      * 添加权限
      * @return
      */
-    @Transactional
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @RequestMapping(value = "add-role-permission",method = RequestMethod.POST)
     public MsgResponse addRolePermission(@RequestParam(value = "rid",required = false) Integer rid,
                                     @RequestParam(value = "fMenuName",required =false ) List<Integer> fMenuNameList,
@@ -683,6 +680,19 @@ public class UserController {
         //开个线程让你快点执行
         asyncTaskService.executeAsyncTask(userService.insertRoleSysmenu(roleSysmenu));
     }
+
+    /**
+     * 跳转到菜单列表
+     * @return
+     */
+    @RequestMapping(value = "sysmenu-list",method = RequestMethod.GET)
+    public ModelAndView toSysMenus(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("/admin/sysmenu-list");
+        return modelAndView;
+    }
+
+
     @RequestMapping(value = "mytest",method = RequestMethod.GET)
     public void getText(){
         String filePath="D:\\etp20180401.xls";

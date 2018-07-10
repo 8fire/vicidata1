@@ -18,7 +18,7 @@
 	<#--<div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
             <a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-            <a href="javascript:;" onclick="admin_add('添加管理员','admin-add.html','800','500')" class="btn btn-primary radius">
+            <a href="javascript:;" onclick="admin_add('添加管理员','admin-add.ftl','800','500')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe600;</i> 添加管理员</a>
         </span>
         <span class="r">

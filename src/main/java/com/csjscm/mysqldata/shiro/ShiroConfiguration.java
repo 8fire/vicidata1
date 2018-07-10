@@ -54,7 +54,10 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/userRegister/toUserRegister","anon");
         filterChainDefinitionMap.put("/userRegister/register","anon");
         filterChainDefinitionMap.put("/userRegister/verifyCheck","anon");
-        filterChainDefinitionMap.put("/**", "authc");
+        filterChainDefinitionMap.put("/blog/**","anon");
+        //filterChainDefinitionMap.put("/**", "authc");
+
+        filterChainDefinitionMap.put("/**", "user");
         //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
         shiroFilterFactoryBean.setLoginUrl("/user/tologin");
         // 登录成功后要跳转的链接
@@ -102,26 +105,16 @@ public class ShiroConfiguration {
     @Bean
     public HashedCredentialsMatcher hashedCredentialsMatcher() {
         HashedCredentialsMatcher hashedCredentialsMatcher = new HashedCredentialsMatcher();
-        hashedCredentialsMatcher.setHashAlgorithmName("MD5");//散列算法:这里使用MD5算法;
-        hashedCredentialsMatcher.setHashIterations(2);//散列的次数，比如散列两次，相当于 md5(md5(""));
+        //散列算法:这里使用MD5算法;
+        hashedCredentialsMatcher.setHashAlgorithmName("MD5");
+        //散列的次数，比如散列两次，相当于 md5(md5(""));
+        hashedCredentialsMatcher.setHashIterations(2);
         hashedCredentialsMatcher.setStoredCredentialsHexEncoded(true);
         return hashedCredentialsMatcher;
     }
 
-    @Bean
-    public SecurityManager securityManager() {
-        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        // 设置realm.
-        securityManager.setRealm(myShiroRealm());
-        // 自定义缓存实现 使用redis
-        //securityManager.setCacheManager(cacheManager());
-        // 自定义session管理 使用redis
-        //securityManager.setSessionManager(sessionManager());
-        //注入记住我管理器;
-        securityManager.setRememberMeManager(rememberMeManager());
-        return securityManager;
-    }
 
+    @Bean
     public AuthRealm myShiroRealm(){
         AuthRealm authRealm=new AuthRealm();
         authRealm.setAuthorizationCachingEnabled(false);
@@ -168,6 +161,20 @@ public class ShiroConfiguration {
         //rememberMe cookie加密的密钥 建议每个项目都不一样 默认AES算法 密钥长度(128 256 512 位)
         cookieRememberMeManager.setCipherKey(Base64.decode("3AvVhmFLUs0KTA3Kprsdag=="));
         return cookieRememberMeManager;
+    }
+
+    @Bean
+    public SecurityManager securityManager() {
+        DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
+        // 设置realm.
+        securityManager.setRealm(myShiroRealm());
+        // 自定义缓存实现 使用redis
+        //securityManager.setCacheManager(cacheManager());
+        // 自定义session管理 使用redis
+        //securityManager.setSessionManager(sessionManager());
+        //注入记住我管理器;
+        securityManager.setRememberMeManager(rememberMeManager());
+        return securityManager;
     }
 }
 

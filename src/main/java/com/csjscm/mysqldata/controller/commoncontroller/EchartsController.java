@@ -26,4 +26,11 @@ public class EchartsController {
         modelAndView.setViewName("/echarts/charts-6");
         return modelAndView;
     }
+
+    @RequestMapping(value = "/testLayUi",method = RequestMethod.GET)
+    public ModelAndView testLayUi(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("/blog/index");
+        return modelAndView;
+    }
 }

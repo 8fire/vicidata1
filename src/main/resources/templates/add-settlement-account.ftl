@@ -53,7 +53,6 @@
 <script type="text/javascript">
     $("#form-settlement-add").validate({
         submitHandler : function(){
-
             //在这里面写你的异步提交比如$.ajax({url:"",data:""})
             $.ajax({
                 //几个参数需要注意一下

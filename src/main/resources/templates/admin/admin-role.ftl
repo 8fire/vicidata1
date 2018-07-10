@@ -9,7 +9,7 @@
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray">
 		<span class="l">
-			<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','to-role-add.html','800','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span>
+			<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','to-role-add.ftl','800','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span>
 		<span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<table class="table table-border table-bordered table-hover table-bg">
 		<thead>

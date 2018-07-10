@@ -44,7 +44,7 @@
             <dt><i class="Hui-iconfont">&#xe616;</i> 二级导航3<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
+                    <li><a data-href="/echarts/testLayUi.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
                 </ul>
             </dd>
         </dl>

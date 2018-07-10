@@ -99,15 +99,12 @@ public class AuthRealm extends AuthorizingRealm {
         if(userInfo==null){
             return null;
         }
-        if(userInfo.getStatus()==-1){//账户冻结
+        //账户冻结
+        if(userInfo.getStatus()==-1){
             throw new LockedAccountException();
         }else {
-            //密码进行加密处理  明文为  password+name
-            String paw = username+password;
-            //  String pawDES = MD5Utils.encryptMD5(password);
-
             //credentialsSalt盐值
-            ByteSource credentialsSalt = ByteSource.Util.bytes(userInfo.getLogin_phone());//使用账号作为盐值
+            ByteSource credentialsSalt = ByteSource.Util.bytes(userInfo.getLogin_phone());
             //更新登录时间 last login time
             Map<String,Object> map= Maps.newHashMap();
             map.put("last_login_time", AppDateMgr.todayYyyyMmDdHhMmSs());
@@ -120,10 +117,10 @@ public class AuthRealm extends AuthorizingRealm {
             session.setAttribute("currentUser", userInfo);
             session.setAttribute("username",token.getUsername());
             SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                    userInfo.getLogin_phone(), //用户名
-                    userInfo.getLogin_password(), //密码
+                    userInfo.getLogin_phone(),
+                    userInfo.getLogin_password(),
                     credentialsSalt,
-                    getName()  //realm name
+                    getName()
             );
             return authenticationInfo;
         }
