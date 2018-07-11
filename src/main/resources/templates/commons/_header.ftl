@@ -14,7 +14,7 @@
                             <li class="layui-nav-item navbar-levelone current"><a href="javascript:;">平台</a></li>
                             <li class="layui-nav-item navbar-levelone"><a href="javascript:;">商城</a></li>
                             <li class="layui-nav-item navbar-levelone"><a href="javascript:;">财务</a></li>
-                            <li class="layui-nav-item navbar-levelone"><a href="javascript:;">手机</a></li>
+                            <li class="layui-nav-item navbar-levelone"><a href="javascript:;">闲言</a></li>
 
                     </li>
                 </ul>

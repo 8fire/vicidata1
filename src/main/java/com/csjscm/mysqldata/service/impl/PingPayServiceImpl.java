@@ -147,7 +147,6 @@ public class PingPayServiceImpl implements PingPayService {
         Map<String,Object> map=Maps.newHashMap();
         CabinetOnlinePayExample cabinetOnlinePayExample=new CabinetOnlinePayExample();
         cabinetOnlinePayExample.createCriteria().andSelecttradetypeEqualTo("40288132614ed2130161500424780069");
-       // List<CabinetOnlinePay> cabinetOnlinePays = cabinetOnlinePayMapper.selectByExample(cabinetOnlinePayExample);
         List<CabinetOnlinePay> cabinetOnlinePays = cabinetOnlinePayMapper.selectAll();
         if(cabinetOnlinePays.size()>0){
             map.put("status",0);

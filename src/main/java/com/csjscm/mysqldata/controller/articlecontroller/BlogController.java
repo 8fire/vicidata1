@@ -1,9 +1,14 @@
 package com.csjscm.mysqldata.controller.articlecontroller;
 
+import com.csjscm.mysqldata.model.ArticleType;
+import com.csjscm.mysqldata.service.impl.ArticleServiceImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Map;
 
 /**
  * @program: vicidata
@@ -15,10 +20,14 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/blog")
 @Slf4j
 public class BlogController {
-
+    @Autowired
+    private ArticleServiceImpl articleService;
     @RequestMapping("/index")
     public ModelAndView toArticle(){
        ModelAndView modelAndView=new ModelAndView();
+
+        Map<String, Object> articleList = articleService.getArticleList(null);
+        modelAndView.addObject("map",articleList);
         modelAndView.setViewName("blog/index");
         return modelAndView;
     }

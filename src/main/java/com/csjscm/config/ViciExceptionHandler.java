@@ -21,14 +21,14 @@ import java.util.Map;
  * @author csjscm
  * create 2018-05-23 下午 2:51
  **/
-@ControllerAdvice
+/*@ControllerAdvice
 @Slf4j
-@Configuration
+@Configuration*/
 public class ViciExceptionHandler {
     public static final String IMOOC_ERROR_VIEW = "/commons/error";
     public static final String UNAUTHORIZED_ERROR_VIEW = "/commons/403";
     public static final String UNAUTHORIZED_ERROR_MSG="对不起，您没有操作权限";
-    public static final String IMOOC_ERROR_MSG="对不起，您没有操作权限";
+    public static final String IMOOC_ERROR_MSG="对不起，服务器异常了";
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

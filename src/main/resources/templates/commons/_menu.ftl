@@ -41,10 +41,13 @@
 
     <div class="menu_dropdown bk_2" style="display:none">
         <dl id="menu-ccccc">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 二级导航3<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe616;</i> 闲言博客管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="/echarts/testLayUi.html" data-title="资讯管理" href="javascript:void(0)">三级导航</a></li>
+                    <li><a data-href="/backblog/toArticle.html" data-title="发布文章" href="javascript:void(0)">发布文章</a></li>
+                </ul>
+                <ul>
+                    <li><a data-href="/backblog/testLayUi.html" data-title="资讯管理" href="javascript:void(0)">评论管理</a></li>
                 </ul>
             </dd>
         </dl>

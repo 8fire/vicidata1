@@ -11,6 +11,8 @@ public class StaticConfig extends WebMvcConfigurerAdapter {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+        //配置本地磁盘的虚拟路径
+        registry.addResourceHandler("/upload/**").addResourceLocations("file:F:/blog/file/static/");
         super.addResourceHandlers(registry);
     }
 }

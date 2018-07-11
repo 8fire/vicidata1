@@ -47,16 +47,18 @@ public class ShiroConfiguration {
         filterChainDefinitionMap.put("/static/**", "anon");
         filterChainDefinitionMap.put("/user/ajaxlogin", "anon");
         filterChainDefinitionMap.put("/user/tologin", "anon");
-        filterChainDefinitionMap.put("/user/captcha-image", "anon");//生成验证码
-        filterChainDefinitionMap.put("/user/captchaVerify", "anon");//校验验证码
-        filterChainDefinitionMap.put("/swagger-ui", "anon");//swagger-ui
+        //生成验证码
+        filterChainDefinitionMap.put("/user/captcha-image", "anon");
+        //校验验证码
+        filterChainDefinitionMap.put("/user/captchaVerify", "anon");
+        //swagger-ui
+        filterChainDefinitionMap.put("/swagger-ui", "anon");
         filterChainDefinitionMap.put("/user/mytest","anon");
         filterChainDefinitionMap.put("/userRegister/toUserRegister","anon");
         filterChainDefinitionMap.put("/userRegister/register","anon");
         filterChainDefinitionMap.put("/userRegister/verifyCheck","anon");
         filterChainDefinitionMap.put("/blog/**","anon");
-        //filterChainDefinitionMap.put("/**", "authc");
-
+        filterChainDefinitionMap.put("/file/img/upload","anon");
         filterChainDefinitionMap.put("/**", "user");
         //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
         shiroFilterFactoryBean.setLoginUrl("/user/tologin");

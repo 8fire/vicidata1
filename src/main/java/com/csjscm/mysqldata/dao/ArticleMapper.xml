@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.csjscm.mysqldata.dao.ArticleMapper">
+  <resultMap id="BaseResultMap" type="com.csjscm.mysqldata.model.Article">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="article_site" jdbcType="VARCHAR" property="articleSite" />
+    <result column="article_type" jdbcType="VARCHAR" property="articleType" />
+    <result column="article_pic" jdbcType="VARCHAR" property="articlePic" />
+    <result column="article_source" jdbcType="VARCHAR" property="articleSource" />
+    <result column="article_url" jdbcType="VARCHAR" property="articleUrl" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="is_top" jdbcType="INTEGER" property="isTop" />
+    <result column="organization" jdbcType="VARCHAR" property="organization" />
+    <result column="attachment" jdbcType="VARCHAR" property="attachment" />
+    <result column="create_operator" jdbcType="BIGINT" property="createOperator" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_midifity" jdbcType="TIMESTAMP" property="gmtMidifity" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.csjscm.mysqldata.model.Article">
+    <result column="context" jdbcType="LONGVARCHAR" property="context" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    id, title, description, article_site, article_type, article_pic, article_source, 
+    article_url, status, province, is_top, organization, attachment, create_operator, 
+    gmt_create, gmt_midifity
+  </sql>
+  <sql id="Blob_Column_List">
+    context
+  </sql>
+
+
+  <sql id="query_article_where">
+    <where>
+      <if test="title != null">
+        and title = #{title,jdbcType=VARCHAR}
+      </if>
+      <if test="description != null">
+        and description = #{description,jdbcType=VARCHAR}
+      </if>
+      <if test="articleSite != null">
+        and article_site = #{articleSite,jdbcType=VARCHAR}
+      </if>
+      <if test="articleType != null">
+        and article_type = #{articleType,jdbcType=VARCHAR}
+      </if>
+      <if test="articlePic != null">
+        and article_pic = #{articlePic,jdbcType=VARCHAR}
+      </if>
+      <if test="articleSource != null">
+        and article_source = #{articleSource,jdbcType=VARCHAR}
+      </if>
+      <if test="articleUrl != null">
+        and article_url = #{articleUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null">
+        and status = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="province != null">
+        and province = #{province,jdbcType=VARCHAR}
+      </if>
+      <if test="isTop != null">
+        and is_top = #{isTop,jdbcType=INTEGER}
+      </if>
+      <if test="organization != null">
+        and organization = #{organization,jdbcType=VARCHAR}
+      </if>
+      <if test="attachment != null">
+        and attachment = #{attachment,jdbcType=VARCHAR}
+      </if>
+      <if test="createOperator != null">
+        and create_operator = #{createOperator,jdbcType=BIGINT}
+      </if>
+      <if test="gmtCreate != null">
+        and gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="gmtMidifity != null">
+        and gmt_midifity = #{gmtMidifity,jdbcType=TIMESTAMP}
+      </if>
+      <if test="context != null">
+        and  context = #{context,jdbcType=LONGVARCHAR}
+      </if>
+    </where>
+  </sql>
+  <select id="selectArticleByWhere" parameterType="com.csjscm.mysqldata.model.Article" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+   <include refid="query_article_where"/>
+  </select>
+
+  <select id="selectArticleById" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
+  <insert id="insertArticle" parameterType="com.csjscm.mysqldata.model.Article">
+    insert into article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="description != null">
+        description,
+      </if>
+      <if test="articleSite != null">
+        article_site,
+      </if>
+      <if test="articleType != null">
+        article_type,
+      </if>
+      <if test="articlePic != null">
+        article_pic,
+      </if>
+      <if test="articleSource != null">
+        article_source,
+      </if>
+      <if test="articleUrl != null">
+        article_url,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="isTop != null">
+        is_top,
+      </if>
+      <if test="organization != null">
+        organization,
+      </if>
+      <if test="attachment != null">
+        attachment,
+      </if>
+      <if test="createOperator != null">
+        create_operator,
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create,
+      </if>
+      <if test="gmtMidifity != null">
+        gmt_midifity,
+      </if>
+      <if test="context != null">
+        context,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="articleSite != null">
+        #{articleSite,jdbcType=VARCHAR},
+      </if>
+      <if test="articleType != null">
+        #{articleType,jdbcType=VARCHAR},
+      </if>
+      <if test="articlePic != null">
+        #{articlePic,jdbcType=VARCHAR},
+      </if>
+      <if test="articleSource != null">
+        #{articleSource,jdbcType=VARCHAR},
+      </if>
+      <if test="articleUrl != null">
+        #{articleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null">
+        #{isTop,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null">
+        #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null">
+        #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="createOperator != null">
+        #{createOperator,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtMidifity != null">
+        #{gmtMidifity,jdbcType=TIMESTAMP},
+      </if>
+      <if test="context != null">
+        #{context,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+
+  <update id="updateArticle" parameterType="com.csjscm.mysqldata.model.Article">
+    update article
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="articleSite != null">
+        article_site = #{articleSite,jdbcType=VARCHAR},
+      </if>
+      <if test="articleType != null">
+        article_type = #{articleType,jdbcType=VARCHAR},
+      </if>
+      <if test="articlePic != null">
+        article_pic = #{articlePic,jdbcType=VARCHAR},
+      </if>
+      <if test="articleSource != null">
+        article_source = #{articleSource,jdbcType=VARCHAR},
+      </if>
+      <if test="articleUrl != null">
+        article_url = #{articleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="isTop != null">
+        is_top = #{isTop,jdbcType=INTEGER},
+      </if>
+      <if test="organization != null">
+        organization = #{organization,jdbcType=VARCHAR},
+      </if>
+      <if test="attachment != null">
+        attachment = #{attachment,jdbcType=VARCHAR},
+      </if>
+      <if test="createOperator != null">
+        create_operator = #{createOperator,jdbcType=BIGINT},
+      </if>
+      <if test="gmtCreate != null">
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gmtMidifity != null">
+        gmt_midifity = #{gmtMidifity,jdbcType=TIMESTAMP},
+      </if>
+      <if test="context != null">
+        context = #{context,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+</mapper>

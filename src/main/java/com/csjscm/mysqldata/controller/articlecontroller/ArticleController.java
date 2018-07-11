@@ -50,15 +50,9 @@ public class ArticleController {
     public String listArticleType(ArticleTypeQuery articleTypeQuery){
         System.out.println(articleTypeQuery.getPagesize()+ "=============="+articleTypeQuery.getPageindex());
         Map<String, Object> map = articleService.listArticleType(articleTypeQuery);
-
-      //  JSONObject jsonObject = JSONObject.fromObject(map);
-       // log.info("articleTypesList"+jsonObject);
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(java.util.Date.class, new JsDateJsonValueProcessor());
         JSONObject jsonObject = JSONObject.fromObject(map, jsonConfig);
-      /*  ModelAndView modelAndView=new ModelAndView();
-        modelAndView.addObject("articleTypesList",jsonArray.toString());*/
-
         return jsonObject.toString();
     }
 
