@@ -16,13 +16,17 @@
         </form>
         <div class="blog-nav pull-right">
             <ul class="layui-nav pull-left">
-                <li class="layui-nav-item layui-this"><a href="index.ftl">首页</a></li>
+                <li class="layui-nav-item layui-this"><a href="/blog/index.ftl">首页</a></li>
                 <li class="layui-nav-item"><a href="/blog/message.ftl">留言</a></li>
                 <li class="layui-nav-item"><a href="/blog/about.ftl">关于</a></li>
             </ul>
             <!--用户信息-->
             <a href="#" class="personal pull-left">
-                <i class="layui-icon layui-icon-username"></i>
+                <i class="layui-icon layui-icon-username">
+                <#if Session.username?exists>
+                    ${Session.username}
+                </#if>
+                </i>
             </a>
         </div>
         <div class="mobile-nav pull-right" id="mobile-nav">

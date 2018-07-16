@@ -40,17 +40,24 @@
     </div>
 
     <div class="menu_dropdown bk_2" style="display:none">
-        <dl id="menu-ccccc">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 闲言博客管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="/backblog/toArticle.html" data-title="发布文章" href="javascript:void(0)">发布文章</a></li>
-                </ul>
-                <ul>
-                    <li><a data-href="/backblog/testLayUi.html" data-title="资讯管理" href="javascript:void(0)">评论管理</a></li>
-                </ul>
-            </dd>
-        </dl>
+          <#if blogMenuInfo?exists>
+              <#list blogMenuInfo as p>
+               <dl id="menu-ccccc">
+                  <dt><i class="Hui-iconfont"><#if p.syImage?? >${p.syImage}</#if></i> ${p.menuName}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+               <dd>
+                   <ul>
+					   <#if p.sysMenuList?exists>
+					      <#list p.sysMenuList as m>
+                              <li><a data-href="<#if m.url1?? >${m.url1}</#if>" data-title="${m.menuName1}" href="javascript:void(0)">${m.menuName1}</a></li>
+                          </#list>
+                       </#if>
+                   </ul>
+               </dd>
+           </dl>
+              </#list>
+          </#if>
     </div>
+
+
 </aside>
 <div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>

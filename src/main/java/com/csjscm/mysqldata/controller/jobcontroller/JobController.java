@@ -9,7 +9,7 @@ import com.csjscm.mysqldata.model.JobAndTrigger;
 import com.csjscm.mysqldata.model.ScheduleJob;
 import com.csjscm.mysqldata.quartzjob.BaseJob;
 import com.csjscm.mysqldata.service.IJobAndTriggerService;
-import com.vici.AppStringUtils;
+import com.vici.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.quartz.CronScheduleBuilder;
@@ -335,10 +335,10 @@ public class JobController {
     {
         ModelAndView modelAndView=new ModelAndView();
         ScheduleJob scheduleJob=new ScheduleJob();
-        if(AppStringUtils.isNotEmpty(datemin)){
+        if(StringUtils.isNotEmpty(datemin)){
             scheduleJob.setDateMin(datemin);
         }
-        if(AppStringUtils.isNotEmpty(datemax)){
+        if(StringUtils.isNotEmpty(datemax)){
             scheduleJob.setDateMax(datemax);
         }
         Map<String, Object> map = iJobAndTriggerService.queryForScheduleJobByWhere(scheduleJob);

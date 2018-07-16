@@ -6,7 +6,8 @@ import com.csjscm.mysqldata.dao.*;
 
 import com.csjscm.mysqldata.model.*;
 import com.csjscm.mysqldata.service.UserService;
-import com.vici.AppStringUtils;
+import com.vici.StringUtils;
+import com.vici.MD5Utils;
 import com.vici.response.MsgResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
@@ -37,6 +38,25 @@ public class UserServiceImpl implements UserService {
     private RoleSysmenuMapper roleSysmenuMapper;
     @Resource
     private RoleAuthorizationMapper roleAuthorizationMapper;
+    @Resource
+    private SysPermissionInitMapper sysPermissionInitMapper;
+
+    /**
+     * 修改秘密
+     * @param newPassword
+     * @return
+     */
+    @Override
+    public MsgResponse editPassword(String newPassword) {
+        String loginPhone = (String) SecurityUtils.getSubject().getPrincipal();
+        MemberUser memberUser = this.findByUsername(loginPhone);
+        Map<String,Object> map=Maps.newHashMap();
+        String md5NewPassword = MD5Utils.encryptMD5(newPassword, loginPhone);
+        map.put("login_password",md5NewPassword);
+        map.put("id",memberUser.getId());
+        int i = memberUserMapper.updateById(map);
+        return i>0?MsgResponse.success():MsgResponse.fail();
+    }
 
     @Override
     public MemberUser findByUsername(String name) {
@@ -262,17 +282,21 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    /**
+     * 得到系统菜单根据角色
+     * @return
+     */
     @Override
-    public List<SysMenu1> getSysMenuInfo() {
+    public List<SysMenu1> getSysMenuInfo(Integer menuid) {
         String currentUser = String.valueOf(SecurityUtils.getSubject().getPrincipal());
         MemberUser memberUser=new MemberUser();
         memberUser.setLogin_phone(currentUser);
         MemberUser newMemberUser= memberUserMapper.selectByName(memberUser);
-        if(!AppStringUtils.isNullOrEmpty(memberUser)){
+        if(!StringUtils.isNullOrEmpty(memberUser)){
             UserRolesExample roleExample=new UserRolesExample();
             roleExample.createCriteria().andUserIdEqualTo(newMemberUser.getId());
             List<UserRoles> userRoles = userRolesMapper.selectByExample(roleExample);
-            List<SysMenu1> sysMenus = sysMenuMapper.getSysMenuInfo(userRoles.get(0).getRoleId());
+            List<SysMenu1> sysMenus = sysMenuMapper.getSysMenuInfo(userRoles.get(0).getRoleId(),menuid);
             return sysMenus;
         }else {
             log.info("===============>"+"没有查询到用户");
@@ -330,5 +354,31 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<SysMenu> getSysMenuInfoByPid(Integer id) {
         return sysMenuMapper.getSysMenuInfoByPid(id);
+    }
+
+    @Override
+    public List<SysPermissionInit> getSysPermissionInit(SysPermissionInitExample sysPermissionInitExample) {
+        return  sysPermissionInitMapper.selectByExample(sysPermissionInitExample);
+    }
+
+    @Override
+    public MsgResponse insertSysPermissionInit(SysPermissionInit sysPermissionInit) {
+        sysPermissionInit.setGmtCreate(new Date());
+        sysPermissionInit.setStatus(0);
+        int i = sysPermissionInitMapper.insertSelective(sysPermissionInit);
+        return i>0?MsgResponse.success():MsgResponse.fail();
+    }
+
+    @Override
+    public MsgResponse updateSyspermissionInit(SysPermissionInit sysPermissionInit) {
+        sysPermissionInit.setGmtModify(new Date());
+        int i = sysPermissionInitMapper.updateByPrimaryKeySelective(sysPermissionInit);
+        return i>0?MsgResponse.success():MsgResponse.fail();
+    }
+
+    @Override
+    public MsgResponse deleteSyspermissionInit(Integer id) {
+        int i = sysPermissionInitMapper.deleteByPrimaryKey(id);
+        return i>0?MsgResponse.success():MsgResponse.fail();
     }
 }

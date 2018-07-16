@@ -30,6 +30,6 @@ public class MD5Utils {
         return newPassword;
     }
     public static void main (String[] args){
-        System.out.println(encryptMD5("",""));
+        System.out.println(encryptMD5("123456","15938742930"));
     }
 }

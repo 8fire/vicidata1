@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.csjscm.mysqldata.model.SysMenu1;
 import com.csjscm.mysqldata.model.SysMenuInfo;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysMenuMapper {
 
@@ -25,7 +26,10 @@ public interface SysMenuMapper {
     int updateByPrimaryKeySelective(SysMenu record);
 
     int updateByPrimaryKey(SysMenu record);
-    List<SysMenu1> getSysMenuInfo(Integer rid);
+
+    List<SysMenu1> getSysMenuInfo(@Param("rid") Integer rid, @Param("menuid") Integer menuid);
+
+
     List<SysMenu1> getAllSysMenuInfo();
     List<SysMenu> getSysMenuInfoByPid(Integer parentId);
 }

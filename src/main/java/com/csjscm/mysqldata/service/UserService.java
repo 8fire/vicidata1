@@ -3,6 +3,7 @@ package com.csjscm.mysqldata.service;
 
 import com.csjscm.mysqldata.model.*;
 import com.vici.response.MsgResponse;
+import sun.security.util.Password;
 
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,8 @@ public interface UserService {
      * @return
      */
     Map<String, Object> selectBywhere(MemberUser memberUser);
+
+    MsgResponse editPassword(String newPassword);
 
     int updateByid(Map<String, Object> map);
 
@@ -104,7 +107,7 @@ public interface UserService {
      * 查询系统菜单（主子关系的）
      * @return
      */
-    List<SysMenu1> getSysMenuInfo();
+    List<SysMenu1> getSysMenuInfo(Integer menuid);
     /**
      * 查询系统菜单和权限
      * @return
@@ -142,4 +145,28 @@ public interface UserService {
      * @return
      */
     List<SysMenu> getSysMenuInfoByPid(Integer id);
+    /**
+     * 根据条件查询系统初始化的权限
+     * @param sysPermissionInitExample
+     * @return
+     */
+    List<SysPermissionInit> getSysPermissionInit(SysPermissionInitExample sysPermissionInitExample);
+    /**
+     * 添加系统初始化的权限
+     * @param
+     * @return
+     */
+    MsgResponse insertSysPermissionInit(SysPermissionInit sysPermissionInit);
+    /**
+     * 删除系统初始化的权限
+     * @param
+     * @return
+     */
+    MsgResponse deleteSyspermissionInit(Integer id);
+    /**
+     * 修改系统初始化的权限
+     * @param
+     * @return
+     */
+    MsgResponse updateSyspermissionInit(SysPermissionInit sysPermissionInit);
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" action="../user/admin-edit.html"  method="post" id="form-admin-edit">
+	<form class="form form-horizontal" action="#"  method="post" id="form-admin-edit">
 		<input type="hidden" name="id" value="${memberUser.id}">
 	<div class="row cl">
 		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登录手机：</label>
@@ -28,31 +28,6 @@
                 <input type="text" class="input-text" value="<#if memberUser.last_login_time??>${memberUser.last_login_time?string('yyyy-MM-dd hh:mm:ss')}</#if> " readonly="readonly" placeholder="" id="last_login_time"  name="last_login_time">
             </div>
         </div>
-	<#--<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-			<div class="radio-box">
-				<input name="sex" type="radio" id="sex-1" checked>
-				<label for="sex-1">男</label>
-			</div>
-			<div class="radio-box">
-				<input type="radio" id="sex-2" name="sex">
-				<label for="sex-2">女</label>
-			</div>
-		</div>
-	</div>-->
-
-	<#--<div class="row cl">
-		<label class="form-label col-xs-4 col-sm-3">角色：</label>
-		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-			<select class="select" name="adminRole" size="1">
-				<option value="0">超级管理员</option>
-				<option value="1">总编</option>
-				<option value="2">栏目主辑</option>
-				<option value="3">栏目编辑</option>
-			</select>
-			</span> </div>
-	</div>-->
 	<div class="row cl">
 		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
@@ -72,7 +47,6 @@
 <script type="text/javascript">
 $(function() {
     $("#form-admin-edit").validate({
-
         rules: {
             login_phone: {
                 required: true,
@@ -80,7 +54,7 @@ $(function() {
                 remote: {
                     url: "../user/isExistMemberUser.html",     //后台处理程序
                     type: "post",               //数据发送方式
-                    dataType: "application/json,charset=UTF-8",           //接受数据格式
+                    dataType: "json",           //接受数据格式
                     data: {                     //要传递的数据
                         login_phone: function () {
                             return $("#login_phone").val();
@@ -90,38 +64,49 @@ $(function() {
             },
             login_email: {
                 required: true,
-                email: true
+                email: true,
+                remote: {
+                    url: "../user/isExistMemberUser.html",     //后台处理程序
+                    type: "post",               //数据发送方式
+                    dataType: "json",           //接受数据格式
+                    data: {                     //要传递的数据
+                        login_email: function () {
+                            return $("#login_email").val();
+                        }
+                    }//远程ajax验证
+                }
             }
         },
-        message:{
+        messages:{
             login_phone: {
-                required: "bitian",
-                isPhone: "dada",
-                remote:"cuowul"
+                required: "手机号是必填项",
+                isPhone: "不是合法的手机号",
+                remote:"该手机号已存在"
             },
             login_email: {
-                required: "bitian",
-                email: "ssss"
+                required: "邮箱是必填项",
+                email: "不是合法的邮箱",
+                remote:"该邮箱已存在"
             }
-        }
+        },
         onkeyup: false,
         focusCleanup: true,
         focusInvalid: true,   //验证提示时，鼠标光标指向提示的input
         submitHandler: function (form) {
             $(form).ajaxSubmit({
-                dataType: "application/json,charset=UTF-8",
+                type: 'post',
+                url: "../user/admin-edit.html",
                 success: function (result) {
-                    var stringify = JSON.stringify(result);
-                    alert(result);
-                    if (result.code = 200) {
-                        alert("success");
-                        var index = parent.layer.getFrameIndex(window.name);
-                        parent.layer.close(index);
-                        window.parent.location.reload();
-
-                        layer.msg('修改成功!', {icon: 1, time: 1000});
+                    if (result.code =='200') {
+                        layer.load();
+                        setTimeout(function(){
+                                window.parent.location.reload();
+                                var index = parent.layer.getFrameIndex(window.name);
+                                parent.layer.close(index);
+                                layer.msg('修改成功!', {icon: 1, time: 1000});
+                            }, 2000);
                     } else {
-                        alert("fail");
+                            layer.msg('修改失败!', {icon: 1, time: 1000});
                     }
                 },
                 error: function () {

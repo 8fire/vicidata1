@@ -66,7 +66,7 @@
             </div>
             <div class="row cl">
                 <div class="formControls col-xs-8 col-xs-offset-3" style="margin-top: -10px">
-                    <label for="online1"><a id="btnForgetpsw" class="fr">忘记密码？</a>还没有账号？<a href="/userRegister/toUserRegister" target="_blank"  id="btnRegister">立即注册</a></label>
+                    <label for="online1"><a id="btnForgetpsw"  target="_blank" href="/user/editPassWord" class="fr">忘记密码？</a>还没有账号？<a href="/userRegister/toUserRegister" target="_blank"  id="btnRegister">立即注册</a></label>
                 </div>
             </div>
             <div class="row cl">

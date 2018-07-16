@@ -21,9 +21,9 @@ import java.util.Map;
  * @author csjscm
  * create 2018-05-23 下午 2:51
  **/
-/*@ControllerAdvice
+@ControllerAdvice
 @Slf4j
-@Configuration*/
+@Configuration
 public class ViciExceptionHandler {
     public static final String IMOOC_ERROR_VIEW = "/commons/error";
     public static final String UNAUTHORIZED_ERROR_VIEW = "/commons/403";
@@ -32,19 +32,20 @@ public class ViciExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Object errorHandler(HttpServletRequest reqest,
-                               HttpServletResponse response, Exception ex) throws Exception {
+    public Object errorHandler(HttpServletRequest reqest, HttpServletResponse response, Exception ex) throws Exception {
         MsgResponse msgResponse=new MsgResponse();
         ModelAndView mav = new ModelAndView();
         if (isAjax(reqest)) {
             if(ex instanceof UnauthorizedException){
                 Map<String,Object> map= Maps.newHashMap();
+                log.info(ex.getMessage(),ex);
                 map.put("errmsg",ex.getMessage());
                 msgResponse.setCode(403);
                 msgResponse.setMsg(UNAUTHORIZED_ERROR_MSG);
                 msgResponse.setExtend(map);
                 return msgResponse;
             }else if( ex instanceof ViciException){
+                log.info(ex.getMessage(),ex);
                 //自定义异常
                 ViciException viciException=(ViciException) ex;
                 Map<String,Object> map= Maps.newHashMap();
@@ -54,6 +55,7 @@ public class ViciExceptionHandler {
                 msgResponse.setExtend(map);
                 return msgResponse;
             }else {
+                log.info(ex.getMessage(),ex);
                 Map<String,Object> map= Maps.newHashMap();
                 map.put("errmsg",ex.getMessage());
                 msgResponse.setCode(500);
@@ -62,17 +64,22 @@ public class ViciExceptionHandler {
                 return msgResponse;
             }
 
-        }else if(ex instanceof UnauthorizedException){
-            //如果是shiro无权操作，因为shiro 在操作auno等一部分不进行转发至无权限url
-            mav.addObject("exception", ex);
-            mav.addObject("url", reqest.getRequestURL());
-            mav.setViewName(UNAUTHORIZED_ERROR_VIEW);
-            return mav;
-        } else {
-            mav.addObject("exception", ex);
-            mav.addObject("url", reqest.getRequestURL());
-            mav.setViewName(IMOOC_ERROR_VIEW);
-            return mav;
+        }else{
+            if(ex instanceof UnauthorizedException){
+                log.info(ex.getMessage(),ex);
+                log.info("=============>"+reqest.getRequestURL());
+                //如果是shiro无权操作，因为shiro 在操作auno等一部分不进行转发至无权限url
+                mav.addObject("exception", ex);
+                mav.addObject("url", reqest.getRequestURL());
+                mav.setViewName(UNAUTHORIZED_ERROR_VIEW);
+                return mav;
+            } else {
+                log.info(ex.getMessage(),ex);
+                mav.addObject("exception", ex);
+                mav.addObject("url", reqest.getRequestURL());
+                mav.setViewName(IMOOC_ERROR_VIEW);
+                return mav;
+            }
         }
     }
 

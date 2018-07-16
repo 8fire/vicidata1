@@ -9,6 +9,13 @@ public interface ArticleMapper {
 
     List<Article> selectArticleByWhere(Article article);
 
+    /**
+     * 查询总条数
+     * @param article
+     * @return
+     */
+    Integer selectArticleCountByWhere(Article article);
+
     Article selectArticleById(String id);
 
     int insertArticle(Article record);

@@ -22,5 +22,4 @@ public interface OperationLogMapper {
     int updateOperationLog(OperationLog operationLog);
 
 
-
 }

@@ -1,9 +1,12 @@
 
 package com.csjscm.mysqldata.shiro;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 //import com.vici.response.MyExceptionResolver;
+import com.csjscm.mysqldata.model.SysPermissionInit;
+import com.csjscm.mysqldata.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.codec.Base64;
@@ -13,6 +16,7 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -24,6 +28,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class ShiroConfiguration {
+
+    private  UserService userService;
+
+    @Autowired
+    public void setSecurityService(UserService userService) {
+        this.userService = userService;
+    }
     /**
      * ShiroFilterFactoryBean 处理拦截资源文件问题。
      * 注意：单独一个ShiroFilterFactoryBean配置是或报错的，以为在
@@ -41,39 +52,8 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
         //注意过滤器配置顺序 不能颠倒
-        //配置退出 过滤器,其中的具体的退出代码Shiro已经替我们实现了，登出后跳转配置的loginUrl
-        filterChainDefinitionMap.put("/user/logout", "logout");
-        // 配置不会被拦截的链接 顺序判断
-        filterChainDefinitionMap.put("/static/**", "anon");
-        filterChainDefinitionMap.put("/user/ajaxlogin", "anon");
-        filterChainDefinitionMap.put("/user/tologin", "anon");
-        //生成验证码
-        filterChainDefinitionMap.put("/user/captcha-image", "anon");
-        //校验验证码
-        filterChainDefinitionMap.put("/user/captchaVerify", "anon");
-        //swagger-ui
-        filterChainDefinitionMap.put("/swagger-ui", "anon");
-        filterChainDefinitionMap.put("/user/mytest","anon");
-        filterChainDefinitionMap.put("/userRegister/toUserRegister","anon");
-        filterChainDefinitionMap.put("/userRegister/register","anon");
-        filterChainDefinitionMap.put("/userRegister/verifyCheck","anon");
-        filterChainDefinitionMap.put("/blog/**","anon");
-        filterChainDefinitionMap.put("/file/img/upload","anon");
-        filterChainDefinitionMap.put("/**", "user");
-        //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
-        shiroFilterFactoryBean.setLoginUrl("/user/tologin");
-        // 登录成功后要跳转的链接
-        shiroFilterFactoryBean.setSuccessUrl("/user/index");
-        //未授权界面;
-        shiroFilterFactoryBean.setUnauthorizedUrl("/user/403");
-        //  shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
-
-
-
         //自定义拦截器
         //Map<String, Filter> filtersMap = new LinkedHashMap<String, Filter>();
-
-
         //限制同一帐号同时在线的个数。
         //filtersMap.put("kickout", kickoutSessionControlFilter());
         //  shiroFilterFactoryBean.setFilters(filtersMap);
@@ -88,12 +68,20 @@ public class ShiroConfiguration {
         // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
         //logout这个拦截器是shiro已经实现好了的。
         // 从数据库获取
-      /*  List<SysPermissionInit> list = sysPermissionInitService.selectAll();
 
-        for (SysPermissionInit sysPermissionInit : list) {
+        List<SysPermissionInit> sysPermissionInitList = userService.getSysPermissionInit(null);
+        for (SysPermissionInit sysPermissionInit : sysPermissionInitList) {
             filterChainDefinitionMap.put(sysPermissionInit.getUrl(),
-                    sysPermissionInit.getPermissionInit());
-        }*/
+                    sysPermissionInit.getPermissionType());
+        }
+        // <!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
+        filterChainDefinitionMap.put("/**", "authc");
+        //配置shiro默认登录界面地址，前后端分离中登录界面跳转应由前端路由控制，后台仅返回json数据
+        shiroFilterFactoryBean.setLoginUrl("/user/tologin");
+        // 登录成功后要跳转的链接
+        shiroFilterFactoryBean.setSuccessUrl("/user/index");
+        //未授权界面;
+        shiroFilterFactoryBean.setUnauthorizedUrl("/user/403");
 
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
         return shiroFilterFactoryBean;

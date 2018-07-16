@@ -38,6 +38,8 @@
     </if>
   </sql>
 
+
+
   <sql id="Query_OperationLog_Where">
     <where>
       <if test="id != null and id !=''">
@@ -93,8 +95,6 @@
     <include refid="Query_OperationLog_Where"/>
     <include refid="Base_Order"/>
   </select>
-
-
 
   <insert id="insertOperationLog" parameterType="com.csjscm.oracledata.model.OperationLog">
     insert into OPERATION_LOG

@@ -10,6 +10,7 @@
 <#include "commons/_header.ftl">
 <#include "commons/_menu.ftl">
 <section class="Hui-article-box">
+
     <div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
         <div class="Hui-tabNav-wp">
             <ul id="min_title_list" class="acrossTab cl">
@@ -20,6 +21,7 @@
         </div>
         <div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
     </div>
+
     <div id="iframe_box" class="Hui-article">
         <div class="show_iframe">
             <div style="display:none" class="loading"></div>
@@ -58,20 +60,6 @@
            index:0,
        });
     });
-    /*个人信息*/
-    function myselfinfo(currentuser){
-        var parse = JSON.stringify(currentuser);
-        alert(userObj)
-        layer.open({
-            type: 1,
-            area: ['300px','200px'],
-            fix: false, //不固定
-            maxmin: true,
-            shade:0.4,
-            title: '查看信息',
-            content: '<div>currentuser.login_phone</div>'
-        });
-    }
 
     /*资讯-添加*/
     function article_add(title,url){

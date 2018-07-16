@@ -9,7 +9,7 @@
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
-            <a href="javascript:;" onclick="admin_add('添加新权限','authorization-add.ftl','800','500')" class="btn btn-primary radius">
+            <a href="javascript:;" onclick="admin_add('添加新权限','authorization-add.ftl','500px','500px')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe600;</i> 添加新权限</a>
         </span>
         <span class="r">
@@ -49,7 +49,7 @@
                 <td class="td-status"><span class="label label-success radius"><#if p.status==0>已启用<#else>已禁用</#if></span></td>
                 <td><#if p.creater??>${p.creater}</#if></td>
                 <td class="td-manage">
-					<a title="编辑" href="javascript:;" onclick="admin_edit('权限编辑','../user/to-authorization-edit.html?id=${p.id}','800','800')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+					<a title="编辑" href="javascript:;" onclick="admin_edit('权限编辑','../user/to-authorization-edit.html?id=${p.id}','500px','500px')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 				</td>
             </tr>
             </#list>
@@ -81,12 +81,30 @@
 */
 /*管理员-增加*/
 function admin_add(title,url,w,h){
-	layer_show(title,url,w,h);
+
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: true,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
+
 }
 
 /!*管理员-编辑*!/
 function admin_edit(title,url,w,h){
-	layer_show(title,url,w,h);
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: true,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
 }
 </script>
 </body>

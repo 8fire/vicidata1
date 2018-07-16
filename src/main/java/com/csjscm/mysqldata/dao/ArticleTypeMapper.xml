@@ -13,7 +13,7 @@
   </sql>
 
   <sql id="Base_limit_query">
-      limit #{pageindex}, #{pagesize}
+      limit #{pageIndex}, #{pageSize}
   </sql>
 
   <sql id="Query_ArticleType_Where">

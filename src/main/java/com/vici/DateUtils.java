@@ -16,8 +16,8 @@ import java.util.Locale;
  * create 2018-04-08 下午 12:33
  **/
 @Slf4j
-public class AppDateMgr {
-    public AppDateMgr() {
+public class DateUtils {
+    public DateUtils() {
         throw new UnsupportedOperationException("cannot be instantiated");
     }
 
@@ -742,7 +742,7 @@ public class AppDateMgr {
     private final static long YEAR = 12 * MONTH;// 年
 
     /** Log输出标识 **/
-    private static final String TAG = AppDateMgr.class.getSimpleName();
+    private static final String TAG = DateUtils.class.getSimpleName();
 
     /**
      * 将日期格式化成友好的字符串：几分钟前、几小时前、几天前、几月前、几年前、刚刚
@@ -857,9 +857,9 @@ public class AppDateMgr {
     public static boolean compareDate(Date target1, Date target2) {
         boolean flag = false;
         try {
-            String target1DateTime = AppDateMgr.formatDateTime(target1,
+            String target1DateTime = DateUtils.formatDateTime(target1,
                     DF_YYYY_MM_DD_HH_MM_SS);
-            String target2DateTime = AppDateMgr.formatDateTime(target2,
+            String target2DateTime = DateUtils.formatDateTime(target2,
                     DF_YYYY_MM_DD_HH_MM_SS);
             if (target1DateTime.compareTo(target2DateTime) <= 0) {
                 flag = true;

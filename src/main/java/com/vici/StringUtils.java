@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * @author csjscm
  * create 2018-04-08 下午 1:11
  **/
-public class AppStringUtils {
+public class StringUtils {
     /**
      * 判断字符串是否为空
      * @param str 字符串

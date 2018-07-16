@@ -6,3 +6,4 @@
 <script type="text/javascript" src="../../static/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="../../static/lib/jquery.validation/1.14.0/messages_zh.js"></script>
 <script type="text/javascript" src="../../static/lib/webuploader/0.1.5/webuploader.min.js"></script>
+<script type="text/javascript" src="../../static/h-ui/js/Validform_v5.3.2.js"></script>

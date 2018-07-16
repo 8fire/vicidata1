@@ -8,7 +8,7 @@ import com.csjscm.mysqldata.model.SettleAccount;
 import com.csjscm.mysqldata.service.PingPayService;
 import com.csjscm.mysqldata.service.impl.OperationLogServiceImpl;
 import com.csjscm.mysqldata.service.impl.RedisServiceImpl;
-import com.vici.AppDateMgr;
+import com.vici.DateUtils;
 import com.vici.response.ExportExcel;
 import com.vici.response.MsgResponse;
 import io.swagger.annotations.Api;
@@ -76,7 +76,7 @@ public class PingPayController {
     @RequestMapping(value = "/add-settlement-account",method = RequestMethod.GET)
     public ModelAndView pictureShow(){
         ModelAndView mv=new ModelAndView();
-        String userid="CSJ"+AppDateMgr.todayYyyyMmDdHhMmSs();//生成分润ID
+        String userid="CSJ"+DateUtils.todayYyyyMmDdHhMmSs();//生成分润ID
         mv.addObject("userid",userid.replaceAll("-","").replaceAll(":","").replaceAll(" ",""));
         mv.setViewName("add-settlement-account");
         return mv;

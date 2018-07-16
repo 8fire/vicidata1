@@ -34,4 +34,6 @@ public class MemberUser {
     private String checkadvice;
 
     private String checkdate;
+
+    private String roleName;
 }

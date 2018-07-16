@@ -31,7 +31,8 @@
 						</span>
                         <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="#" onclick="myselfinfo('${Session.currentUser}')">个人信息</a></li>
+                            <li><a href="#" onclick="myselfinfo('我的信息中心','../user/myUserInfo')">个人信息</a></li>
+                            <li><a href="#" onclick="editPassWord('修改密码','../user/toEditPassWord')">修改密码</a></li>
                             <li><a href="../user/logout">切换账户</a></li>
                             <li><a href="../user/logout">退出</a></li>
                         </ul>
@@ -52,3 +53,29 @@
         </div>
     </div>
 </header>
+<script>
+    /*个人信息*/
+    function myselfinfo(title,url){
+        layer.open({
+            type: 2,
+            title:title,
+            maxmin: true,
+            skin: 'layui-layer-lan',
+            shadeClose: true, //点击遮罩关闭层
+            area : ['750px','700px'],
+            content:url
+        });
+       // layer.full(index);
+    }
+    function editPassWord(title,url) {
+        layer.open({
+            type: 2,
+            title:title,
+            maxmin: true,
+            skin: 'layui-layer-lan',
+            shadeClose: true, //点击遮罩关闭层
+            area : ['900px','430px'],
+            content:[url,'no']
+        });
+    }
+</script>

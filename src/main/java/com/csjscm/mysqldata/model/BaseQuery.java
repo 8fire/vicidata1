@@ -11,8 +11,7 @@ import java.io.Serializable;
  * create 2018-01-10 下午 3:56
  **/
 @Data
-
 public class BaseQuery implements Serializable{
-    private Integer pagesize;
-    private Integer pageindex;
+    private Integer pageSize;
+    private Integer pageIndex;
 }

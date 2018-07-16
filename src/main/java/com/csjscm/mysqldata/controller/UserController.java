@@ -9,13 +9,15 @@ import com.csjscm.mysqldata.service.UserService;
 import com.csjscm.mysqldata.service.impl.AsyncTaskService;
 import com.csjscm.mysqldata.service.impl.MailService;
 import com.csjscm.mysqldata.service.impl.RedisServiceImpl;
-import com.vici.AppStringUtils;
+import com.vici.StringUtils;
+import com.vici.MD5Utils;
 import com.vici.request.RequestUtils;
+import com.vici.response.Constant;
 import com.vici.response.MsgResponse;
+import com.vici.response.ViciException;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import net.sf.json.JSONObject;
-import org.apache.commons.lang.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -62,6 +64,14 @@ public class UserController {
     private MailService mailService;
 
     /**
+     * 跳转到登录界面
+     * @return
+     */
+    @RequestMapping(value = "/tologin",method = RequestMethod.GET)
+    public ModelAndView toLogin(){
+        return new ModelAndView("login");
+    }
+    /**
      * 登录
      * @param
      * @return
@@ -75,7 +85,7 @@ public class UserController {
         user.setLogin_password(loginPassword);
         JSONObject jsonObject = new JSONObject();
         String name = "";
-        if (AppStringUtils.isNumeric(loginPhone)) {
+        if (StringUtils.isNumeric(loginPhone)) {
             name = loginPhone;
             user.setLogin_phone(name);
         } else {
@@ -155,7 +165,7 @@ public class UserController {
         Map<String,Object> result=new HashMap<>();
         HttpSession session = request.getSession();
         String code = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        if(StringUtils.isNotBlank(kaptchaCode)&&kaptchaCode.equalsIgnoreCase(code)){
+        if(org.apache.commons.lang.StringUtils.isNotBlank(kaptchaCode)&&kaptchaCode.equalsIgnoreCase(code)){
             result.put("isOK", "OK");
         }else{
             result.put("isOK", "WRONG");
@@ -187,6 +197,14 @@ public class UserController {
         return new ModelAndView("login");
     }
 
+    /**
+     * 跳转到个人用户中心
+     * @return
+     */
+    @RequestMapping(value = "/myUserInfo",method = RequestMethod.GET)
+    public ModelAndView myUserInfo(){
+        return new ModelAndView("admin/myUserInfo");
+    }
 
     /**
      * 首页
@@ -195,12 +213,57 @@ public class UserController {
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public ModelAndView viewex(){
         ModelAndView modelAndView=new ModelAndView();
-        List<SysMenu1> test = userService.getSysMenuInfo();
+        //获取平台菜单
+        List<SysMenu1> test = userService.getSysMenuInfo(1);
+        //获取闲言博客菜单
+        List<SysMenu1> blogMenuInfo = userService.getSysMenuInfo(2);
         modelAndView.addObject("menuList",test);
+        modelAndView.addObject("blogMenuInfo",blogMenuInfo);
         modelAndView.setViewName("index");
         return modelAndView;
     }
 
+    /**
+     * 跳转到修改密码
+     * @return
+     */
+    @RequestMapping(value = "/toEditPassWord",method = RequestMethod.GET)
+    public ModelAndView toEditPassWord(){
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.setViewName("admin/admin-password-edit");
+        return  modelAndView;
+    }
+
+    /**
+     * 修改密码
+     * @param
+     * @param
+     * @param
+     * @return
+     */
+    @RequestMapping(value = "/editPassWord",method = RequestMethod.POST)
+    public MsgResponse toEditPassWord(@RequestParam(value = "oldPassword") String oldPassword,
+                                       @RequestParam(value = "newPassword") String newPassword,
+                                       @RequestParam(value = "newPassword2") String newPassword2){
+        //先校验两次的密码
+        String loginPhone = (String) SecurityUtils.getSubject().getPrincipal();
+        MemberUser memberUser = userService.findByUsername(loginPhone);
+        String MD5Oldpassword = MD5Utils.encryptMD5(oldPassword, loginPhone);
+        String login_password = memberUser.getLogin_password();
+        if(!login_password.equals(MD5Oldpassword)){
+            throw  new ViciException(Constant.ERR_OLD_PASSWORD);
+        }
+        if(oldPassword.equals(newPassword)){
+            throw  new ViciException(Constant.NOT_EQUALS_OLDANDNEWPASSWORD);
+        }
+        if(!newPassword.equals(newPassword2))
+        {
+            throw  new ViciException(Constant.NOT_EQUALS_PASSWORD);
+        }else {
+           return   userService.editPassword(newPassword);
+        }
+
+    }
     /**
      * 初始页
      * @return
@@ -216,10 +279,7 @@ public class UserController {
         modelAndView.setViewName("welcome");
         return  modelAndView;
     }
-    @RequestMapping(value = "/tologin",method = RequestMethod.GET)
-    public ModelAndView toLogin(){
-        return new ModelAndView("login");
-    }
+
 
     /**
      * 查询角色列表
@@ -242,7 +302,7 @@ public class UserController {
     }
 
     /**
-     * 跳转到添加页面
+     * 跳转到添加角色页面
      * @return
      */
     @RequestMapping(value = "/to-role-add",method = RequestMethod.GET)
@@ -262,7 +322,7 @@ public class UserController {
     }
 
     /**
-     *跳转到编辑
+     *跳转到角色编辑
      * @param id
      * @return
      */
@@ -284,7 +344,7 @@ public class UserController {
     }
 
     /**
-     * 编辑
+     * 编辑角色编辑
      * @param roleName
      * @param description
      * @param status
@@ -299,7 +359,7 @@ public class UserController {
          Role role=new Role();
          role.setDescription(description);
          role.setRoleName(roleName);
-         if(StringUtils.isBlank(status)){
+         if(org.apache.commons.lang.StringUtils.isBlank(status)){
              role.setStatus(-1);
          }else {
              role.setStatus(0);
@@ -341,12 +401,21 @@ public class UserController {
         if(status==0){
             mv.setViewName("commons/404");
         }else{
-            mv.addObject("list",map.get("MemberUser"));
+            List<MemberUser> memberUserList =(List<MemberUser>)  map.get("MemberUser");
+            for (MemberUser memberUsers:memberUserList){
+                Map<String, Object> maps =Maps.newHashMap();
+                maps.put("userId",memberUsers.getId());
+                List<QUserRoles> qUserRolesList =(List<QUserRoles>) userService.queryForUserRoles(maps).get("list");
+                if(null==qUserRolesList||qUserRolesList.size()==0){
+                    memberUsers.setRoleName("尚未分配角色");
+                }else {
+                    memberUsers.setRoleName(qUserRolesList.get(0).getRoleName());
+                }
+            }
+            mv.addObject("list",memberUserList);
             mv.setViewName("admin/admin-list");
             //写入rides
             redisService.set("memberRides",map.get("MemberUser"));
-            //List<MemberUser> memberRides = (List<MemberUser>)redisService.get("memberRides");
-           // System.out.println(memberRides);
         }
         return mv;
     }
@@ -359,16 +428,24 @@ public class UserController {
      */
     @RequiresPermissions("userInfo:modify")
     @RequestMapping(value = "/updateUserStatus",method = RequestMethod.POST)
-    public MsgResponse updateUserStatus(@Param("id") String id,
-                                        @Param("flag") int flag){
+    public MsgResponse updateUserStatus(@RequestParam("id") String id,
+                                                          @RequestParam("flag") int flag,
+                                                         @RequestParam(value = "checkAdvice",defaultValue = "默认同意") String checkAdvice){
         Map<String,Object> map= Maps.newHashMap();
+        String currentUser = String.valueOf(SecurityUtils.getSubject().getPrincipal());
         Integer id1=Integer.parseInt(id);
         if(flag==0){//启用
             map.put("id",id1);
             map.put("status",0);
+            map.put("checkuser",currentUser);
+            map.put("checkadvice",checkAdvice);
+            map.put("checkdate",new Date());
         }else {//禁用
             map.put("id",id1);
             map.put("status",-1);
+            map.put("checkuser",currentUser);
+            map.put("checkadvice",checkAdvice);
+            map.put("checkdate",new Date());
         }
         int i = userService.updateByid(map);
         if(i>0){
@@ -419,7 +496,6 @@ public class UserController {
         if(i>0){
              return MsgResponse.success();
         }else {
-
             return MsgResponse.fail();
         }
     }
@@ -430,7 +506,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/isExistMemberUser", method=RequestMethod.POST)
-    public Boolean isExistMemberUser(  @RequestParam( required=false,value = "id") String id,
+    public String isExistMemberUser(  @RequestParam( required=false,value = "id") String id,
                                        @RequestParam( required=false,value = "login_phone") String login_phone,
                                        @RequestParam(required=false,value = "login_email") String login_email,
                                        @RequestParam(required=false,value = "last_login_time") String last_login_time){
@@ -440,9 +516,9 @@ public class UserController {
         Map<String, Object> map = userService.selectBywhere(memberUser);
         int status = (int)map.get("status");
         if(status==1){
-            return true;
+            return "false";
         }else {
-            return false;
+            return "true";
         }
     }
 
@@ -499,15 +575,6 @@ public class UserController {
         }else {
            return MsgResponse.fail();
         }
-    }
-
-    /**
-     * 跳向修改密码
-     * @return
-     */
-    @RequestMapping(value = "/adminPasswordEdit",method = RequestMethod.GET)
-    public ModelAndView toAdminPassswordEdit(){
-        return new ModelAndView("/admin/admin-password-edit");
     }
 
     /**
@@ -574,7 +641,7 @@ public class UserController {
         authorizations.setId(id);
         authorizations.setAuthorizationName(authorizationName);
         authorizations.setDescription(description);
-        if(StringUtils.isBlank(status)){
+        if(org.apache.commons.lang.StringUtils.isBlank(status)){
             authorizations.setStatus(-1);
         }else {
             authorizations.setStatus(0);
@@ -680,7 +747,22 @@ public class UserController {
         //开个线程让你快点执行
         asyncTaskService.executeAsyncTask(userService.insertRoleSysmenu(roleSysmenu));
     }
-
+    /**
+     * 跳转初始化权限的地方
+     * @param
+     * @return
+     */
+    @RequiresPermissions("permissionInit:permissionInitList")
+    @RequestMapping(value = "/to-PermissionInit",method = RequestMethod.GET)
+    public ModelAndView toPermissionInit(){
+        ModelAndView modelAndView=new ModelAndView();
+        SysPermissionInitExample sysPermissionInitExample=new SysPermissionInitExample();
+        sysPermissionInitExample.createCriteria().andStatusEqualTo(0);
+        List<SysPermissionInit> sysPermissionInit = userService.getSysPermissionInit(sysPermissionInitExample);
+        modelAndView.addObject("list",sysPermissionInit);
+        modelAndView.setViewName("/admin/permissionInit-list");
+        return modelAndView;
+    }
     /**
      * 跳转到菜单列表
      * @return
@@ -692,6 +774,33 @@ public class UserController {
         return modelAndView;
     }
 
+    /**
+     * 跳转到权限界面
+     * @param
+     * @return
+     */
+    @RequiresPermissions("permissionInit:add")
+    @RequestMapping(value = "permissionInit-add",method = RequestMethod.GET)
+    public ModelAndView toAddPermissionInit(){
+        ModelAndView modelAndView=new ModelAndView();
+        Map<String,Object> map=Maps.newHashMap();
+        modelAndView.addObject("map",map);
+        modelAndView.setViewName("/admin/permissionInit-add");
+        return modelAndView;
+    }
+
+
+    @RequestMapping(value = "addPermissionInit",method = RequestMethod.POST)
+    public MsgResponse addPermissionInit(@RequestParam(value = "permissionInit",required = false) String permissionInit,
+                                         @RequestParam(value = "url",required =false ) String url,
+                                         @RequestParam(value = "permissionType",required = false) String permissionType
+    ){
+        SysPermissionInit sysPermissionInit=new SysPermissionInit();
+        sysPermissionInit.setPermissionInit(permissionInit);
+        sysPermissionInit.setPermissionType(permissionType);
+        sysPermissionInit.setUrl(url);
+        return userService.insertSysPermissionInit(sysPermissionInit);
+    }
 
     @RequestMapping(value = "mytest",method = RequestMethod.GET)
     public void getText(){
@@ -699,8 +808,14 @@ public class UserController {
         mailService.sendAttachmentsMail("459816669@qq.com", "主题：带附件的邮件", "有附件，请查收！", filePath);
     }
 
-    @RequestMapping("test")
-    public ModelAndView test1(){
+
+
+
+
+   // ---------------------------------------------
+
+    @RequestMapping(value = "toProsceniumLogin",method = RequestMethod.GET)
+    public ModelAndView toProsceniumLogin(){
         return  new ModelAndView("index-2");
     }
 }

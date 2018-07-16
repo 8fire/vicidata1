@@ -28,10 +28,9 @@ public class ArticleController {
     @RequestMapping("/toarticle")
     public ModelAndView toArticle(){
         ArticleTypeQuery articleTypeQuery=new ArticleTypeQuery();
-        articleTypeQuery.setPageindex(0);
-        articleTypeQuery.setPagesize(10);
+        articleTypeQuery.setPageIndex(0);
+        articleTypeQuery.setPageSize(10);
         Map<String, Object> map = articleService.listArticleType(articleTypeQuery);
-        log.info("articleTypesList"+map);
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.addObject("articleTypesList",map);
         modelAndView.setViewName("article/articletype");
@@ -48,7 +47,7 @@ public class ArticleController {
 
     @RequestMapping("/listtoarticle")
     public String listArticleType(ArticleTypeQuery articleTypeQuery){
-        System.out.println(articleTypeQuery.getPagesize()+ "=============="+articleTypeQuery.getPageindex());
+        System.out.println(articleTypeQuery.getPageSize()+ "=============="+articleTypeQuery.getPageIndex());
         Map<String, Object> map = articleService.listArticleType(articleTypeQuery);
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(java.util.Date.class, new JsDateJsonValueProcessor());

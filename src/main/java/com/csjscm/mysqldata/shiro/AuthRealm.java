@@ -7,7 +7,7 @@ import com.csjscm.mysqldata.model.QUserRoles;
 import com.csjscm.mysqldata.model.RoleAuth;
 import com.csjscm.mysqldata.service.UserService;
 import com.csjscm.mysqldata.service.impl.RedisServiceImpl;
-import com.vici.AppDateMgr;
+import com.vici.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -47,7 +47,6 @@ public class AuthRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        log.info("权限配置：MyShiroRealm.doGetAuthorizationInfo()");
         SimpleAuthorizationInfo authorizationInfo =  new SimpleAuthorizationInfo();
         Subject currentUser = SecurityUtils.getSubject();
         Session session = currentUser.getSession();
@@ -107,7 +106,7 @@ public class AuthRealm extends AuthorizingRealm {
             ByteSource credentialsSalt = ByteSource.Util.bytes(userInfo.getLogin_phone());
             //更新登录时间 last login time
             Map<String,Object> map= Maps.newHashMap();
-            map.put("last_login_time", AppDateMgr.todayYyyyMmDdHhMmSs());
+            map.put("last_login_time", DateUtils.todayYyyyMmDdHhMmSs());
             map.put("id",userInfo.getId());
             map.put("credentialssalt",credentialsSalt.toString());
             int i = userService.updateByid(map);
