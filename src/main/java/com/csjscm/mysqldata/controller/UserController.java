@@ -326,6 +326,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @RequiresPermissions("Permission:roleEdit")
     @RequestMapping(value = "/role-edit",method = RequestMethod.GET)
     public ModelAndView toEditRole(@RequestParam(value = "id") Integer id){
         ModelAndView modelAndView=new ModelAndView();
@@ -654,6 +655,7 @@ public class UserController {
      * @param id
      * @return
      */
+    @RequiresPermissions("permission:addRolePermission")
     @RequestMapping(value = "to-add-role-permission",method = RequestMethod.GET)
     public ModelAndView toAddRolePremission(@RequestParam(value = "id") Integer id){
        ModelAndView modelAndView=new ModelAndView();

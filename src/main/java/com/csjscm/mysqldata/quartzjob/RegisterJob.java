@@ -1,6 +1,7 @@
 package com.csjscm.mysqldata.quartzjob;
 
 import com.csjscm.mysqldata.service.UserRegisterService;
+import com.vici.DateUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -14,13 +15,11 @@ public class RegisterJob implements BaseJob {
     @Autowired
     private UserRegisterService userRegisterService;
 
-
-
-  public RegisterJob(){ }
+    public RegisterJob(){ }
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         userRegisterService.registerJob();
-        log.info("这个RegisterJob的执行时间"+new Date());
+        log.info("这个RegisterJob的执行时间"+DateUtils.todayYyyyMmDdHhMmSs());
     }
 }

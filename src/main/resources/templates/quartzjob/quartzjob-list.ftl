@@ -18,7 +18,7 @@
     </form>
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
-            <a href="javascript:;" onclick="job_add('添加定时任务','../job/toAddJob.html')" class="btn btn-primary radius">
+            <a href="javascript:;" onclick="job_add('添加定时任务','../job/toAddJob.html','700px','600px')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe600;</i> 添加定时任务</a>
         </span>
     </div>
@@ -48,12 +48,19 @@
                 <td><#if p.quartzClass??>${p.quartzClass}</#if></td>
                 <td><#if p.cronExpression??>${p.cronExpression}</#if></td>
                 <td><#if p.description??>${p.description}</#if></td>
-                <td class="td-status"><span class="label label-success radius"><#if p.jobStatus==1>启用 <#else>暂停</#if></span></td>
+                <td class="td-status">
+					<#if p.jobStatus==1>
+							<span class="label label-success radius">
+						启用
+						</span>
+					<#else>
+						<span class="label label-danger radius">暂停</span></#if>
+				</td>
                 <td><#if p.gmt_create??>${p.gmt_create?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
                 <td class="td-manage">
 					<a style="text-decoration:none" onClick="jop_stop(this,'${p.id}','${p.quartzClass}',${p.jobGroup})" href="javascript:;" title="暂停"><i class="Hui-iconfont">&#xe6e5;</i></a>
                     <a style="text-decoration:none" onClick="job_start(this,'${p.id}','${p.quartzClass}',${p.jobGroup})" href="javascript:;" title="启用"><i class="Hui-iconfont">&#xe615;</i></a>
-					<a title="编辑" href="javascript:;" onclick="job_edit('任务编辑','../job/tojob-edit.html?id=${p.id}','600','800')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+					<a title="编辑" href="javascript:;" onclick="job_edit('任务编辑','../job/tojob-edit.html?id=${p.id}','600px','600px')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
 					<a title="删除" href="javascript:;" onclick="job_del(this,'${p.id}','${p.quartzClass}',${p.jobGroup})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
 				</td>
             </tr>
@@ -74,7 +81,6 @@
 <script type="text/javascript" src="../../static/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
     $('.table-sort').dataTable({
-
     });
 /*
 	参数解释：
@@ -86,7 +92,15 @@
 */
 /*管理员-增加*/
 function job_add(title,url,w,h){
-	layer_show(title,url,w,h);
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: true,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
 }
 /*管理员-删除*/
 function job_del(obj,id,name,group){
@@ -101,14 +115,12 @@ function job_del(obj,id,name,group){
                 jobGroupName:group
 			},
 			success: function(data){
-
-			    if(data=="0"){
-                    $(obj).parents("tr").remove();
+			    if(data=="200"){
+                    location.reload();
                     layer.msg('已删除!',{icon:1,time:1000});
 				}else {
                     layer.msg('删除失败!',{icon:1,time:1000});
 				}
-
 			},
 			error:function(data) {
 				console.log(data.msg);
@@ -119,7 +131,15 @@ function job_del(obj,id,name,group){
 
 /!*管理员-编辑*!/
 function job_edit(title,url,w,h){
-	layer_show(title,url,w,h);
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: true,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
 }
 
 
@@ -136,12 +156,10 @@ function jop_stop(obj,id,name,group){
                 },
                 function(data){
 					var stringify = JSON.stringify(data);
-					//alert(stringify)
-					if(data=='0'){
-                        $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已暂停</span>');
+					if(data.code=='200'){
+                        $(obj).parents("tr").find(".td-status").html('<span class="label label-danger radius">已暂停</span>');
                         $(obj).remove();
                         layer.msg('已暂停!',{icon: 5,time:1000});
-                      //  location.reload();
 					}else {
                         layer.msg('更新状态失败!',{icon: 5,time:1000});
 					}
@@ -163,7 +181,7 @@ function job_start(obj,id,name,group){
                 function(data){
                     var stringify = JSON.stringify(data);
                  //   alert(stringify)
-                    if(data=='0'){
+                    if(data.code=='200'){
                         $(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">已启用</span>');
 						$(obj).remove();
                         layer.msg('已启用!',{icon: 5,time:1000});

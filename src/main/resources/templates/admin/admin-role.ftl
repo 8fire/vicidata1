@@ -9,7 +9,7 @@
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray">
 		<span class="l">
-			<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','to-role-add.ftl','800','800')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span>
+			<a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加角色','to-role-add.ftl','500px','400px')"><i class="Hui-iconfont">&#xe600;</i> 添加角色</a> </span>
 		<span class="r">共有数据：<strong>54</strong> 条</span> </div>
 	<table class="table table-border table-bordered table-hover table-bg">
 		<thead>
@@ -34,18 +34,16 @@
                         <td>${p.id}</td>
                         <td><#if p.roleName??>${p.roleName}</#if></td>
                         <td><#if p.description??><a href="#">${p.description}</#if></a></td>
-
-                        <td><#if p.creater??>${p.creater}</#if></td>
+						<td><#if p.creater??>${p.creater}</#if></td>
                         <td><#if p.gmtCreate??>${p.gmtCreate?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
                         <td><#if p.gmtModified??>${p.gmtModified?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
                         <td class="td-status"><span class="label label-success radius"><#if p.status==0>已启用<#else>已禁用</#if></span></td>
-                        <td class="f-14"><a title="编辑" href="javascript:;"
-											onclick="admin_role_edit('角色编辑','role-edit.html?id=${p.id}','800','800')" style="text-decoration:none">
+                        <td class="f-14">
+							<a title="编辑" href="javascript:;" onclick="admin_role_edit('角色编辑','role-edit.html?id=${p.id}','500px','500px')" style="text-decoration:none">
 							<i class="Hui-iconfont">&#xe6df;</i></a>
-                            <a title="分配权限" href="javascript:;"
-                               onclick="admin_role_edit('分配权限','to-add-role-permission.html?id=${p.id}','800','800')" style="text-decoration:none">
-                                <i class="Hui-iconfont">&#xe6df;</i></a>
-							</td>
+                            <a title="分配权限" href="javascript:;" onclick="pression_role_edit('分配权限','to-add-role-permission.html?id=${p.id}','900px','900px')" style="text-decoration:none">
+								<i class="Hui-iconfont">&#xe6df;</i></a>
+						</td>
                     </tr>
 				     </#list>
 				</#if>
@@ -56,16 +54,45 @@
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="../../static/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
-    $('.table').dataTable({
-
-    });
+    $('.table').dataTable({});
 /*管理员-角色-添加*/
 function admin_role_add(title,url,w,h){
-	layer_show(title,url,w,h);
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: false,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
+	//layer_show(title,url,w,h);
+}
+function pression_role_edit(title,url,w,h) {
+    var index=layer.open({
+        type: 2,
+        title: title,
+        maxmin: false,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'no']
+    });
+    layer.full(index);
 }
 /*管理员-角色-编辑*/
 function admin_role_edit(title,url,w,h){
-	layer_show(title,url,w,h);
+    layer.open({
+        type: 2,
+        title: title,
+        maxmin: true,
+        skin: 'layui-layer-lan',
+        shadeClose: true, //点击遮罩关闭层
+        area : [w , h],//宽高
+        content:[url,'yes']
+    });
+
+	//layer_show(title,url,w,h);
 }
 /*管理员-角色-删除*/
 function admin_role_del(obj,id){

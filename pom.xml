@@ -274,7 +274,12 @@
 			<artifactId>httpcore</artifactId>
 			<version>4.2.1</version>
 		</dependency>
-
+		<!-- springboot分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>1.2.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -306,12 +311,12 @@
 						<artifactId> mysql-connector-java</artifactId>
 						<version> 5.1.39</version>
 					</dependency>
-					<dependency>
+					<!--<dependency>
 						<groupId>com.oracle</groupId>
 						<artifactId>ojdbc14_g</artifactId>
 						<version>10.2.0.1.0</version>
 						<scope>runtime</scope>
-					</dependency>
+					</dependency>-->
 					<dependency>
 						<groupId>org.mybatis.generator</groupId>
 						<artifactId>mybatis-generator-core</artifactId>

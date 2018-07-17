@@ -42,6 +42,7 @@
 	<div class="row cl">
 		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 			<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+            <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 		</div>
 	</div>
 	</form>
@@ -89,12 +90,14 @@ $(function(){
 				type: 'post',
 				url: "../job/addjob.html" ,
 				success: function(data){
-				    if(data=='0'){
-                        layer.msg('添加成功!',{icon:1,time:1000});
-                        var index = parent.layer.getFrameIndex(window.name);
-                        parent.$('.btn-refresh').click();
-                        parent.layer.close(index);
-                        window.parent.location.reload();
+                    layer.load();
+                    if(data.code=='200'){
+                        setTimeout(function(){
+                            layer.closeAll('loading');
+                            window.parent.location.reload();
+                            layer.msg('添加成功!',{icon:1,time:1000});
+                            layer_close();
+                        }, 2000);
 					}else {
                         layer.msg('添加失败!',{icon:0,time:1000});
 					}

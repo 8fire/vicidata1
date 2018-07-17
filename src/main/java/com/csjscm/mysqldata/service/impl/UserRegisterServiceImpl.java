@@ -102,13 +102,12 @@ public class UserRegisterServiceImpl implements UserRegisterService{
     }
 
     /**
-     * 定时任务审核账户
+     * 定时任务审核账户(普通账户类型为3的)
      * @return
      */
     @Override
     @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     public String registerJob(){
-        log.info("===============>");
         //查询普通账户并且是待审核的
         UserRolesExample userRolesExample=new UserRolesExample();
         userRolesExample.createCriteria().andRoleIdEqualTo(3).andStatusEqualTo(-2);
@@ -137,7 +136,6 @@ public class UserRegisterServiceImpl implements UserRegisterService{
                 asyncTaskService.executeAsyncTask(mailService.sendReturnHtmlMail(memberUser.getLogin_email(),subject,content));
             }
         }
-
         return null;
     }
 }

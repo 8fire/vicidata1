@@ -33,6 +33,7 @@
         <collection property="authorizationsList" ofType="com.csjscm.mysqldata.model.Authorizations">
           <id column="aid" property="id"/>
           <result column="authorizationName" jdbcType="VARCHAR" property="authorizationName" />
+          <result column="description" jdbcType="VARCHAR" property="description"/>
           <result column="aid" jdbcType="INTEGER" property="id"/>
         </collection>
     </collection>
@@ -57,7 +58,7 @@
   </select>
   <!--查询所有的权限-->
   <select id="getAllSysMenuInfo" resultMap="menuInfoMap1" >
-    select s.id flevelid, s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,p.id slevelid ,ah.authorization_name authorizationName,ah.id aid  FROM
+    select s.id flevelid, s.menu_name menuName,s.image syImage,p.url url1 ,p.menu_name pMenuName,p.id slevelid ,ah.authorization_name authorizationName,ah.description description,ah.id aid  FROM
     sysmenu s INNER  JOIN sysmenu p on s.id=p.parent_id
     left JOIN role_sysmenu r on p.id=r.menu_id
     left join authorizations ah on ah.parent_tr_id=p.id

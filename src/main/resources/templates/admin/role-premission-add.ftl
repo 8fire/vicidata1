@@ -13,7 +13,7 @@
 	<form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
 		<div class="row cl">
 		<label class="form-label col-xs-3 col-sm-2"><#if map.roles.roleName??>${map.roles.roleName}</#if></label>
-			<input type="hidden" value="<#if map.roles.id??>${map.roles.id}"</#if> name="rid">
+			<input type="hidden" value="<#if map.roles.id??>${map.roles.id}</#if>" name="rid">
 			<div class="formControls col-xs-9 col-sm-10">
 				<#if map.menuInfo?exists>
 				  <#list map.menuInfo as p>
@@ -21,7 +21,7 @@
                           <dt>
                               <label>
                                   <input type="checkbox" value="${p.id}" name="fMenuName" id="user-Character-0">
-							  ${p.menuName}
+							      ${p.menuName}
 							  </label>
                           </dt>
                           <dd>
@@ -34,12 +34,13 @@
 											  ${s.menuName1}
                                               </label>
                                           </dt>
+                                          <br/>
                                           <dd>
 											  <#if s.authorizationsList?exists>
 												  <#list s.authorizationsList as m>
                                                       <label class="">
                                                           <input type="checkbox" value="${m.id}" name="authorizationName" id="user-Character-0-0-0">
-													  ${m.authorizationName}</label>
+													  ${m.description}</label>
 												  </#list>
 											  </#if>
                                           </dd>
@@ -56,6 +57,7 @@
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 				<button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i class="icon-ok"></i>确定</button>
+                <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
 	</form>

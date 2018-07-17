@@ -304,6 +304,10 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 获取所有的系统菜单
+     * @return
+     */
     @Override
     public List<SysMenu1> getAllSysMenuInfo() {
         return sysMenuMapper.getAllSysMenuInfo();

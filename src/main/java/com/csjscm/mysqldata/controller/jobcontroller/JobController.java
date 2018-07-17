@@ -10,6 +10,7 @@ import com.csjscm.mysqldata.model.ScheduleJob;
 import com.csjscm.mysqldata.quartzjob.BaseJob;
 import com.csjscm.mysqldata.service.IJobAndTriggerService;
 import com.vici.StringUtils;
+import com.vici.response.MsgResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.quartz.CronScheduleBuilder;
@@ -42,17 +43,16 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "job")
 @Slf4j
 public class JobController {
-
     //加入Qulifier注解，通过名称注入bean
     @Autowired @Qualifier("Scheduler")
     private Scheduler scheduler;
     @Autowired
     private IJobAndTriggerService iJobAndTriggerService;
 
+    @RequiresPermissions("quartz:add")
     @GetMapping(value="/toAddJob")
     public ModelAndView toAddJob()
     {
-
         return new ModelAndView("/quartzjob/job-add");
     }
 
@@ -61,7 +61,7 @@ public class JobController {
      * @param id
      * @return
      */
-
+    @RequiresPermissions("quartz:update")
     @GetMapping(value = "/tojob-edit")
     public ModelAndView toJobEdit(@RequestParam(value = "id") Integer id ){
         ModelAndView modelAndView=new ModelAndView();
@@ -87,15 +87,16 @@ public class JobController {
      * @throws Exception
      */
     @RequiresPermissions("quartz:add")
-    @Transactional
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @PostMapping(value="/addjob")
-    public int addjob(@RequestParam(value="jobClassName",required = false)String jobClassName,
+    public MsgResponse addjob(@RequestParam(value="jobClassName",required = false)String jobClassName,
                       @RequestParam(value="jobGroupName",required = false)String jobGroupName,
                       @RequestParam(value="cronExpression",required = false)String cronExpression,
                       @RequestParam(value="description",required = false)String description,
                       @RequestParam(value="jobname",required = false)String jobname                                                                   )
     {
        try {
+           addJob(jobClassName, jobGroupName, cronExpression);
            ScheduleJob scheduleJob=new ScheduleJob();
            scheduleJob.setCronExpression(cronExpression);
            scheduleJob.setDescription(description);
@@ -106,15 +107,11 @@ public class JobController {
            scheduleJob.setJobName(jobname);
            scheduleJob.setQuartzClass(jobClassName);
            int i = iJobAndTriggerService.insertSelective(scheduleJob);
-           if(i>0){
-               addJob(jobClassName, jobGroupName, cronExpression);
-               return 0;
-           }else {
-               return -1;
-           }
+           return i>0? MsgResponse.success():MsgResponse.fail();
        }catch (Exception e){
+           log.error(e.getMessage(),e);
            log.info("=======添加任务报错========>"+e.getMessage());
-           return -1;
+           return MsgResponse.fail();
        }
 
     }
@@ -145,25 +142,23 @@ public class JobController {
      * @throws Exception
      */
     @RequiresPermissions("quartz:pause")
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @PostMapping(value="/pauseJob")
-    public int pauseJob(@RequestParam(value="jobClassName")String jobClassName,
+    public MsgResponse pauseJob(@RequestParam(value="jobClassName")String jobClassName,
                         @RequestParam(value="jobGroupName")String jobGroupName,
                         @RequestParam(value="id")Integer id )
     {
        try {
+           this.jobPause(jobClassName, jobGroupName);
            Map<String,Object> map=Maps.newHashMap();
            map.put("id",id);
+           //0是暂停任务
            map.put("jobstatus",0);
            int i = iJobAndTriggerService.updateForScheduleJobById(map);
-           if(i>0){
-               jobPause(jobClassName, jobGroupName);
-               return 0;
-           }else {
-               return -1;
-           }
-
+           return i>0?MsgResponse.success():MsgResponse.fail();
        }catch (Exception e){
-           return -1;
+           log.error(e.getMessage(),e);
+           return MsgResponse.fail();
        }
     }
 
@@ -179,25 +174,22 @@ public class JobController {
      * @throws Exception
      */
     @RequiresPermissions("quartz:resume")
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @PostMapping(value="/resumeJob")
-    public int resumeJob(@RequestParam(value="jobClassName")String jobClassName,
+    public MsgResponse resumeJob(@RequestParam(value="jobClassName")String jobClassName,
                          @RequestParam(value="jobGroupName")String jobGroupName,
                          @RequestParam(value="id")Integer id)
     {
         try {
+            this.jobresume(jobClassName, jobGroupName);
             Map<String,Object> map=Maps.newHashMap();
             map.put("id",id);
             map.put("jobstatus",1);
             int i = iJobAndTriggerService.updateForScheduleJobById(map);
-            if(i>0){
-                jobresume(jobClassName, jobGroupName);
-                return 0;
-            }else {
-                return -1;
-            }
-
+            return i>0?MsgResponse.success():MsgResponse.fail();
         }catch (Exception e){
-            return -1;
+            log.error(e.getMessage(),e);
+            return MsgResponse.fail();
         }
     }
 
@@ -213,36 +205,31 @@ public class JobController {
      * @param cronExpression
      * @throws Exception
      */
-    @Transactional
-    @RequiresPermissions("quartz:update")
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @PostMapping(value="/reschedulejob")
-    public int rescheduleJob(@RequestParam(value="jobClassName")String jobClassName,
-                              @RequestParam(value="jobGroupName")String jobGroupName,
-                              @RequestParam(value="cronExpression")String cronExpression,
+    public MsgResponse rescheduleJob(@RequestParam(value="jobClassName")String jobClassName,
+                             @RequestParam(value="jobGroupName")String jobGroupName,
+                             @RequestParam(value="cronExpression")String cronExpression,
                              @RequestParam(value="id")Integer id,
                              @RequestParam(value="description",required = false)String description,
                              @RequestParam(value="jobname",required = false)String jobname  )
     {
         try {
-            Map<String,Object> map=Maps.newHashMap();
-            map.put("id",id);
-            map.put("jobstatus",1);//开始状态
-            map.put("jobname",jobname);
-            map.put("description",description);
-            map.put("cronexpression",cronExpression);
-            map.put("jobgroup",jobGroupName);
-            map.put("quartzclass",jobClassName);
-            map.put("gmt_modified",new Date());
-            int i = iJobAndTriggerService.updateForScheduleJobById(map);
-            if(i>0){
-               jobreschedule(jobClassName, jobGroupName, cronExpression);
-                return 0;
-            }else {
-                return -1;
-            }
-
+                jobreschedule(jobClassName, jobGroupName, cronExpression);
+                Map<String,Object> map=Maps.newHashMap();
+                map.put("id",id);
+                map.put("jobstatus",1);//开始状态
+                map.put("jobname",jobname);
+                map.put("description",description);
+                map.put("cronexpression",cronExpression);
+                map.put("jobgroup",jobGroupName);
+                map.put("quartzclass",jobClassName);
+                map.put("gmt_modified",new Date());
+                int i= iJobAndTriggerService.updateForScheduleJobById(map);
+                return i>0?MsgResponse.success():MsgResponse.fail();
         }catch (Exception e){
-            return -1;
+            log.error(e.getMessage(),e);
+           return MsgResponse.fail();
         }
 
     }
@@ -274,24 +261,20 @@ public class JobController {
      * @throws Exception
      */
     @RequiresPermissions("quartz:delete")
+    @Transactional(value = "mysqlTranscationManager",rollbackFor = Exception.class)
     @PostMapping(value="/deletejob")
-    public int deletejob(@RequestParam(value="jobClassName")String jobClassName,
+    public MsgResponse deletejob(@RequestParam(value="jobClassName")String jobClassName,
                          @RequestParam(value="jobGroupName")String jobGroupName,
                          @RequestParam(value="id")Integer id )
     {
         try {
             int i = iJobAndTriggerService.deleteByPrimaryKey(id);
-            if(i>0){
-                jobdelete(jobClassName, jobGroupName);
-                return 0;
-            }else {
-                return -1;
-            }
-
+            jobdelete(jobClassName, jobGroupName);
+            return i>0?MsgResponse.success():MsgResponse.fail();
         }catch (Exception e){
-            return -1;
+            log.info(e.getMessage(),e);
+           return MsgResponse.fail();
         }
-
     }
 
     public void jobdelete(String jobClassName, String jobGroupName) throws Exception
