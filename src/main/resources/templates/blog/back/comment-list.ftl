@@ -6,7 +6,7 @@
 <title>管理员列表</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 权限管理 <span class="c-gray en">&gt;</span> 用户列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 闲言管理 <span class="c-gray en">&gt;</span> 留言列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
     <#--<div class="cl pd-5 bg-1 bk-gray mt-20">
         <span class="l">
@@ -38,7 +38,7 @@
                 <td>${p.articleid}</td>
                 <td>${p.status}</td>
                 <td><#if p.createtime??>${p.createtime?string('yyyy-MM-dd hh:mm:ss')}</#if></td>
-				<td>${p.createuser}</td>
+				<td><#if p.createuser??>${p.createuser}</#if></td>
                 <td><#if p.zanCount??>${p.zanCount}</#if> </td>
                 <td class="td-manage">
 					<a title="留言回复" href="javascript:;" onclick="admin_edit('留言回复','../backblog/toReply.html?id=${p.id}','900px','700px')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>

@@ -1,6 +1,7 @@
 package com.csjscm.mysqldata.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Discuss {
     private String id;
@@ -26,6 +27,8 @@ public class Discuss {
     private Integer userId;
 
     private Integer isdelete;
+
+    private List<Reply> replyList;
 
     public String getId() {
         return id;
@@ -121,5 +124,13 @@ public class Discuss {
 
     public void setIsdelete(Integer isdelete) {
         this.isdelete = isdelete;
+    }
+
+    public List<Reply> getReplyList() {
+        return replyList;
+    }
+
+    public void setReplyList(List<Reply> replyList) {
+        this.replyList = replyList;
     }
 }

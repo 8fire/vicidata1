@@ -2,6 +2,8 @@ package com.csjscm.mysqldata.controller.articlecontroller;
 
 import com.csjscm.mysqldata.model.Article;
 import com.csjscm.mysqldata.model.Discuss;
+import com.csjscm.mysqldata.model.Reply;
+import com.csjscm.mysqldata.model.ReplyExample;
 import com.csjscm.mysqldata.service.impl.ArticleServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -77,8 +79,16 @@ public class BlogController {
         Discuss comment=new Discuss();
         comment.setArticleid(id);
         List<Discuss> comments = articleService.selectCommentByWhere(comment);
+        for(Discuss discuss:comments){
+            ReplyExample replyExample=new ReplyExample();
+            replyExample.createCriteria().andDiscussidEqualTo(discuss.getId());
+            List<Reply> replies = articleService.selectReplyByWhere(replyExample);
+            discuss.setReplyList(replies);
+        }
+        System.out.println("-==========>"+comments);
         modelAndView.addObject("article",article);
         modelAndView.addObject("comments",comments);
+
          modelAndView.setViewName("blog/details");
         return modelAndView;
     }

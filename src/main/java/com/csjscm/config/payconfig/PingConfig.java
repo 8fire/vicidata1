@@ -11,9 +11,8 @@ public final   class PingConfig {
      * Pingpp 管理平台对应的 API Key，api_key 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击管理平台右上角公司名称->开发信息-> Secret Key
      */
     // 测试环境
-    //public final static String APIKEY = "sk_test_GirnP40ufLGOibXTS8GeDaLC";
-    //正式环境
-    public final static String APIKEY = "sk_live_8K0SiDyH4GKGe1mLG8nnbb58";
+    public final static String APIKEY = "sk_test_GirnP40ufLGOibXTS8GeDaLC";
+
     /**
      * Pingpp 管理平台对应的应用 ID，app_id 获取方式：登录 [Dashboard](https://dashboard.pingxx.com)->点击你创建的应用->应用首页->应用 ID(App ID)
      */

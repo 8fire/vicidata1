@@ -46,16 +46,34 @@
                                         <div class="comment-main">
                                             <header class="comment-header">
                                                 <div class="comment-meta">
-                                                    <i class="layui-icon" style="font-size: 10px; color: red;">&#xe66f;</i>
+                                                    <i class="layui-icon" style="font-size: 10px; color: #0a6999;">&#xe66f;</i>
 													<a class="comment-author" href="#"><#if p.createuser??>${p.createuser}</#if></a> 评论于
                                                     <time title="2014年8月31日 下午3:20" datetime="2014-08-31T03:54:20">
 														<#if p.createtime??>${p.createtime?string('yyyy-MM-dd hh:mm:ss')}</#if>
 													</time>
-                                                    <span style="float: right" class="info-img like"><i class="layui-icon layui-icon-praise"></i>5.8万</span>
+                                                    <span style="float: right" class="info-img like"><i class="layui-icon layui-icon-praise"><#if p.zanCount??>${p.zanCount}</#if></i></span>
                                                 </div>
                                             </header>
                                             <div class="comment-body">
                                                 <p><a href="#"></a> ${p.comment}</p>
+                                                <#if p.replyList??>
+                                                    <#list p.replyList as m>
+                                                     <div class="comment-meta" style="margin-left: 20px">
+                                                         <i class="layui-icon" style="font-size: 10px; color: #0a6999;">&#xe611;</i>
+                                                         <a class="comment-author" href="javascript:0"><#if m.replyUser??>${m.replyUser}</#if></a> 于
+                                                         <time>
+														 <#if p.createtime??>${p.createtime?string('yyyy-MM-dd hh:mm:ss')}</#if>
+                                                         </time>
+                                                         回复了您：
+                                                        <span style="float:right" class="info-img like"><i class="layui-icon layui-icon-praise"><#if p.zanCount??>${p.zanCount}</#if></i></span>
+                                                     </div>
+                                                     <div class="comment-body">
+                                                        <p>
+                                                       <span class="info-img like"><#if m.replyComent??> &nbsp;&nbsp; ${m.replyComent}</#if></span>
+                                                    </p>
+                                                     </div>
+                                                    </#list>
+                                                </#if>
                                             </div>
                                         </div>
                                     </li>

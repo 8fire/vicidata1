@@ -1,9 +1,6 @@
 package com.csjscm.mysqldata.service;
 
-import com.csjscm.mysqldata.model.Article;
-import com.csjscm.mysqldata.model.ArticleTypeQuery;
-import com.csjscm.mysqldata.model.Discuss;
-import com.csjscm.mysqldata.model.Reply;
+import com.csjscm.mysqldata.model.*;
 
 import java.util.List;
 import java.util.Map;
@@ -65,4 +62,6 @@ public interface ArticleService {
     int addReply(Reply reply);
 
      int deleteDiscuss(Discuss reply);
+
+     List<Reply> selectReplyByWhere(ReplyExample reply);
 }

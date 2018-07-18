@@ -139,7 +139,7 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     /**
-     * 添加评论
+     * 添加回复
      * @param reply
      * @return
      */
@@ -153,6 +153,7 @@ public class ArticleServiceImpl implements ArticleService {
         return   replyMapper.insertSelective(reply);
     }
 
+
     /**
      * 删除评论
      * @param reply
@@ -164,5 +165,11 @@ public class ArticleServiceImpl implements ArticleService {
         reply.setIsdelete(SysStatus.INVALID_FLAG.getIndex());
 
         return  commentMapper.updateComment(reply);
+    }
+
+    @Override
+    public List<Reply> selectReplyByWhere(ReplyExample reply) {
+
+        return replyMapper.selectByExample(reply);
     }
 }
