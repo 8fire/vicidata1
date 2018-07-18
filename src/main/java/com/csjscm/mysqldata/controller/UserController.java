@@ -1,7 +1,6 @@
 package com.csjscm.mysqldata.controller;
 
 
-import com.google.code.kaptcha.Constants;
 import com.google.code.kaptcha.Producer;
 import com.google.common.collect.Maps;
 import com.csjscm.mysqldata.model.*;
@@ -9,10 +8,10 @@ import com.csjscm.mysqldata.service.UserService;
 import com.csjscm.mysqldata.service.impl.AsyncTaskService;
 import com.csjscm.mysqldata.service.impl.MailService;
 import com.csjscm.mysqldata.service.impl.RedisServiceImpl;
-import com.vici.StringUtils;
 import com.vici.MD5Utils;
 import com.vici.request.RequestUtils;
-import com.vici.response.Constant;
+import com.vici.response.Constants;
+import com.vici.response.ErrMessageConstants;
 import com.vici.response.MsgResponse;
 import com.vici.response.ViciException;
 import io.swagger.annotations.ApiOperation;
@@ -84,40 +83,35 @@ public class UserController {
         MemberUser user = new MemberUser();
         user.setLogin_password(loginPassword);
         JSONObject jsonObject = new JSONObject();
-        String name = "";
-        if (StringUtils.isNumeric(loginPhone)) {
-            name = loginPhone;
-            user.setLogin_phone(name);
-        } else {
-            name = loginPhone;
-            user.setLogin_email(name);
-        }
-        UsernamePasswordToken token = new UsernamePasswordToken(name, loginPassword,Boolean.parseBoolean(rememberMe));
+        UsernamePasswordToken token = new UsernamePasswordToken(loginPhone, loginPassword,Boolean.parseBoolean(rememberMe));
         Subject currentUser = SecurityUtils.getSubject();
         try {
             currentUser.login(token);
             jsonObject.put("token", currentUser.getSession().getId());
-            System.out.println(currentUser.getSession().getId());
-            jsonObject.put("msg", "登录成功");
+            jsonObject.put("msg", ErrMessageConstants.LOGIN_SUCCESS_INFO);
             //获取当前登录对象
             String principal = (String) SecurityUtils.getSubject().getPrincipal();
-            return MsgResponse.success().add("data", jsonObject);
+            //成功后，清空登录计数
+            redisService.set(Constants.SHIRO_LOGIN_COUNT+loginPhone,0);
+            return MsgResponse.success().add(Constants.DATA, jsonObject);
         } catch (IncorrectCredentialsException e) {
-            jsonObject.put("msg", "密码错误");
-            return MsgResponse.fail().add("data", jsonObject);
+            //校验剩余输入密码的次数
+            Integer shiroLoginCount =(Integer) redisService.get(Constants.SHIRO_LOGIN_COUNT + loginPhone);
+            jsonObject.put("msg", String.format(ErrMessageConstants.PASSWORD_ERROR_INFO,5-shiroLoginCount));
+            return MsgResponse.fail().add(Constants.DATA, jsonObject);
         } catch (LockedAccountException e) {
-            jsonObject.put("msg", "登录失败，该用户已被冻结");
-            return MsgResponse.fail().add("data", jsonObject);
+            jsonObject.put("msg", ErrMessageConstants.FREEZE_ACCOUT_INFO);
+            return MsgResponse.fail().add(Constants.DATA, jsonObject);
         } catch (DisabledAccountException e) {
-            jsonObject.put("msg", "对用户[" + loginPhone + "]进行登录验证..验证未通过,错误次数大于5次,账户已锁定");
-            return MsgResponse.fail().add("data", jsonObject);
+            jsonObject.put("msg", ErrMessageConstants.PASSWORD_ERROR_FIVE);
+            return MsgResponse.fail().add(Constants.DATA, jsonObject);
         } catch (AuthenticationException e) {
-            jsonObject.put("msg", "该用户不存在");
-            return MsgResponse.fail().add("data", jsonObject);
+            jsonObject.put("msg", ErrMessageConstants.NOEXIST_ACCOUT_INFO);
+            return MsgResponse.fail().add(Constants.DATA, jsonObject);
         } catch (Exception e) {
-            e.printStackTrace();
-            jsonObject.put("msg", "请联系管理员");
-            return MsgResponse.fail().add("data", jsonObject);
+            log.error(e.getMessage(),e);
+            jsonObject.put("msg", ErrMessageConstants.SYSTEM_ERROR_INFO);
+            return MsgResponse.fail().add(Constants.DATA, jsonObject);
         }
 
     }
@@ -139,7 +133,7 @@ public class UserController {
         response.setHeader("Pragma", "no-cache");
         response.setContentType("image/jpeg");
         String capText = captchaProducer.createText();
-        session.setAttribute(Constants.KAPTCHA_SESSION_KEY, capText);
+        session.setAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY, capText);
         System.out.println("验证码: " + capText );
         BufferedImage bi = captchaProducer.createImage(capText);
         ServletOutputStream out = response.getOutputStream();
@@ -164,7 +158,7 @@ public class UserController {
     public Map<String,Object> captchaVerify( String kaptchaCode,HttpServletRequest request, HttpServletResponse response) throws Exception {
         Map<String,Object> result=new HashMap<>();
         HttpSession session = request.getSession();
-        String code = (String)session.getAttribute(Constants.KAPTCHA_SESSION_KEY);
+        String code = (String)session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
         if(org.apache.commons.lang.StringUtils.isNotBlank(kaptchaCode)&&kaptchaCode.equalsIgnoreCase(code)){
             result.put("isOK", "OK");
         }else{
@@ -192,7 +186,7 @@ public class UserController {
             //退出
             SecurityUtils.getSubject().logout();
         } catch (Exception e) {
-            log.info("========>"+e.getMessage());
+            log.error(e.getMessage(),e);
         }
         return new ModelAndView("login");
     }
@@ -251,14 +245,14 @@ public class UserController {
         String MD5Oldpassword = MD5Utils.encryptMD5(oldPassword, loginPhone);
         String login_password = memberUser.getLogin_password();
         if(!login_password.equals(MD5Oldpassword)){
-            throw  new ViciException(Constant.ERR_OLD_PASSWORD);
+            throw  new ViciException(ErrMessageConstants.ERR_OLD_PASSWORD);
         }
         if(oldPassword.equals(newPassword)){
-            throw  new ViciException(Constant.NOT_EQUALS_OLDANDNEWPASSWORD);
+            throw  new ViciException(ErrMessageConstants.NOT_EQUALS_OLDANDNEWPASSWORD);
         }
         if(!newPassword.equals(newPassword2))
         {
-            throw  new ViciException(Constant.NOT_EQUALS_PASSWORD);
+            throw  new ViciException(ErrMessageConstants.NOT_EQUALS_PASSWORD);
         }else {
            return   userService.editPassword(newPassword);
         }

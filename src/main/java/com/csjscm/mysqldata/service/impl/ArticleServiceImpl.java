@@ -9,7 +9,7 @@ import com.csjscm.mysqldata.dao.ArticleTypeMapper;
 import com.csjscm.mysqldata.service.ArticleService;
 import com.vici.SysStatus;
 import com.vici.UUIDUtils;
-import com.vici.response.Constant;
+import com.vici.response.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Service;
@@ -50,7 +50,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public List<Article> getArticleList(Article article) {
-        article.setIsdelete(Constant.NO_IS_DELETE);
+        article.setIsdelete(Constants.NO_IS_DELETE);
         List<Article> articleList = articleMapper.selectArticleByWhere(article);
         for (Article newArticle:articleList) {
             String articleType = newArticle.getArticleType();
@@ -78,7 +78,7 @@ public class ArticleServiceImpl implements ArticleService {
         article.setGmtCreate(new Date());
         article.setId(UUIDUtils.getUUID());
         article.setCreateUser(principal);
-        article.setIsdelete(Constant.NO_IS_DELETE);
+        article.setIsdelete(Constants.NO_IS_DELETE);
         int i =0;
         try {
            i=articleMapper.insertArticle(article);
@@ -112,7 +112,7 @@ public class ArticleServiceImpl implements ArticleService {
      */
     @Override
     public List<Discuss> selectCommentByWhere(Discuss comment) {
-        comment.setIsdelete(Constant.NO_IS_DELETE);
+        comment.setIsdelete(Constants.NO_IS_DELETE);
        return commentMapper.selectCommentByWhere(comment);
 
     }
@@ -129,7 +129,7 @@ public class ArticleServiceImpl implements ArticleService {
         comment.setId(UUIDUtils.getUUID());
         comment.setStatus(SysStatus.AUDIT_ORDER.getIndex());
         comment.setCreatetime(new Date());
-        comment.setIsdelete(Constant.NO_IS_DELETE);
+        comment.setIsdelete(Constants.NO_IS_DELETE);
         return commentMapper.insertComment(comment);
     }
 

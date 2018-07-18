@@ -1,4 +1,6 @@
 package com.csjscm.mysqldata.service.impl;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authc.DisabledAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Service;
@@ -13,9 +15,29 @@ import java.util.concurrent.TimeUnit;
  * create 2018-04-12 下午 1:32
  **/
 @Service
+@Slf4j
 public class RedisServiceImpl {
     @Autowired
     private RedisTemplate redisTemplate;
+
+    /**
+     * 密码锁定效验
+     * @param key1
+     * @param key2
+     */
+    public void userPasswordLock(String key1,String key2){
+        ValueOperations<String, Object> opsForValue = redisTemplate.opsForValue();
+        opsForValue.increment(key1, 1);
+        log.info("=======当前账户已经锁定的次数为======>"+opsForValue.get(key1).toString());
+        //计数大于5时，设置用户被锁定一小时
+        if(Integer.parseInt(opsForValue.get(key1).toString())>=5){
+            opsForValue.set(key2, "LOCK");
+            redisTemplate.expire(key2, 1, TimeUnit.HOURS);
+        }
+        if ("LOCK".equals(opsForValue.get(key2))){
+            throw new DisabledAccountException("由于密码输入错误次数大于5次，帐号已经禁止登录！");
+        }
+    }
     /**
      * 写入缓存
      * @param key

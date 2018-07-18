@@ -8,7 +8,7 @@ import com.csjscm.mysqldata.model.UserRolesExample;
 import com.csjscm.mysqldata.service.UserRegisterService;
 import com.google.common.collect.Maps;
 import com.vici.MD5Utils;
-import com.vici.response.Constant;
+import com.vici.response.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -119,8 +119,8 @@ public class UserRegisterServiceImpl implements UserRegisterService{
             Map<String,Object> map=Maps.newHashMap();
             map.put("id",userRole.getUserId());
             map.put("status",0);
-            map.put("checkuser",Constant.SYSTEM_CHECK_USER);
-            map.put("checkadvice",Constant.SYSTEM_CHECK_ADVICE);
+            map.put("checkuser",Constants.SYSTEM_CHECK_USER);
+            map.put("checkadvice",Constants.SYSTEM_CHECK_ADVICE);
             map.put("checkdate",new Date());
             i = memberUserMapper.updateById(map);
             MemberUser memberUser = memberUserMapper.selectByPrimaryKey(userRole.getUserId());

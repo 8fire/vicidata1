@@ -8,6 +8,7 @@ import com.csjscm.mysqldata.model.RoleAuth;
 import com.csjscm.mysqldata.service.UserService;
 import com.csjscm.mysqldata.service.impl.RedisServiceImpl;
 import com.vici.DateUtils;
+import com.vici.response.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -90,11 +91,15 @@ public class AuthRealm extends AuthorizingRealm {
             AuthenticationToken authcToken) throws AuthenticationException {
         log.info("身份认证方法：MyShiroRealm.doGetAuthenticationInfo()");
         UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
-        //用户输入的明文密码
-        String password = String.valueOf(token.getPassword());
         //获取用户的输入的账号.
         String username = token.getUsername();
         MemberUser userInfo= userService.findByUsername(username);
+        //credentialsSalt盐值
+        ByteSource credentialsSalt = ByteSource.Util.bytes(userInfo.getLogin_phone());
+        /**
+         * 效验用户登录次数
+         */
+        redisService.userPasswordLock(Constants.SHIRO_LOGIN_COUNT+username,Constants.SHIRO_IS_LOCK+username);
         if(userInfo==null){
             return null;
         }
@@ -102,8 +107,7 @@ public class AuthRealm extends AuthorizingRealm {
         if(userInfo.getStatus()==-1){
             throw new LockedAccountException();
         }else {
-            //credentialsSalt盐值
-            ByteSource credentialsSalt = ByteSource.Util.bytes(userInfo.getLogin_phone());
+
             //更新登录时间 last login time
             Map<String,Object> map= Maps.newHashMap();
             map.put("last_login_time", DateUtils.todayYyyyMmDdHhMmSs());
@@ -115,16 +119,13 @@ public class AuthRealm extends AuthorizingRealm {
             Session session = currentUser.getSession();
             session.setAttribute("currentUser", userInfo);
             session.setAttribute("username",token.getUsername());
-            SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
-                    userInfo.getLogin_phone(),
-                    userInfo.getLogin_password(),
-                    credentialsSalt,
-                    getName()
-            );
-            return authenticationInfo;
         }
-
-
+       return  new SimpleAuthenticationInfo(
+                userInfo.getLogin_phone(),
+                userInfo.getLogin_password(),
+                credentialsSalt,
+                getName()
+        );
     }
 
 }

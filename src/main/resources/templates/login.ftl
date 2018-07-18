@@ -78,7 +78,7 @@
         </form>
     </div>
 </div>
-<div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
+<div class="footer">Copyright 闲谈科技有限公司 by csj v1.0</div>
 
 <#include "commons/_footer.ftl">
 <script>
@@ -153,7 +153,11 @@
                                 var stringify = JSON.stringify(data);
                                 //  alert(stringify)
                                 if(data.code=='400'){
-                                    layer.msg(data.extend.data.msg,{icon:2,time:2000});
+                                    layer.msg(data.extend.data.msg, {
+                                        icon:2,
+                                        time: 20000, //20s后自动关闭
+                                        btn: [ '知道了']
+                                    });
                                 }else if (data.code=='200'){
                                    // layer.msg(data.extend.data.msg,{icon:1,time:2000});
                                     window.location.href="../user/index"
